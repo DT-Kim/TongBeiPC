@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>产品管理 - 铜呗后台管理系统</title>
+
+		<meta name="description" content="overview &amp; stats" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+		<!-- page specific plugin styles -->
+		
+		<!--tree-->
+		<link href="assets/tree/css/ligerui-tree.css" rel="stylesheet" type="text/css" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="no-skin">
+		<!--top part begin-->
+        <div id="top"></div>
+        <!--top part end-->
+
+		<div class="main-container ace-save-state" id="main-container">
+
+			<!--left tree begin-->
+            <div id="leftTree" class="sidebar responsive ace-save-state"></div>
+            <!--left tree end-->
+
+			<div class="main-content">
+			    <div class="widget-main padding-24">
+                    <span style="font-size: 22px;"> 产品管理 </span>
+                    <div class="hr hr8 hr-double hr-dotted"></div>
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary" id="showDetali"> 保存详情 </button>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="widget-box">
+                            <div class="widget-header widget-header-flat">
+                                <h4 class="widget-title smaller">产品类型列表</h4>
+                                <h4 class="widget-title smaller" id="ProName"></h4>
+                            </div>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs padding-12">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#home1">基本信息</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#home2">产品介绍</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#home3">产品轮播</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="home1" class="tab-pane in active">
+                                        <div class="profile-user-info profile-user-info-striped">
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 产品名 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 2018-7-15 </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 积分公式 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 同欣科技 </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 单位 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 2018-7-15 </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 其他 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 2018-7-15 </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 创建时间 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 2018-7-15 </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 创建人 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 2018-7-15 </span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div id="home2" class="tab-pane">
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div id="home3" class="tab-pane">
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-6"></div>
+                    </div>
+                </div>
+			</div>
+
+			<!--footer part begin-->
+            <div id="footer" class="footer"></div>
+            <!--footer part end-->
+
+		</div>
+
+		<script src="assets/js/jquery-2.1.4.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<!--ace-->
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+		<script type="text/javascript">
+		    /*
+		     * INI Page
+		     */
+            $("#top").load("pageTop.html")
+            $("#leftTree").load("pageLeft.html")
+            $("#footer").load("pageFoot.html")
+			jQuery(function($) {
+                //show detali
+                $('#showDetali').on('click',function(){
+                    self.location = 'admin_pro_tree.html'
+                })
+            })
+		</script>
+	</body>
+
+</html>
