@@ -45,6 +45,37 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+		<style type="text/css">
+			.jiange
+			{
+				margin-top: 15px;
+			}
+			.cslx,.csyhm,.num,.age,.address,.zctime
+				{
+				width:140px ;
+				height:30px ;
+				}
+			.cslx,.num,.age,.zctime
+			{
+				margin-left:20px ;
+			}
+			.csyhm
+			{
+				margin-left: 33px;
+			}
+			.address
+			{
+				margin-left: 7px;
+			}
+			.chaxun_use
+			{
+				margin-left: 75px;
+			}
+			.search_use
+			{
+				padding-bottom: 20px;
+			}
+		</style>
 	</head>
 
 	<body class="no-skin">
@@ -59,20 +90,122 @@
             <!--left tree end-->
 
 			<div class="main-content">
-			    
+			    <div class="widget-main padding-24">
+                    <span style="font-size: 22px;"> 用户专查 </span>
+                    <div class="hr hr8 hr-double hr-dotted"></div>
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary" id="showDetali"> 保存详情 </button>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="widget-box">
+                            <div class="widget-header widget-header-flat">
+                                <h4 class="widget-title smaller">用户查询</h4>
+                                <h4 class="widget-title smaller" id="ProName"></h4>
+                            </div>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs padding-12">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#use1"> 简单查询 </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#use2"> 条件查询 </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="use1" class="tab-pane in active">
+                                        <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>用户类型</th>
+                                                    <th>用户名</th>
+                                                    <th>用户年龄</th>
+                                                    <th>收货地址</th>
+                                                    <th>用户号码</th>
+                                                    <th>注册时间</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>VIP</td>
+                                                    <td>南岸45</td>
+                                                    <td>21</td>
+                                                    <td>广东省中山市电子科技大学中山学院</td>
+                                                    <td>1234567890</td>
+                                                    <td>2017年10月15日</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="use2" class="tab-pane">
+                                    	<div class="search_use">
+                                    		<div class="jiange">用户类型:<input type="text" class="cslx">
+	                                       						用户名:<input type="text" class="csyhm">
+	                                       	</div>
+	                                       	<div class="jiange">用户年龄:<input type="text" class="age">
+	                                       						用户号码:<input type="text" class="num">
+	                                       	</div>
+	                                        <div class="jiange" data-toggle="distpicker">收货地址：
+												<select data-province="---- 选择省 ----" class="address"></select>
+												<select data-city="---- 选择市 ----"></select>
+												<select data-district="---- 选择区 ----"></select>
+											</div>
+	                                        <div class="jiange">注册时间:<input type="date" class="zctime">
+	                                        	<button class="chaxun_use btn btn-primary">查询</button>
+	                                       	</div>	
+                                    	</div>	
+                                     	<table id="dynamic-table2" class="table table-striped table-bordered table-hover" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>用户类型</th>
+                                                    <th>用户名</th>
+                                                    <th>用户年龄</th>
+                                                    <th>收货地址</th>
+                                                    <th>用户号码</th>
+                                                    <th>注册时间</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>VIP</td>
+                                                    <td>南岸45</td>
+                                                    <td>21</td>
+                                                    <td>广东省中山市电子科技大学中山学院</td>
+                                                    <td>1234567890</td>
+                                                    <td>2017年10月15日</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                       </div>
+                                </div>
+                               <!--条件搜索over-->
+                            </div><!--tab conover-->
+                        </div><!--tableover-->
+                        <div class="space-6"></div>
+                    </div>
 			</div>
-
+		</div>
 			<!--footer part begin-->
             <div id="footer" class="footer"></div>
             <!--footer part end-->
+			
 
 		</div>
+		
 
 		<script src="assets/js/jquery-2.1.4.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
+		<!--dataTable-->
+        <script src="assets/js/jquery.dataTables.min.js"></script>
+        <script src="assets/js/jquery.dataTables.bootstrap.min.js"></script>
+        <script src="assets/js/dataTables.buttons.min.js"></script>
+        <script src="assets/js/dataTables.select.min.js"></script>
 		<!--ace-->
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
+		<!--地区三级联动插件-->
+		<script src="js/distpicker.data.js"></script>
+	  	<script src="js/distpicker.js"></script>
+	  	<script src="js/main.js"></script>
 		<script type="text/javascript">
 		    /*
 		     * INI Page
@@ -81,7 +214,54 @@
             $("#leftTree").load("pageLeft.html")
             $("#footer").load("pageFoot.html")
 			jQuery(function($) {
-			    
+			    /*
+			     * INI DataTable
+			     */
+			    tabMesSimple = $('#dynamic-table').DataTable({
+//                  ajax:showMes,
+//                  columns:[
+//                      {"data":'checkBox'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'rowNum'},
+//                      {"data":'TabNam'},
+//                      {"data":'TabCTm'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'id'},
+//                      {"visible": false,"data":'id'},
+//                  ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0,1]
+                    }],
+                });
+                tabMesSimple_two = $('#dynamic-table2').DataTable({
+//                  ajax:showMes,
+//                  columns:[
+//                      {"data":'checkBox'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'rowNum'},
+//                      {"data":'TabNam'},
+//                      {"data":'TabCTm'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'id'},
+//                      {"visible": false,"data":'id'},
+//                  ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0,1]
+                    }],
+                });
+                
             })
 		</script>
 	</body>

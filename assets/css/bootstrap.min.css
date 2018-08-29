@@ -4858,7 +4858,8 @@ textarea.input-group-sm>.input-group-btn>.btn {
 }
 
 .tab-content>.tab-pane {
-	display: none
+	display: none;
+	
 }
 
 .tab-content>.active {

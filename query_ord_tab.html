@@ -29,7 +29,6 @@
 		<![endif]-->
 		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
-
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
@@ -45,6 +44,54 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+		<style type="text/css">
+			.search_ord
+			{
+				padding-bottom: 20px;
+				
+			}
+						
+			.jiange
+			{
+				margin-top:10px ;
+			}
+			
+			.hm,.sjr,.dq,.ddbh,.yhm,.shijian
+			{
+				width:140px ;
+				height:30px ;
+				
+			}
+			
+			.plus 
+			{
+				margin-left:29px;
+			}
+			
+			.sjr,.yhm
+			{
+				margin-left:36px;
+			}
+			
+			.dq
+			{
+				margin-left:46px;
+			}
+			.ddbh
+			{
+				margin-left:33px;
+			}
+			.hm
+			{
+				margin-left:10px ;
+			}
+			.chaxun
+			{
+				margin-left: 40px;
+			}
+			
+
+		</style>
 	</head>
 
 	<body class="no-skin">
@@ -74,48 +121,152 @@
                             <div class="tabbable">
                                 <ul class="nav nav-tabs padding-12">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#"> 简单查询 </a>
+                                        <a data-toggle="tab" href="#home1">未收货 </a>
                                     </li>
                                     <li>
-                                        <a data-toggle="tab" href="query_ord_sel.html"> 条件查询 </a>
+                                        <a data-toggle="tab" href="#home2">已收货 </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#home3">条件查询 </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
+                                	<!--home1start未收货-->
                                     <div id="home1" class="tab-pane in active">
-                                        <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                                        <table id="dynamic-table1" class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>表单名</th>
-                                                    <th>上传时间</th>
-                                                    <th>表单类别</th>
-                                                    <th>提交时间</th>
-                                                    <th>截止时间</th>
-                                                    <th>归档时间</th>
+                                                    <th>订单编号</th>
+                                                    <th>用户名</th>
+                                                    <th>订单名称</th>
+                                                    <th>订单总价</th>
+                                                    <th>下单时间</th>
+                                                    <th>付款时间</th>
+                                                    <th>发货时间</th>
+                                                    <th>收货人</th>
+                                                    <th>收货地址</th>
+                                                    <th>收货人号码</th>
+                                                    <th>物流信息</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>表单名</td>
-                                                    <td>上传时间</td>
-                                                    <td>表单类别</td>
-                                                    <td>提交时间</td>
-                                                    <td>截止时间</td>
-                                                    <td>归档时间</td>
+                                                    <td>208456412314134</td>
+                                                    <td>娜娜</td>
+                                                    <td>水壶</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>暂未发货</td>
+                                                    <td>娜娜</td>
+                                                    <td>广东省中山市电子科技大学中山学院</td>
+                                                    <td>1234567890</td>
+                                                    <td>无</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
+                                    <!--home1over-->
+                                    <!-- home2part-->
                                     <div id="home2" class="tab-pane">
-
+										<table id="dynamic-table2" class="table table-striped table-bordered table-hover"style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                     <th>订单编号</th>
+                                                    <th>用户名</th>
+                                                    <th>订单名称</th>
+                                                    <th>订单总价</th>
+                                                    <th>下单时间</th>
+                                                    <th>付款时间</th>
+                                                    <th>发货时间</th>
+                                                    <th>收货时间</th>
+                                                    <th>收货人</th>
+                                                    <th>收货地址</th>
+                                                    <th>收货人号码</th>
+                                                    <th>物流信息</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>208456412314134</td>
+                                                    <td>娜娜</td>
+                                                    <td>水壶</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>暂未发货</td>
+                                                    <td>娜娜</td>
+                                                    <td>广东省中山市电子科技大学中山学院</td>
+                                                    <td>1234567890</td>
+                                                    <td>无</td>
+                                                    
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
+                                   <!-- home2over-->
+                                   <!--home3start-->
+                                    <div id="home3" class="tab-pane">
+                                       	<div class="search_ord">
+	                                       	<div class="jiange">订单编号:<input type="text" class="ddbh"></div>
+	                                       	<div class="jiange">用户名：<input type="text" class="yhm"></div>
+	                                       	<div class="jiange">收件人：<input type="text" class="sjr"></div>
+	                                       	<div class="jiange">收件人号码：<input type="text" class="hm"></div>
+	                                       	<div class="jiange">下单时间 :<input type="date" class="shijian plus">——<input type="date" class="shijian"></div>
+	                                       	<div class="jiange" data-toggle="distpicker">地区：
+												<select data-province="---- 选择省 ----" class="dq"></select>
+												<select data-city="---- 选择市 ----"></select>
+												<select data-district="---- 选择区 ----"></select><button class="chaxun btn btn-primary">查询</button>
+	                                        </div>
+                                        </div>
+                                      <table id="dynamic-table3" class="table table-striped table-bordered table-hover"style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                     <th>订单编号</th>
+                                                    <th>用户名</th>
+                                                    <th>订单名称</th>
+                                                    <th>订单总价</th>
+                                                    <th>下单时间</th>
+                                                    <th>付款时间</th>
+                                                    <th>发货时间</th>
+                                                    <th>收货时间</th>
+                                                    <th>收货人</th>
+                                                    <th>收货地址</th>
+                                                    <th>收货人号码</th>
+                                                    <th>物流信息</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>208456412314134</td>
+                                                    <td>娜娜</td>
+                                                    <td>水壶</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>2018.02.04</td>
+                                                    <td>暂未发货</td>
+                                                    <td>娜娜</td>
+                                                    <td>广东省中山市电子科技大学中山学院</td>
+                                                    <td>1234567890</td>
+                                                    <td>无</td>
+                                                    
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                   <!--home3over-->
                                 </div>
                             </div>
+                        </div>
                         </div>
                         <div class="space-6"></div>
                     </div>
                 </div>
-			</div>
-
+		
 			<!--footer part begin-->
             <div id="footer" class="footer"></div>
             <!--footer part end-->
@@ -132,6 +283,10 @@
 		<!--ace-->
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
+			<!--地区三级联动插件-->
+		<script src="js/distpicker.data.js"></script>
+	  	<script src="js/distpicker.js"></script>
+	  	<script src="js/main.js"></script>
 		<script type="text/javascript">
 		    /*
 		     * INI Page
@@ -139,11 +294,11 @@
             $("#top").load("pageTop.html")
             $("#leftTree").load("pageLeft.html")
             $("#footer").load("pageFoot.html")
-			jQuery(function($) {
+			$(document).ready( function () {
 			    /*
 			     * INI DataTable
 			     */
-			    tabMesSimple = $('#dynamic-table').DataTable({
+			    tabMesSimple_one = $('#dynamic-table1').DataTable({
 //                  ajax:showMes,
 //                  columns:[
 //                      {"data":'checkBox'},
@@ -165,7 +320,53 @@
                         'aTargets': [0,1]
                     }],
                 });
+                 tabMesSimple_two = $('#dynamic-table2').DataTable({
+//                  ajax:showMes,
+//                  columns:[
+//                      {"data":'checkBox'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'rowNum'},
+//                      {"data":'TabNam'},
+//                      {"data":'TabCTm'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'id'},
+//                      {"visible": false,"data":'id'},
+//                  ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0,1]
+                    }],
+                });
+                tabMesSimple_three = $('#dynamic-table3').DataTable({
+//                  ajax:showMes,
+//                  columns:[
+//                      {"data":'checkBox'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'rowNum'},
+//                      {"data":'TabNam'},
+//                      {"data":'TabCTm'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'id'},
+//                      {"visible": false,"data":'id'},
+//                  ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0,1]
+                    }],
+                });
+                 
             })
+	
 		</script>
 	</body>
 

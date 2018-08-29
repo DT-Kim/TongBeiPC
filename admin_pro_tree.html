@@ -62,15 +62,20 @@
 			    <div class="widget-main padding-24">
                     <span style="font-size: 22px;"> 产品管理 </span>
                     <div class="hr hr8 hr-double hr-dotted"></div>
-                    <div class="col-xs-12">
-                        <button class="btn btn-success">增加类型</button>
-                        <button class="btn btn-danger">删除类型</button>
-                        <button class="btn btn-primary">编辑类型</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary" id="showDetali">查看详情</button>
-                        
+                    <div class="col-xs-6">
+                        <button class="btn btn-success" id="NewType">增加类型</button>
+                        <button class="btn btn-danger" onclick="DelProType()">删除类型</button>
+                        <button class="btn btn-primary" href="#protype-add" role="button" data-toggle="modal">编辑类型</button>
                     </div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <button class="btn btn-success">增加产品</button>
+                        <button class="btn btn-danger">删除产品</button>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <a href="admin_pro_plus.html" target="_blank"><button class="btn btn-primary" id="showDetali">查看详情</button></a>
+                    </div>
+                    <div class="col-xs-6">
                         <div class="widget-box">
                             <div class="widget-header widget-header-flat">
                                 <h4 class="widget-title smaller">
@@ -78,16 +83,62 @@
                                 </h4>
                             </div>
                             <div class="widget-body">
-                                <div class="widget-main" style="height: 350px;">
-                                    <div style="width:61.8%; height:300px; margin:10px; float:left; border:1px solid #ccc; overflow:auto;  ">
-                                        <ul id="tree1"></ul>
-                                    </div>
+                                <div class="widget-main">
+                                    <table id="dynamic-table-type" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>产品类型</th>
+                                                <th>类型描述</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>产品类型</td>
+                                                <td>类型描述</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="widget-box">
+                            <div class="widget-header widget-header-flat">
+                                <h4 class="widget-title smaller">
+                                    <span> 产品概况列表 </span>
+                                </h4>
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <table id="dynamic-table-list" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>产品名称</th>
+                                                <th>单位</th>
+                                                <th>单价</th>
+                                                <th>积分倍数</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>产品名称</td>
+                                                <td>单位</td>
+                                                <td>单价</td>
+                                                <td>积分倍数</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 			</div>
+			
+			<!--page model begin-->
+			<div id="model-pro"></div>
+			<!--page model end-->
 
 			<!--footer part begin-->
             <div id="footer" class="footer"></div>
@@ -97,12 +148,16 @@
 
 		<script src="assets/js/jquery-2.1.4.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
-		<!--tree-->
-        <script src="assets/tree/js/base.js" type="text/javascript"></script>
-        <script src="assets/tree/js/ligerTree.js" type="text/javascript"></script>
+		<!--dataTable-->
+        <script src="assets/js/jquery.dataTables.min.js"></script>
+        <script src="assets/js/jquery.dataTables.bootstrap.min.js"></script>
+        <script src="assets/js/dataTables.buttons.min.js"></script>
+        <script src="assets/js/dataTables.select.min.js"></script>
 		<!--ace-->
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
+		<!--self-->
+		<script src="assets/js/self/ActionPro.js"></script>
 		<script type="text/javascript">
 		    /*
 		     * INI Page
@@ -110,76 +165,86 @@
             $("#top").load("pageTop.html")
             $("#leftTree").load("pageLeft.html")
             $("#footer").load("pageFoot.html")
-            /*
-             * INI Tree
-             */
-            var data = [];
-            var jsondata = [{
-                    nodeId: "9839bff1-d004-4bd3-b27b-bee994fe4da3",
-                    nodeName: "1",
-                    parentId: "c91af48b-8447-4338-a15c-c19540dc0aba",
-                    formId: "9839bff1-d004-4bd3-b27b-bee994fe4da3",
-                    id: 305
-                },
-                {
-                    nodeId: "c91af48b-8447-4338-a15c-c19540dc0aba",
-                    nodeName: "（GD-C1-311）项目经理任命及授权通知书",
-                    parentId: "fd0cc9e2-f135-430c-b08b-ff0c078a5e84",
-                    formId: "9839bff1-d004-4bd3-b27b-bee994fe4da3",
-                    id: 306
-                },
-                {
-                    nodeId: "fd0cc9e2-f135-430c-b08b-ff0c078a5e84",
-                    nodeName: "第一节 施工项目管理文件资料通用表",
-                    parentId: "9fbe7497-ec22-4139-8b5e-6279626c037f",
-                    formId: "9839bff1-d004-4bd3-b27b-bee994fe4da3",
-                    id: 307
-                },
-                {
-                    nodeId: "9fbe7497-ec22-4139-8b5e-6279626c037f",
-                    nodeName: "第三章 施工管理和技术文件资料用表（C1 类表）",
-                    parentId: "0b5c5b47-0927-48ec-a336-9b925881ec54",
-                    formId: "9839bff1-d004-4bd3-b27b-bee994fe4da3",
-                    id: 308
-                },
-                {
-                    nodeId: "0b5c5b47-0927-48ec-a336-9b925881ec54",
-                    nodeName: "陈村同乐楼",
-                    parentId: "",
-                    formId: "9839bff1-d004-4bd3-b27b-bee994fe4da3",
-                    id: 309
-                }];
-            for(var i=0;i<jsondata.length;i++){
-                if(jsondata[i].parentId==''){
-                    jsondata[i].parentId = 0;
-                }
-        //              console.log(jsondata[i].nodeId);
-                data.push({ id: jsondata[i].nodeId, pid: jsondata[i].parentId, text: jsondata[i].nodeName });
-            }
-            function onSelect(note) {
-                if(!note.data.children){
-                    alert('该节点为叶节点')
-                }
-            }
+            $('#model-pro').load('model_pro.html')
 			jQuery(function($) {
-                //tree
-                var tree = $("#tree1").ligerTree({
-                    data:data,
-                    idFieldName :'id',
-                    checkbox:false,
-                    slide : false,
-                    parentIDFieldName :'pid',
-                    onSelect: onSelect
+			    /*
+			     * datatable
+			     */
+			    //INI
+			    tabMesType = $('#dynamic-table-type').DataTable({
+                    ajax:'php/TableShowPro.php?falg=type',
+                    columns:[
+                        {"data":'typeName'},
+                        {"data":'typeElse'},
+                    ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': []
+                    }],
                 });
-                treeManager = $("#tree1").ligerGetTreeManager();
-                // 设置不展开
-                treeManager.collapseAll();
-                
-                //show detali
-                $('#showDetali').on('click',function(){
-                    self.location = 'admin_pro_plus.html'
+                tabMesList = $('#dynamic-table-list').DataTable({
+//                  ajax:showMes,
+//                  columns:[
+//                      {"data":'formName'},
+//                      {"data":'uploadTime'},
+//                      {"data":'page'},
+//                      {"data":'page'},
+//                  ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0]
+                    }],
+                });
+                //ACTION
+                $('#dynamic-table-type tbody').on('click', 'tr', function () {
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        tabMesType.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                    try{
+                        $('#ProTypeId').attr('value',tabMesType.row('.selected').data().id)
+                        $('#ProTypeName').attr('value',tabMesType.row('.selected').data().typeName)
+                        $('#ProTypeElse').text(tabMesType.row('.selected').data().typeElse)
+                    }catch(e){
+                        
+                    }
+                })
+                $('#dynamic-table-list tbody').on('click', 'tr', function () {
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        tabMesList.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                    try{
+                        
+                    }catch(e){ }
                 })
             })
+			/*
+			 * FUNCTION
+			 */
+			$('#NewType').on('click',function(){
+			    $('#ProTypeId').val('')
+                $('#ProTypeName').val('')
+                $('#ProTypeElse').val('')
+                $('#protype-add').modal('show')
+			})
+			
 		</script>
 	</body>
 

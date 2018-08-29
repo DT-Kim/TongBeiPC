@@ -29,6 +29,7 @@
 		<![endif]-->
 		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+	
 
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -45,6 +46,33 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+		<style type="text/css">
+			.jiange
+			{
+				margin-top: 15px;
+			}
+			.csbh,.cscpm,.cssc,.csgq,.csgd,.csly,.csgd,.csdwjg
+				{
+				width:140px ;
+				height:30px ;
+				}
+			.csbh,.cscpm,.cssc,.csgq,.csgd,.csgd,.csdwjg
+			{
+				margin-left:20px ;
+			}
+			.csly
+			{
+				margin-left: 42px;
+			}
+			.chaxun_pro
+			{
+				margin-left: 75px;
+			}
+			.search_pro
+			{
+				padding-bottom: 20px;
+			}
+		</style>
 	</head>
 
 	<body class="no-skin">
@@ -59,7 +87,105 @@
             <!--left tree end-->
 
 			<div class="main-content">
-			    
+			     <div class="widget-main padding-24">
+                    <span style="font-size: 22px;"> 产品专查 </span>
+                    <div class="hr hr8 hr-double hr-dotted"></div>
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary" id="showDetali"> 保存详情 </button>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="widget-box">
+                            <div class="widget-header widget-header-flat">
+                                <h4 class="widget-title smaller">产品列表</h4>
+                                <h4 class="widget-title smaller" id="ProName"></h4>
+                            </div>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs padding-12">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#pro1"> 简单查询 </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#pro2"> 条件查询 </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="pro1" class="tab-pane in active">
+                                        <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>产名名称</th>
+                                                    <th>产品编号</th>
+                                                    <th>生产日期</th>
+                                                    <th>过期日期</th>
+                                                    <th>归档日期</th>
+                                                    <th>来源</th>
+                                                    <th>单位价格</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>水壶</td>
+                                                    <td>6215</td>
+                                                    <td>表单类别</td>
+                                                    <td>提交时间</td>
+                                                    <td>截止时间</td>
+                                                    <td>归档时间</td>
+                                                    <th>单位价格</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="pro2" class="tab-pane">
+                                    	<div class="search_pro">
+	                                       	<div class="jiange">产品编号:<input type="text" class="csbh">
+	                                       	产品名称:<input type="text" class="cscpm">
+	                                       	</div>
+	                                       	<div class="jiange">生产日期:<input type="date" class="cssc">
+	                                       						过期日期:<input type="date" class="csgq">
+	                                       	</div>
+	                                       	<div class="jiange">归档日期:<input type="text" class="csgd">
+	                                       	                                        来源 :<input type="text" class="csly">
+	                                       	</div>
+	                                       	<div class="jiange">单位价格:<input type="text" class="csdwjg">
+	                                       	<button class="chaxun_pro btn btn-primary">查询</button>
+	                                       	</div>
+                                       	</div>
+                                       	 <table id="dynamic-table2" class="table table-striped table-bordered table-hover protwo" style="width: 100%; ">
+                                            <thead>
+                                                <tr>
+                                                    <th>产名名称</th>
+                                                    <th>产品编号</th>
+                                                    <th>生产日期</th>
+                                                    <th>过期日期</th>
+                                                    <th>归档日期</th>
+                                                    <th>来源</th>
+                                                    <th>单位价格</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>水壶</td>
+                                                    <td>6215</td>
+                                                    <td>表单类别</td>
+                                                    <td>提交时间</td>
+                                                    <td>截止时间</td>
+                                                    <td>归档时间</td>
+                                                    <th>单位价格</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        
+                                        
+                                        </div>
+                                       <!-- pro2结束-->
+                                      </div> 
+                                       <!--tablecontentover-->
+                                </div>
+                                <!--整个表格-->
+                            </div>
+                        </div>
+                        <div class="space-6"></div>
+                    </div>
 			</div>
 
 			<!--footer part begin-->
@@ -70,10 +196,16 @@
 
 		<script src="assets/js/jquery-2.1.4.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
+		<!--dataTable-->
+        <script src="assets/js/jquery.dataTables.min.js"></script>
+        <script src="assets/js/jquery.dataTables.bootstrap.min.js"></script>
+        <script src="assets/js/dataTables.buttons.min.js"></script>
+        <script src="assets/js/dataTables.select.min.js"></script>
 		<!--ace-->
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
-		<script type="text/javascript">
+		
+		<script type="text/javascript"> 
 		    /*
 		     * INI Page
 		     */
@@ -81,7 +213,54 @@
             $("#leftTree").load("pageLeft.html")
             $("#footer").load("pageFoot.html")
 			jQuery(function($) {
-			    
+			    /*
+			     * INI DataTable
+			     */
+			    tabMesSimple = $('#dynamic-table').DataTable({
+//                  ajax:showMes,
+//                  columns:[
+//                      {"data":'checkBox'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'rowNum'},
+//                      {"data":'TabNam'},
+//                      {"data":'TabCTm'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'id'},
+//                      {"visible": false,"data":'id'},
+//                  ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0,1]
+                    }],
+                });
+                 tabMesSimple_two = $('#dynamic-table2').DataTable({
+//                  ajax:showMes,
+//                  columns:[
+//                      {"data":'checkBox'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'rowNum'},
+//                      {"data":'TabNam'},
+//                      {"data":'TabCTm'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'id'},
+//                      {"visible": false,"data":'id'},
+//                  ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0,1]
+                    }],
+                });
+               
             })
 		</script>
 	</body>

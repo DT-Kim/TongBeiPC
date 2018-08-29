@@ -1,0 +1,111 @@
+<!--pro type begin-->
+<div id="protype-add" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header no-padding">
+                <div class="table-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <span class="white">&times;</span>
+                    </button>
+                    <span>产品类型</span>
+                    <input id="ProTypeId" hidden="hidden" />
+                </div>
+            </div>
+            <div class="modal-body no-padding">
+                <div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right">产品类型 ：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <input class="NewDocMes" type="text" id="ProTypeName" />
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+                
+                <div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right">产品说明 ：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <textarea class="NewDocMes" type="text" id="ProTypeElse" ></textarea>
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+
+            </div>
+            <br /><br />
+            <div class="modal-footer no-margin-top">
+                <button class="btn btn-sm btn-success pull-right" data-dismiss="" id="ProMesSave">
+                    <i class="ace-icon fa fa-floppy-o bigger-125"></i>
+                    <span>保存</span>
+                </button>
+                <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                    <i class="ace-icon fa fa-times"></i>
+                    <span>关闭</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--pro type end-->
+<!--pro mes begin-->
+<div id="promes-add" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header no-padding">
+                <div class="table-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <span class="white">&times;</span>
+                    </button>
+                    <span>产品类型</span>
+                </div>
+            </div>
+            <div class="modal-body no-padding">
+                <div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right">产品类型 ：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <input class="NewDocMes" type="text" id="" />
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+                
+                <div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right">产品说明 ：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <textarea class="NewDocMes" type="text" id="" ></textarea>
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+            </div>
+            <br /><br />
+            <div class="modal-footer no-margin-top">
+                <button class="btn btn-sm btn-success pull-right" data-dismiss="">
+                    <i class="ace-icon fa fa-floppy-o bigger-125"></i>
+                    <span>保存</span>
+                </button>
+                <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                    <i class="ace-icon fa fa-times"></i>
+                    <span>关闭</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--pro mes end-->
+<script type="text/javascript">
+$('#ProMesSave').on('click',function(){
+    //修改
+    if (($('#ProTypeId').val()).length) {
+    	EditProType()
+    }
+    //新建
+    else{
+        AddProType()
+    }
+    $('#protype-add').modal('hide');
+})
+</script>

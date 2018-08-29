@@ -59,9 +59,173 @@
             <!--left tree end-->
 
 			<div class="main-content">
-			    
-			</div>
-
+				<div class="widget-main padding-24">
+			    <span style="font-size: 22px;"> 用户设置</span>
+                    <div class="hr hr8 hr-double hr-dotted"></div>
+                    <div class="col-xs-5">
+                        <button class="btn btn-primary" id="showDetali1"> 保存详情 </button>
+                    </div>
+                     <div class="col-xs-7">
+                        <button class="btn btn-primary" id="showDetali2"> 保存详情 </button>
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="widget-box">
+                            <div class="widget-header widget-header-flat">
+                                <h4 class="widget-title smaller">用户管理</h4>
+                                <h4 class="widget-title smaller" id="ProName"></h4>
+                            </div>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs padding-12">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#"> 简单查询 </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="home1" class="tab-pane in active">
+                                        <table id="dynamic-table" class="table table-striped table-bordered table-hover" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>用户类型</th>
+                                                    <th>用户名</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>管理员</td>
+                                                    <td>娜娜</td>
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                   <!-- home1over-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-6"></div>
+                    </div>
+                <div class="col-xs-7">
+                        <div class="widget-box">
+                            <div class="widget-header widget-header-flat">
+                                <h4 class="widget-title smaller">详细信息</h4>
+                                <h4 class="widget-title smaller" id="ProName"></h4>
+                            </div>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs padding-12">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#menu">基本信息</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#menu1">权限</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#menu2">收货地址</a>
+                                    </li>
+                                </ul>
+                               <!-- menu部分-->
+                                <div class="tab-content">
+                                    <div id="menu" class="tab-pane in active">
+                                        <div class="profile-user-info profile-user-info-striped">
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 用户名 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id="nana">娜娜</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 积分 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 同欣科技 </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 地区 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 广东省东莞市南城区 </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 其他 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 2018-7-15 </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 创建时间 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 2018-7-15 </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 创建人 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id=""> 2018-7-15 </span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                   <!-- menu1部分-->
+                                    <div id="menu1" class="tab-pane">
+                                        <div class="profile-user-info profile-user-info-striped">
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 权限级别 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id="qxjb"> 普通客户 </span>
+                                                </div>
+                                            </div>
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name">设置权限</div>
+                                                <div class="profile-info-value">
+                                                  <select id="qx" onclick="select()">
+											        <option value="普通客户">普通客户</option>
+											        <option value="VIP客户">VIP客户</option>
+											        <option value="物流人员">物流人员</option>
+											        <option value="管理员">管理员</option>
+											    </select>
+                                                </div>
+                                            </div>
+                                            <div class="profile-info-row" id="szqy">
+                                                <div class="profile-info-name"> 设置区域 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id="quyu">
+												     	<div data-toggle="distpicker">
+												    		<select data-province="---- 选择省 ----"></select>
+												    		<select data-city="---- 选择市 ----"></select>
+												    		<select data-district="---- 选择区 ----"></select>
+														</div>
+                                                    </span>
+                                                </div>
+                                            </div>				
+                                    </div>
+                                    </div>
+                                    <!--menu2部分-->
+                                    <div id="menu2" class="tab-pane">
+                                        <div class="profile-user-info profile-user-info-striped">
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name"> 收货地址 </div>
+                                                <div class="profile-info-value">
+                                                    <span class="editable" id="shdz"> 详细点儿 </span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                   <!-- menu2结束-->
+                                </div><!--table结束-->
+                            </div>
+                        </div>
+                        <div class="space-6"></div>
+                    </div>
+                   <!-- col*7over-->
+                </div>
+                </div>
 			<!--footer part begin-->
             <div id="footer" class="footer"></div>
             <!--footer part end-->
@@ -70,19 +234,77 @@
 
 		<script src="assets/js/jquery-2.1.4.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
+		<!--dataTable-->
+        <script src="assets/js/jquery.dataTables.min.js"></script>
+        <script src="assets/js/jquery.dataTables.bootstrap.min.js"></script>
+        <script src="assets/js/dataTables.buttons.min.js"></script>
+        <script src="assets/js/dataTables.select.min.js"></script>
 		<!--ace-->
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
+		
+	<!--地区三级联动插件-->
+		<script src="js/distpicker.data.js"></script>
+	  	<script src="js/distpicker.js"></script>
+	  	<script src="js/main.js"></script>
 		<script type="text/javascript">
+			
 		    /*
 		     * INI Page
 		     */
+		    
             $("#top").load("pageTop.html")
             $("#leftTree").load("pageLeft.html")
             $("#footer").load("pageFoot.html")
 			jQuery(function($) {
-			    
-            })
+				 //show detali
+                $('#showDetali').on('click',function(){
+                    
+                })
+                //查询
+                $('#chaxun').on('click',function(){
+//              	self.location='query_use_tab.html'
+                })
+			    /*
+			     * INI DataTable
+			     */
+			    tabMesSimple = $('#dynamic-table').DataTable({
+//                  ajax:showMes,
+//                  columns:[
+//                      {"data":'checkBox'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'rowNum'},
+//                      {"data":'TabNam'},
+//                      {"data":'TabCTm'},
+//                      {"visible": false,"data":'id'},
+//                      {"data":'id'},
+//                      {"visible": false,"data":'id'},
+//                  ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0,1]
+                    }],
+                });
+            
+			})
+			
+			var szqy=document.getElementById("szqy");
+			szqy.style.display="none";
+			function select(){
+			var quanxian=document.getElementById("qx").value;
+			 if(quanxian=="物流人员")
+			{
+				szqy.style.display="";
+			}
+			else
+			{
+				szqy.style.display="none";
+			}}
 		</script>
 	</body>
 
