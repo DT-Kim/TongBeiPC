@@ -12,6 +12,7 @@
             $else = $_POST['else'];
             $sql_check = "select id from 产品类型 where 类型名 = '".$name."' ";
             $result_check = $conn->query($sql_check)->fetch_assoc();
+            $data['status'] = 'error';
             if(isset($result_check['id'])){
                 $data['status'] = 'exist';
             }

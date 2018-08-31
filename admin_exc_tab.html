@@ -63,10 +63,12 @@
 			    <span style="font-size: 22px;"> 积分管理</span>
                     <div class="hr hr8 hr-double hr-dotted"></div>
                     <div class="col-xs-5">
-                        <button class="btn btn-primary" id="showDetali1"> 保存详情 </button>
+                        <button class="btn btn-primary" id="NewExc" > 新建积分商品 </button>
+                        <button class="btn btn-primary"  > 删除积分商品 </button>
+                        <button class="btn btn-primary"  href="#proexc-add" role="button" data-toggle="modal" > 编辑积分商品 </button>
                     </div>
                      <div class="col-xs-7">
-                        <button class="btn btn-primary" id="showDetali2"> 保存详情 </button>
+                        <button class="btn btn-primary" id=""> 保存详情 </button>
                     </div>
                     <div class="col-xs-5">
                         <div class="widget-box">
@@ -194,6 +196,10 @@
                     </div>
 			</div>
 			</div>
+			
+			<!--page model begin-->
+            <div id="model-exc"></div>
+            <!--page model end-->
 
 			<!--footer part begin-->
             <div id="footer" class="footer"></div>
@@ -211,10 +217,13 @@
 		<!--ace-->
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
+		<!--self-->
+		<script src="assets/js/self/ActionExc.js"></script>
 		<script type="text/javascript">
 		    $("#top").load("pageTop.html")
             $("#leftTree").load("pageLeft.html")
             $("#footer").load("pageFoot.html")
+            $('#model-exc').load('model_exc.html')
 			jQuery(function($) {
 				 //show detali
                 $('#showDetali').on('click',function(){
@@ -249,7 +258,12 @@
                         'aTargets': [0,1]
                     }],
                 });
-            
+			})
+			/*
+			 * FUNCTION
+			 */
+			$('#NewExc').on('click',function(){
+			    $('#proexc-add').modal('show')
 			})
 		</script>
 	</body>
