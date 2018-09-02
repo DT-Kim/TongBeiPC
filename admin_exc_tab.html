@@ -45,6 +45,12 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+		<style type="text/css">
+			.editable
+			{
+				border: 1px solid #FFFFFF;
+			}
+		</style>
 	</head>
 
 	<body class="no-skin">
@@ -63,12 +69,12 @@
 			    <span style="font-size: 22px;"> 积分管理</span>
                     <div class="hr hr8 hr-double hr-dotted"></div>
                     <div class="col-xs-5">
-                        <button class="btn btn-primary" id="NewExc" > 新建积分商品 </button>
-                        <button class="btn btn-primary"  > 删除积分商品 </button>
-                        <button class="btn btn-primary"  href="#proexc-add" role="button" data-toggle="modal" > 编辑积分商品 </button>
+                        <button class="btn btn-success" id="NewExc">增加商品</button>
+                        <button class="btn btn-danger" onclick="DelExc()">删除商品</button>
+                        <button class="btn btn-primary"  href="#Exc-add" role="button"  data-toggle="modal">编辑商品</button>
                     </div>
                      <div class="col-xs-7">
-                        <button class="btn btn-primary" id=""> 保存详情 </button>
+                        <button class="btn btn-primary" id="showDetali2"> 保存详情 </button>
                     </div>
                     <div class="col-xs-5">
                         <div class="widget-box">
@@ -79,17 +85,17 @@
                             <div class="tabbable">
                                 <ul class="nav nav-tabs padding-12">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#"> 简单查询 </a>
+                                        <a data-toggle="tab" href="#">积分详细 </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
                                     <div id="home1" class="tab-pane in active">
-                                        <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                                        <table id="dynamic-table-exc" class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>用户类型</th>
-                                                    <th>用户名</th>
+                                                    <th>商品名称</th>
                                                     <th>积分要求</th>
+                                                    <th>商品描述</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -98,17 +104,6 @@
                                                     <td>娜娜</td>
                                                     <td>200 </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>普通客户</td>
-                                                    <td>嘻嘻</td>
-                                                    <td>400</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>VIP</td>
-                                                    <td>娜娜</td>
-                                                    <td>2000 </td>
-                                                </tr>
-                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -131,49 +126,54 @@
                                     <li class="active">
                                         <a data-toggle="tab" href="#menu">基本信息</a>
                                     </li>
-                                    <!--<li>
-                                        <a data-toggle="tab" href="#menu1">兑换条件</a>
-                                    </li>-->
+                                    <li>
+                                        <a data-toggle="tab" href="#menu1">产品介绍</a>
+                                    </li>
                                     
                                 </ul>
                                <!-- menu部分-->
                                 <div class="tab-content">
                                     <div id="menu" class="tab-pane in active">
-                                        <div class="profile-user-info profile-user-info-striped">
+                                       <div class="profile-user-info profile-user-info-striped">
                                             
                                             <div class="profile-info-row">
-                                                <div class="profile-info-name"> 用户名 </div>
+                                                <div class="profile-info-name"> 商品名称 </div>
                                                 <div class="profile-info-value">
-                                                    <span class="editable" id="nana">娜娜</span>
+                                                    <input class="editable" id="" onfocus=this.blur() >
                                                 </div>
                                             </div>
                                             
                                             <div class="profile-info-row">
-                                                <div class="profile-info-name"> 积分 </div>
+                                                <div class="profile-info-name"> 商品</div>
                                                 <div class="profile-info-value">
-                                                    <span class="editable" id=""> 同欣科技 </span>
+                                                    <input class="editable" id="" onfocus=this.blur()>
+                                                </div>
+                                            </div>
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name">商品</div>
+                                                <div class="profile-info-value">
+                                                    <input id="" class="editable" onfocus=this.blur()>
+                                                </div>
+                                             </div>
+                                            <div class="profile-info-row">
+                                            	
+                                                <div class="profile-info-name">商品 </div>
+                                                <div class="profile-info-value">
+                                                    <input class="editable" id="" onfocus=this.blur()>
                                                 </div>
                                             </div>
                                             
                                             <div class="profile-info-row">
-                                                <div class="profile-info-name"> 地区 </div>
+                                                <div class="profile-info-name">商品</div>
                                                 <div class="profile-info-value">
-                                                    <span class="editable" id=""> 广东省东莞市南城区 </span>
+                                                    <input class="editable" id="" onfocus=this.blur()> 
                                                 </div>
                                             </div>
-                                            
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 其他 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id=""> 2018-7-15 </span>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
                                     </div>
+                                   
                                    <!-- menu1部分-->
                                     <div id="menu1" class="tab-pane">
-                                        <div class="profile-user-info profile-user-info-striped">
+                                        <!--<div class="profile-user-info profile-user-info-striped">
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name"> 权限级别 </div>
                                                 <div class="profile-info-value">
@@ -186,7 +186,7 @@
                                                     <span class="editable" id="qxjb">5000 </span>
                                                 </div>
                                             </div>		
-                                    </div>
+                                    </div>-->
                                     </div>
                                     <!--menu1结束  -->
                                 </div><!--table结束-->
@@ -196,17 +196,17 @@
                     </div>
 			</div>
 			</div>
+            <!--page model begin-->
+			<div id="model-exc"></div>
+			<!--page model end-->
 			
-			<!--page model begin-->
-            <div id="model-exc"></div>
-            <!--page model end-->
-
 			<!--footer part begin-->
             <div id="footer" class="footer"></div>
             <!--footer part end-->
 
 		</div>
-
+         <!--self-->
+		<script src="assets/js/self/ActionExc.js"></script>
 		<script src="assets/js/jquery-2.1.4.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
 		<!--dataTable-->
@@ -217,9 +217,11 @@
 		<!--ace-->
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
-		<!--self-->
 		<script src="assets/js/self/ActionExc.js"></script>
 		<script type="text/javascript">
+			/*
+			 * INI Page
+			 */
 		    $("#top").load("pageTop.html")
             $("#leftTree").load("pageLeft.html")
             $("#footer").load("pageFoot.html")
@@ -236,17 +238,30 @@
 			    /*
 			     * INI DataTable
 			     */
-			    tabMesSimple = $('#dynamic-table').DataTable({
+			    tabMesType = $('#dynamic-table-exc').DataTable({
+                    ajax:'php/TableShowExc.php?falg=exc',
+                    columns:[
+                        {"data":'excName'},
+                        {"data":'excreq'},
+                        {"data":'excElse'},
+                    ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': []
+                    }],
+                });
+                 tabMesList = $('#dynamic-table-list').DataTable({
 //                  ajax:showMes,
 //                  columns:[
-//                      {"data":'checkBox'},
-//                      {"visible": false,"data":'id'},
-//                      {"data":'rowNum'},
-//                      {"data":'TabNam'},
-//                      {"data":'TabCTm'},
-//                      {"visible": false,"data":'id'},
-//                      {"data":'id'},
-//                      {"visible": false,"data":'id'},
+//                      {"data":'formName'},
+//                      {"data":'uploadTime'},
+//                      {"data":'page'},
+//                      {"data":'page'},
 //                  ],
                     oLanguage: {
                         sLengthMenu: "显示 _MENU_ 条数据",
@@ -255,16 +270,52 @@
                     "aaSorting": [],
                     "aoColumnDefs": [{
                         'bSortable': false,
-                        'aTargets': [0,1]
+                        'aTargets': [0]
                     }],
                 });
-			})
-			/*
-			 * FUNCTION
-			 */
-			$('#NewExc').on('click',function(){
-			    $('#proexc-add').modal('show')
-			})
+             //action
+                $('#dynamic-table-exc tbody').on('click', 'tr', function () {
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        tabMesType.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                    try{
+                        $('#ExcId').attr('value',tabMesType.row('.selected').data().id)
+                        $('#ProExcName').attr('value',tabMesType.row('.selected').data().excName)
+                        $('#ExcReq').attr('value',tabMesType.row('.selected').data().excreq)
+                        $('#ProExcElse').text(tabMesType.row('.selected').data().excElse)
+                    }catch(e){
+                        
+                    }
+                })
+                $('#dynamic-table-list tbody').on('click', 'tr', function () {
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        tabMesList.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                    try{
+                        alert('click')
+                    }catch(e){ }
+                })
+           
+                /*
+                 * function
+                 */
+                $('#NewExc').on('click',function(){
+                	$('#ExcId').val('')
+	                $('#ProExcName').val('')
+	                $('#ExcReq').val('')
+	                $('#ProExcElse').val('')
+	                $('#Exc-add').modal('show')
+	                //直接显示
+                })
+			})			
 		</script>
 	</body>
 

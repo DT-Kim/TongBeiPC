@@ -45,6 +45,11 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+		<style type="text/css">
+			.editable{
+				 border: 1px solid #FFFFFF;
+			}
+		</style>
 	</head>
 
 	<body class="no-skin">
@@ -60,10 +65,10 @@
 
 			<div class="main-content">
 				<div class="widget-main padding-24">
-			    <span style="font-size: 22px;"> 用户设置</span>
+			    <span style="font-size: 22px;"> 用户信息</span>
                     <div class="hr hr8 hr-double hr-dotted"></div>
                     <div class="col-xs-5">
-                        <button class="btn btn-primary" id="showDetali1"> 保存详情 </button>
+                        
                     </div>
                      <div class="col-xs-7">
                         <button class="btn btn-primary" id="showDetali2"> 保存详情 </button>
@@ -77,22 +82,30 @@
                             <div class="tabbable">
                                 <ul class="nav nav-tabs padding-12">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#"> 简单查询 </a>
+                                        <a data-toggle="tab" href="#"> 用户列表 </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
                                     <div id="home1" class="tab-pane in active">
-                                        <table id="dynamic-table" class="table table-striped table-bordered table-hover" style="width: 100%;">
+                                        <table id="dynamic-table-user" class="table table-striped table-bordered table-hover" style="width: 100%;">
                                             <thead>
                                                 <tr>
-                                                    <th>用户类型</th>
-                                                    <th>用户名</th>
+                                                    <th>用户账号</th>
+                                                    <th>真实姓名</th>
+                                                    <th>用户级别</th>
+                                                    <th>省</th>
+                                                    <th>市</th>
+                                                    <th>县</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>管理员</td>
-                                                    <td>娜娜</td>
+                                                    <td>用户账号</td>
+                                                    <td>真实姓名</td>
+                                                    <td>用户级别</td>
+                                                    <td>省</td>
+                                                    <td>市</td>
+                                                    <td>县</td>
                                                 </tr>
                                                
                                             </tbody>
@@ -106,6 +119,7 @@
                     </div>
                 <div class="col-xs-7">
                         <div class="widget-box">
+                        		<input id="useid" hidden="hidden" />
                             <div class="widget-header widget-header-flat">
                                 <h4 class="widget-title smaller">详细信息</h4>
                                 <h4 class="widget-title smaller" id="ProName"></h4>
@@ -118,57 +132,53 @@
                                     <li>
                                         <a data-toggle="tab" href="#menu1">权限</a>
                                     </li>
-                                    <li>
-                                        <a data-toggle="tab" href="#menu2">收货地址</a>
-                                    </li>
+                                    
                                 </ul>
                                <!-- menu部分-->
                                 <div class="tab-content">
                                     <div id="menu" class="tab-pane in active">
+                                    <!--	<input id="useid" hidden="hidden" />-->
                                         <div class="profile-user-info profile-user-info-striped">
                                             
                                             <div class="profile-info-row">
-                                                <div class="profile-info-name"> 用户名 </div>
+                                                <div class="profile-info-name"> 用户账号 </div>
                                                 <div class="profile-info-value">
-                                                    <span class="editable" id="nana">娜娜</span>
+                                                    <input class="editable" id="useacc" onfocus=this.blur() >
                                                 </div>
                                             </div>
                                             
                                             <div class="profile-info-row">
-                                                <div class="profile-info-name"> 积分 </div>
+                                                <div class="profile-info-name"> 真实姓名</div>
                                                 <div class="profile-info-value">
-                                                    <span class="editable" id=""> 同欣科技 </span>
+                                                    <input class="editable" id="usename" onfocus=this.blur()>
+                                                </div>
+                                            </div>
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name">用户手机</div>
+                                                <div class="profile-info-value">
+                                                    <input id="usepho" class="editable" onfocus=this.blur()>
+                                                </div>
+                                             </div>
+                                            <div class="profile-info-row">
+                                            	
+                                                <div class="profile-info-name">用户级别 </div>
+                                                <div class="profile-info-value">
+                                                    <input class="editable" id="uselev" onfocus=this.blur()>
                                                 </div>
                                             </div>
                                             
                                             <div class="profile-info-row">
-                                                <div class="profile-info-name"> 地区 </div>
+                                                <div class="profile-info-name">注册时间</div>
                                                 <div class="profile-info-value">
-                                                    <span class="editable" id=""> 广东省东莞市南城区 </span>
+                                                    <input class="editable" id="usetime" onfocus=this.blur()> 
                                                 </div>
                                             </div>
-                                            
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 其他 </div>
+                                            <!--<div class="profile-info-row">
+                                                <div class="profile-info-name"> 收货地址</div>
                                                 <div class="profile-info-value">
                                                     <span class="editable" id=""> 2018-7-15 </span>
                                                 </div>
-                                            </div>
-                                            
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 创建时间 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id=""> 2018-7-15 </span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 创建人 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id=""> 2018-7-15 </span>
-                                                </div>
-                                            </div>
-                                            
+                                            </div>-->
                                         </div>
                                     </div>
                                    <!-- menu1部分-->
@@ -177,7 +187,7 @@
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name"> 权限级别 </div>
                                                 <div class="profile-info-value">
-                                                    <span class="editable" id="qxjb"> 普通客户 </span>
+                                                    <input class="editable" id="qxjb" onfocus=this.blur()> 
                                                 </div>
                                             </div>
                                             <div class="profile-info-row">
@@ -205,19 +215,7 @@
                                             </div>				
                                     </div>
                                     </div>
-                                    <!--menu2部分-->
-                                    <div id="menu2" class="tab-pane">
-                                        <div class="profile-user-info profile-user-info-striped">
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 收货地址 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id="shdz"> 详细点儿 </span>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                   <!-- menu2结束-->
+                                   
                                 </div><!--table结束-->
                             </div>
                         </div>
@@ -257,6 +255,7 @@
             $("#leftTree").load("pageLeft.html")
             $("#footer").load("pageFoot.html")
 			jQuery(function($) {
+				
 				 //show detali
                 $('#showDetali').on('click',function(){
                     
@@ -268,18 +267,16 @@
 			    /*
 			     * INI DataTable
 			     */
-			    tabMesSimple = $('#dynamic-table').DataTable({
-//                  ajax:showMes,
-//                  columns:[
-//                      {"data":'checkBox'},
-//                      {"visible": false,"data":'id'},
-//                      {"data":'rowNum'},
-//                      {"data":'TabNam'},
-//                      {"data":'TabCTm'},
-//                      {"visible": false,"data":'id'},
-//                      {"data":'id'},
-//                      {"visible": false,"data":'id'},
-//                  ],
+			    tabMesUse = $('#dynamic-table-user').DataTable({
+                 ajax:'php/TableShowUse.php',
+                    columns:[
+                        {"data":'useacc'},
+                        {"data":'usename'},
+                        {"data":'uselev'},
+                        {"data":'usesf'},
+                        {"data":'usesq'},
+                        {"data":'usexc'},
+                    ],
                     oLanguage: {
                         sLengthMenu: "显示 _MENU_ 条数据",
                     },
@@ -287,12 +284,35 @@
                     "aaSorting": [],
                     "aoColumnDefs": [{
                         'bSortable': false,
-                        'aTargets': [0,1]
+                        'aTargets': []
                     }],
                 });
-            
+                
+                $('#dynamic-table-user tbody').on('click', 'tr', function () {
+                	         
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        tabMesUse.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                    try{
+                    	$('#useid').attr('value',tabMesUse.row('.selected').data().id)
+                        $('#useacc').attr('value',tabMesUse.row('.selected').data().useacc)
+                        $('#usepho').attr('value',tabMesUse.row('.selected').data().usepho)
+                        $('#usename').attr('value',tabMesUse.row('.selected').data().usename)
+                        $('#uselev').attr('value',tabMesUse.row('.selected').data().uselev)
+                        $('#usetime').attr('value',tabMesUse.row('.selected').data().usetime)
+                        $('#qxjb').attr('value',tabMesUse.row('.selected').data().uselev)
+                        
+                    }catch(e){
+                        
+                    }
+                   
+                })
 			})
-			
+
 			var szqy=document.getElementById("szqy");
 			szqy.style.display="none";
 			function select(){
@@ -304,7 +324,9 @@
 			else
 			{
 				szqy.style.display="none";
-			}}
+			}
+			}
+			
 		</script>
 	</body>
 

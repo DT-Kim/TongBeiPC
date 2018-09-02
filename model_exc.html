@@ -1,5 +1,5 @@
 <!--pro type begin-->
-<div id="proexc-add" class="modal fade" tabindex="-1">
+<div id="Exc-add" class="modal fade" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header no-padding">
@@ -7,8 +7,8 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         <span class="white">&times;</span>
                     </button>
-                    <span>积分商品</span>
-                    <input id="ProExcId" hidden="hidden" />
+                    <span>商品管理</span>
+                    <input id="ExcId" hidden="hidden" />
                 </div>
             </div>
             <div class="modal-body no-padding">
@@ -21,17 +21,15 @@
                     </div>
                     <div class="help-block col-xs-12 col-sm-reset inline"> </div>
                 </div>
-                
                 <div class="form-group has-info  page-header">
                     <label class="col-sm-3 control-label no-padding-right">积分要求 ：</label>
                     <div class="col-sm-5">
-                        <span class="block input-icon input-icon-right" >
-                            <input class="NewDocMes" type="text" id="ProExcReq" />
+                        <span class="block input-icon input-icon-right">
+                            <input class="NewDocMes" type="text" id="ExcReq" />
                         </span>
                     </div>
                     <div class="help-block col-xs-12 col-sm-reset inline"> </div>
                 </div>
-                
                 <div class="form-group has-info  page-header">
                     <label class="col-sm-3 control-label no-padding-right">商品说明 ：</label>
                     <div class="col-sm-5">
@@ -45,7 +43,7 @@
             </div>
             <br /><br />
             <div class="modal-footer no-margin-top">
-                <button class="btn btn-sm btn-success pull-right" data-dismiss="" id="ProMesSave">
+                <button class="btn btn-sm btn-success pull-right" data-dismiss="" id="ExcSave">
                     <i class="ace-icon fa fa-floppy-o bigger-125"></i>
                     <span>保存</span>
                 </button>
@@ -59,7 +57,7 @@
 </div>
 <!--pro type end-->
 <!--pro mes begin-->
-<div id="promes-add" class="modal fade" tabindex="-1">
+<div id="Excmes-add" class="modal fade" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header no-padding">
@@ -107,17 +105,15 @@
 </div>
 <!--pro mes end-->
 <script type="text/javascript">
-$('#ProMesSave').on('click',function(){
+$('#ExcSave').on('click',function(){
     //修改
-    if (($('#ProExcId').val()).length) {
-        alert('修改')
-//  	EditProType()
+    if (($('#ExcId').val()).length) {
+    	EditExc()
     }
     //新建
     else{
-        AddProExc()
-        
+        AddExc()
     }
-    $('#protype-add').modal('hide');
+    $('#Exc-add').modal('hide');
 })
 </script>

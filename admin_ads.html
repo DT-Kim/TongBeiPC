@@ -68,8 +68,12 @@
 				<div class="widget-main padding-24">
     			    <span style="font-size: 22px;"> 广告轮播</span>
                     <div class="hr hr8 hr-double hr-dotted"></div>
-                    <div class="col-xs-12">
-                        <button class="btn btn-primary">新建广告节点</button>
+                    <div class="col-xs-5">
+                        <button class="btn btn-primary" id="NewAds">新建节点</button>
+                        <button class="btn btn-primary" id="DelAds">删除节点</button>
+                    </div>
+                    <div class="col-xs-7">
+                        <button class="btn btn-primary" href="#ads-mes" role="button" data-toggle="modal">修改节点属性</button>
                     </div>
     				<div class="col-xs-5">
     				    <div class="widget-box">
@@ -107,14 +111,12 @@
                                         <img width="426px" height="200px" id="ImgSel"/>
                                         <br /><br />
                                         <div class="profile-user-info profile-user-info-striped">
-                                            
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name"> 图片说明 </div>
                                                 <div class="profile-info-value">
                                                     <span class="editable" id="ImgElse">  </span>
                                                 </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -123,6 +125,14 @@
                     </div>
     			</div>
 			</div>
+			
+			<!--model page begin-->
+			<div id="model-ads"></div>
+			<!--model page end-->
+			
+			<!--footer part begin-->
+            <div id="footer" class="footer"></div>
+            <!--footer part end-->
 
 			<script src="assets/js/jquery-2.1.4.min.js"></script>
 			<script src="assets/js/bootstrap.min.js"></script>
@@ -134,7 +144,8 @@
 			<!--ace-->
 			<script src="assets/js/ace-elements.min.js"></script>
 			<script src="assets/js/ace.min.js"></script>
-			
+			<!--self-->
+			<script src="assets/js/self/ActionAds.js"></script>
 			<script type="text/javascript">
 				/*
 				 * INI Page
@@ -142,6 +153,7 @@
 				$("#top").load("pageTop.html")
 				$("#leftTree").load("pageLeft.html")
 				$("#footer").load("pageFoot.html")
+				$('#model-ads').load('model_ads.html')
 				jQuery(function($) {
 					/*
 					 * INI DataTable
@@ -160,7 +172,7 @@
 						"aaSorting": [],
 						"aoColumnDefs": [{
 							'bSortable': false,
-							'aTargets': [0, 1]
+							'aTargets': [0]
 						}],
 					});
 					 var table = $('#dynamic-table').DataTable();
@@ -181,14 +193,33 @@
                         $(this).addClass('selected');
                     }
                     try{
+                        
+                        //右边信息框
                         $('#ImgSel').attr('src',tabMesSimple.row('.selected').data().url)
                         $('#ImgElse').text(tabMesSimple.row('.selected').data().else)
-//                      $('#ProTypeId').attr('value',tabMesType.row('.selected').data().id)
-//                      $('#ProTypeName').attr('value',tabMesType.row('.selected').data().typeName)
-//                      $('#ProTypeElse').text(tabMesType.row('.selected').data().typeElse)
+                        //模态框信息显示
+                            //清空
+                        $("#adsMes").val('')
+                        $('#AdsImg').val('')
+                        $('#ImgShow').attr('src','')
+                        $('#AdsStaOp').text('')
+                            //显示
+                        $('#adsMes').val(tabMesSimple.row('.selected').data().else)
+                        $('#AdsStaOp').text(tabMesSimple.row('.selected').data().status)
+                        $('#ImgShow').attr('src',tabMesSimple.row('.selected').data().url)
                     }catch(e){
-                        
+                        console.log(e)
                     }
+                })
+                //新建广告节点
+                $('#NewAds').on('click',function(){
+                    //清空模态框中的数据
+                    $("#adsMes").val('')
+                    $('#AdsImg').val('')
+                    $('#ImgShow').attr('src','')
+                    $('#AdsStaOp').text('')
+                    //显示模态框
+                    $('#ads-mes').modal('show')
                 })
 			</script>
 	</body>

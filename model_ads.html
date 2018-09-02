@@ -1,0 +1,87 @@
+<!--ads begin-->
+<div id="ads-mes" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header no-padding">
+                <div class="table-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <span class="white">&times;</span>
+                    </button>
+                    <span>广告轮播</span>
+                    <input id="MesId" hidden="hidden" />
+                </div>
+            </div>
+            <div class="modal-body no-padding">
+                <div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right"> 广告语：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <input class="NewDocMes" type="text" id="adsMes" />
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+                
+                <div class="form-group has-info page-header" style="height: 50px;">
+                    <label class="col-sm-3 control-label no-padding-right"> 是否设置为热门：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <select id="AdsSta">
+                                <option id="AdsStaOp"></option>
+                                <option>是</option>
+                                <option>否</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+                
+                <div class="form-group has-info page-header" style="height: 50px;">
+                    <label class="col-sm-3 control-label no-padding-right"> 广告图：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <input type="file" id="AdsImg"/>
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+                
+                <div class="form-group has-info page-header" style="height: 250px;">
+                    <label class="col-sm-3 control-label no-padding-right"> 成功预览：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <img width="416px" height="200px" id="ImgShow" />
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+
+            </div>
+            <br /><br />
+            <div class="modal-footer no-margin-top">
+                <button class="btn btn-sm btn-success pull-right" data-dismiss="" id="ProMesSave">
+                    <i class="ace-icon fa fa-floppy-o bigger-125"></i>
+                    <span>保存</span>
+                </button>
+                <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                    <i class="ace-icon fa fa-times"></i>
+                    <span>关闭</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--ads end-->
+<script type="text/javascript">
+$('#ProMesSave').on('click',function(){
+    //修改
+    if (($('#MesId').val()).length) {
+    	EditAds()
+    }
+    //新建
+    else{
+        AddAds()
+    }
+    $('#protype-add').modal('hide')
+})
+</script>

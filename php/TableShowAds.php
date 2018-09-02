@@ -9,13 +9,14 @@
         $i = 0;
         while($row = $result->fetch_assoc())
         {
+            $data['aaData'][$i]['id'] = $row['id'];
             $data['aaData'][$i]['url'] = $row['图片地址'];
             $data['aaData'][$i]['else'] = $row['广告说明'];
             $data['aaData'][$i]['place'] = $row['位置信息'];
-            $status = '无';
+            $status = '否';
             if($row['热门状态'] == 1)
             {
-                $status = '热门';
+                $status = '是';
             }
             $data['aaData'][$i]['status'] = $status;
             $i++;

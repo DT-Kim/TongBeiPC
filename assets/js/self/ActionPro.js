@@ -1,6 +1,6 @@
 //新建类型
 function AddProType()
-{
+{    
     if(($('#ProTypeName').val()).length)
     {
         $.ajax({

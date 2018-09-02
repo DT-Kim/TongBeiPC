@@ -62,20 +62,16 @@
 			    <div class="widget-main padding-24">
                     <span style="font-size: 22px;"> 产品管理 </span>
                     <div class="hr hr8 hr-double hr-dotted"></div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-5">
                         <button class="btn btn-success" id="NewType">增加类型</button>
                         <button class="btn btn-danger" onclick="DelProType()">删除类型</button>
                         <button class="btn btn-primary" href="#protype-add" role="button" data-toggle="modal">编辑类型</button>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-7">
                         <button class="btn btn-success">增加产品</button>
-                        <button class="btn btn-danger">删除产品</button>
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
-                        <a href="admin_pro_plus.html" target="_blank"><button class="btn btn-primary" id="showDetali">查看详情</button></a>
+                        <!--<a href="admin_pro_plus.html" target="_blank"><button class="btn btn-primary" id="showDetali">查看详情</button></a>-->
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-5">
                         <div class="widget-box">
                             <div class="widget-header widget-header-flat">
                                 <h4 class="widget-title smaller">
@@ -102,7 +98,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-7">
                         <div class="widget-box">
                             <div class="widget-header widget-header-flat">
                                 <h4 class="widget-title smaller">
@@ -118,15 +114,10 @@
                                                 <th>单位</th>
                                                 <th>单价</th>
                                                 <th>积分倍数</th>
+                                                <td>热门状态</td>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>产品名称</td>
-                                                <td>单位</td>
-                                                <td>单价</td>
-                                                <td>积分倍数</td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -188,13 +179,14 @@
                     }],
                 });
                 tabMesList = $('#dynamic-table-list').DataTable({
-//                  ajax:showMes,
-//                  columns:[
-//                      {"data":'formName'},
-//                      {"data":'uploadTime'},
-//                      {"data":'page'},
-//                      {"data":'page'},
-//                  ],
+                    ajax:'php/TableShowPro.php?falg=list&typeId=0',
+                    columns:[
+                        {"data":'ListName'},
+                        {"data":'ListUnit'},
+                        {"data":'ListPrice'},
+                        {"data":'ListScore'},
+                        {"data":'ListSta'},
+                    ],
                     oLanguage: {
                         sLengthMenu: "显示 _MENU_ 条数据",
                     },
@@ -215,9 +207,13 @@
                         $(this).addClass('selected');
                     }
                     try{
-                        $('#ProTypeId').attr('value',tabMesType.row('.selected').data().id)
+                        //显示产品类型信息
+                        var TypeId = tabMesType.row('.selected').data().id
+                        $('#ProTypeId').attr('value',TypeId)
                         $('#ProTypeName').attr('value',tabMesType.row('.selected').data().typeName)
                         $('#ProTypeElse').text(tabMesType.row('.selected').data().typeElse)
+                        //刷新产品列表
+                        tabMesList.ajax.url( 'php/TableShowPro.php?falg=list&typeId='+TypeId ).load();
                     }catch(e){
                         
                     }
@@ -231,21 +227,21 @@
                         $(this).addClass('selected');
                     }
                     try{
-                        alert('click')
+//                      console.log(tabMesList.row('.selected').data().ProListId)
+                        window.open('admin_pro_plus.html?data='+tabMesList.row('.selected').data().ProListId,'_blank')
                     }catch(e){ }
                 })
             })
 			/*
 			 * FUNCTION
 			 */
-			//产品类型 新建
+			//新建清空
 			$('#NewType').on('click',function(){
 			    $('#ProTypeId').val('')
                 $('#ProTypeName').val('')
                 $('#ProTypeElse').val('')
                 $('#protype-add').modal('show')
 			})
-			
 		</script>
 	</body>
 
