@@ -112,12 +112,23 @@
                                         <br /><br />
                                         <div class="profile-user-info profile-user-info-striped">
                                             <div class="profile-info-row">
+                                                <div class="profile-info-name"> 状态</div>
+                                                <div class="profile-info-value">
+                                                    <button class="btn btn-primary">显示/隐藏</button>
+                                                </div>
+                                            </div>
+                                             
+                                        </div>
+                                        <div class="profile-user-info profile-user-info-striped">
+                                            <div class="profile-info-row">
                                                 <div class="profile-info-name"> 图片说明 </div>
                                                 <div class="profile-info-value">
                                                     <span class="editable" id="ImgElse">  </span>
                                                 </div>
                                             </div>
+                                             
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -146,6 +157,9 @@
 			<script src="assets/js/ace.min.js"></script>
 			<!--self-->
 			<script src="assets/js/self/ActionAds.js"></script>
+			
+		 
+        
 			<script type="text/javascript">
 				/*
 				 * INI Page
@@ -158,6 +172,7 @@
 					/*
 					 * INI DataTable
 					 */
+					
 					tabMesSimple = $('#dynamic-table').DataTable({
     	                ajax:'php/TableShowAds.php',
     	                columns:[

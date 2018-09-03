@@ -45,6 +45,7 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+
 		<style type="text/css">
 			.editable{
 				 border: 1px solid #FFFFFF;
@@ -82,11 +83,14 @@
                             <div class="tabbable">
                                 <ul class="nav nav-tabs padding-12">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#"> 用户列表 </a>
+                                        <a data-toggle="tab" href="#list1"> 用户列表 </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#list2"> 统计视图 </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div id="home1" class="tab-pane in active">
+                                    <div id="list1" class="tab-pane in active">
                                         <table id="dynamic-table-user" class="table table-striped table-bordered table-hover" style="width: 100%;">
                                             <thead>
                                                 <tr>
@@ -112,6 +116,33 @@
                                         </table>
                                     </div>
                                    <!-- home1over-->
+                                   <div id="list2" class="tab-pane">
+                                   	 <table id='myTable5'>
+											<caption>会员地区分布</caption>
+											<thead>
+												<tr>
+													<th></th>
+													<th>河北</th>
+													<th>河南</th>
+													<th>湖北</th>
+													<th>湖南</th>
+													<th>山东</th>
+													<th>山西</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th>1200</th>
+													<td>540</td>
+													<td>300</td>
+													<td>150</td>
+													<td>180</td>
+													<td>120</td>
+													<td>180</td>
+												</tr>
+											</tbody>
+										</table>  
+                                   </div>
                                 </div>
                             </div>
                         </div>
@@ -241,12 +272,34 @@
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
 		
+		
+		
 	<!--地区三级联动插件-->
-		<script src="js/distpicker.data.js"></script>
-	  	<script src="js/distpicker.js"></script>
-	  	<script src="js/main.js"></script>
+		<script src="assets/js/self/distpicker.data.js"></script>
+	  	<script src="assets/js/self/distpicker.js"></script>
+	  	<script src="assets/js/self/main.js"></script>
+	<!-- 图表-->
+		<script type="text/javascript" src="assets/js/chart/jsapi.js"></script>
+		<script type="text/javascript" src="assets/js/chart/corechart.js"></script>		
+		<script type="text/javascript" src="assets/js/chart/jquery.gvChart-1.0.1.min.js"></script>
+		<script type="text/javascript" src="assets/js/chart/jquery.ba-resize.min.js"></script>
+		
 		<script type="text/javascript">
-			
+		gvChartInit();
+		$(document).ready(function(){
+			$('#myTable5').gvChart({
+				chartType: 'PieChart',
+				gvSettings: {
+					vAxis: {title: 'No of players'},
+					hAxis: {title: 'Month'},
+					width: 420,
+					height: 350
+				}
+			});
+		});
+		</script>
+			  	
+		<script type="text/javascript">
 		    /*
 		     * INI Page
 		     */
@@ -255,16 +308,7 @@
             $("#leftTree").load("pageLeft.html")
             $("#footer").load("pageFoot.html")
 			jQuery(function($) {
-				
-				 //show detali
-                $('#showDetali').on('click',function(){
-                    
-                })
-                //查询
-                $('#chaxun').on('click',function(){
-//              	self.location='query_use_tab.html'
-                })
-			    /*
+				/*
 			     * INI DataTable
 			     */
 			    tabMesUse = $('#dynamic-table-user').DataTable({
@@ -311,8 +355,8 @@
                     }
                    
                 })
-			})
 
+			})
 			var szqy=document.getElementById("szqy");
 			szqy.style.display="none";
 			function select(){
@@ -328,6 +372,8 @@
 			}
 			
 		</script>
+		
+
 	</body>
 
 </html>
