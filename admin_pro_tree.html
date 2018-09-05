@@ -68,7 +68,7 @@
                         <button class="btn btn-primary" href="#protype-add" role="button" data-toggle="modal">编辑类型</button>
                     </div>
                     <div class="col-xs-7">
-                        <button class="btn btn-success">增加产品</button>
+                        <button class="btn btn-success" id="NewPro">增加产品</button>
                         <!--<a href="admin_pro_plus.html" target="_blank"><button class="btn btn-primary" id="showDetali">查看详情</button></a>-->
                     </div>
                     <div class="col-xs-5">
@@ -180,6 +180,7 @@
                     }],
                 });
                 tabMesList = $('#dynamic-table-list').DataTable({
+                	
                     ajax:'php/TableShowPro.php?falg=list&typeId=0',
                     columns:[
                         {"data":'ListName'},
@@ -187,6 +188,7 @@
                         {"data":'ListPrice'},
                         {"data":'ListScore'},
                         {"data":'ListSta'},
+                        {"data":'ListShow'}
                     ],
                     oLanguage: {
                         sLengthMenu: "显示 _MENU_ 条数据",
@@ -243,6 +245,12 @@
                 $('#ProTypeElse').val('')
                 $('#protype-add').modal('show')
 			})
+			
+			$('#NewPro').on('click',function(){
+				
+				$('#promes-add').modal('show')
+			})
+			
 		</script>
 	</body>
 

@@ -18,7 +18,8 @@ function AddProType()
         	    {
         	        alert('新建成功')
         	        $('#ProTypeName').attr('value','')
-        	       $('#ProTypeElse').attr('value','')
+        	        $('#ProTypeElse').attr('value','')
+        	        tabMesType.ajax.reload();
         	    }
         	    if(data['status'] == 'exist')
         	    {
@@ -50,6 +51,7 @@ function DelProType()
             if(data['status'] == 'success')
             {
                 alert('产品类型删除成功')
+                tabMesType.ajax.reload();
             }
         },
         error:function(s,e,t)
@@ -81,8 +83,9 @@ function EditProType()
         	        alert('产品类型修改成功')
         	        $('#ProTypeName').attr('value','')
                     $('#ProTypeElse').attr('value','')
+                    tabMesType.ajax.reload();
         	    }
-        	},
+        	}, 
         	error:function(s,e,t){
         	    alert('产品类型修改失败，请及时联系管理员')
         	}
@@ -95,7 +98,49 @@ function EditProType()
 //新建产品
 function AddProNew()
 {
-    alert('新建产品')
+//  alert('新建产品')
+        
+	if(($('#ListName').val()).length)
+    {
+    	var idvalue=document.getElementById("ProTypeId").value;
+    	var listid=idvalue;
+        $.ajax({
+        	type:"post",
+        	url:"php/ProType.php",
+        	async:true,
+        	dataType:'json',
+        	data:{
+        	    falg:'addNewPro',
+        	    name:$('#ListName').val(),
+        	    unit:$('#ListUnit').val(),
+        	    price:$('#ListPrice').val(),
+        	    score:$('#ListScore').val(),
+        	    listid:listid
+        	},
+        	
+        	success:function(data){
+        	    if(data['status'] == 'success')
+        	    {
+        	        alert('新建成功')
+        	        $('#ListName').attr('value','')
+        	        $('#ListUnit').attr('value','')
+        	        $('#ListPrice').attr('value','')
+        	        $('#ListScore').attr('value','')
+        	        $('#ListId').attr('value','')
+        	        tabMesList.ajax.reload();
+        	    }
+        	    if(data['status'] == 'exist')
+        	    {
+        	        alert('产品已存在，请核实后再新建')
+        	    }
+        	},
+        	error:function(s,e,t){
+        	    alert('产品新建失败，请及时联系管理员')
+        	}
+        });
+    }else{
+        alert('请将产品名填写完整')
+    }
 }
 
 //删除产品

@@ -57,33 +57,79 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         <span class="white">&times;</span>
                     </button>
-                    <span>产品类型</span>
+                    <span>增加产品</span>
+                    <input id="ListId" hidden="hidden" />
                 </div>
             </div>
             <div class="modal-body no-padding">
                 <div class="form-group has-info  page-header">
-                    <label class="col-sm-3 control-label no-padding-right">产品类型 ：</label>
+                    <label class="col-sm-3 control-label no-padding-right">产品名称：</label>
                     <div class="col-sm-5">
                         <span class="block input-icon input-icon-right">
-                            <input class="NewDocMes" type="text" id="" />
+                            <input class="NewDocMes" type="text" id="ListName" />
                         </span>
                     </div>
                     <div class="help-block col-xs-12 col-sm-reset inline"> </div>
                 </div>
-                
                 <div class="form-group has-info  page-header">
-                    <label class="col-sm-3 control-label no-padding-right">产品说明 ：</label>
+                    <label class="col-sm-3 control-label no-padding-right">单位 ：</label>
                     <div class="col-sm-5">
                         <span class="block input-icon input-icon-right">
-                            <textarea class="NewDocMes" type="text" id="" ></textarea>
+                            <input class="NewDocMes" type="text" id="ListUnit" />
                         </span>
                     </div>
                     <div class="help-block col-xs-12 col-sm-reset inline"> </div>
                 </div>
+                <div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right">单价 ：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <input class="NewDocMes" type="text" id="ListPrice" />
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+                <div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right">积分倍数 ：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <input class="NewDocMes" type="text" id="ListScore" />
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+                <!--<div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right">热门状态 ：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <input class="NewDocMes" type="text" id="ListSta" hidden="hidden"/>
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>
+                <div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right">状态 ：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <input class="NewDocMes" type="text" id="ListShow"  hidden="hidden"/>
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>-->
+                <!--<div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right">商品说明 ：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <textarea class="NewDocMes" type="text" id="ProExcElse" ></textarea>
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>-->
+
             </div>
             <br /><br />
             <div class="modal-footer no-margin-top">
-                <button class="btn btn-sm btn-success pull-right" data-dismiss="">
+                <button class="btn btn-sm btn-success pull-right" data-dismiss="" id="prosave">
                     <i class="ace-icon fa fa-floppy-o bigger-125"></i>
                     <span>保存</span>
                 </button>
@@ -106,6 +152,10 @@ $('#ProMesSave').on('click',function(){
     else{
         AddProType()
     }
+    $('#protype-add').modal('hide');
+})
+$('#prosave').on('click',function(){
+       AddProNew()
     $('#protype-add').modal('hide');
 })
 </script>
