@@ -48,49 +48,41 @@
 			.search_ord
 			{
 				padding-bottom: 20px;
-				
-			}
-						
-			.jiange
-			{
-				margin-top:10px ;
-			}
-			
-			.hm,.sjr,.dq,.ddbh,.yhm,.shijian
-			{
-				width:140px ;
-				height:30px ;
-				
-			}
-			
-			.plus 
-			{
-				margin-left:29px;
-			}
-			
-			.sjr,.yhm
-			{
-				margin-left:36px;
-			}
-			
-			.dq
-			{
-				margin-left:46px;
-			}
-			.ddbh
-			{
-				margin-left:33px;
-			}
-			.hm
-			{
-				margin-left:10px ;
 			}
 			.chaxun
 			{
 				margin-left: 40px;
 			}
-			
-
+			#ordnum,#usename,#ordsta{
+				margin-left: 20px;
+				margin-right: 10px;
+			}
+			#ordtime{
+				margin-left: 20px;
+				margin-right: 23px;
+			}
+			#gettime,#proname,#usephone,#address
+			{
+				margin-left: 20px;
+			}
+			#sendname{
+				margin-left: 33px;
+				margin-right: 9px;
+			}	
+			#sendnumb
+			{
+				margin-left: 8px;
+			}	
+			#address{
+				width: 300px;
+			}	
+			.chaxun_ord{
+				margin-left: 50px;
+			}
+            .jiange{
+            	margin-top: 15px;
+            } 
+              
 		</style>
 	</head>
 
@@ -109,9 +101,9 @@
 			    <div class="widget-main padding-24">
                     <span style="font-size: 22px;"> 订单专查 </span>
                     <div class="hr hr8 hr-double hr-dotted"></div>
-                    <div class="col-xs-12">
+                    <!--<div class="col-xs-12">
                         <button class="btn btn-primary" id="showDetali"> 保存详情 </button>
-                    </div>
+                    </div>-->
                     <div class="col-xs-12">
                         <div class="widget-box">
                             <div class="widget-header widget-header-flat">
@@ -121,11 +113,15 @@
                             <div class="tabbable">
                                 <ul class="nav nav-tabs padding-12">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#home1">未收货 </a>
+                                        <a data-toggle="tab" href="#home1">待收货 </a>
                                     </li>
                                     <li>
-                                        <a data-toggle="tab" href="#home2">已收货 </a>
+                                        <a data-toggle="tab" href="#home4">待核实 </a>
                                     </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#home2">已完成 </a>
+                                    </li>
+                                    
                                     <li>
                                         <a data-toggle="tab" href="#home3">条件查询 </a>
                                     </li>
@@ -137,31 +133,41 @@
                                             <thead>
                                                 <tr>
                                                     <th>订单编号</th>
-                                                    <th>用户名</th>
-                                                    <th>订单名称</th>
-                                                    <th>订单总价</th>
-                                                    <th>下单时间</th>
-                                                    <th>付款时间</th>
-                                                    <th>发货时间</th>
-                                                    <th>收货人</th>
+                                                    <th>产品名</th>
+                                                    <th>数量</th>
+                                                    <th>单位</th>
+                                                    <th>单价</th>
+                                                    <th>金额</th>
+                                                    <th>总金额</th>
+                                                    <th>用户姓名</th>
+                                                    <th>下单手机</th>
+                                                    <th>积分总数</th>
                                                     <th>收货地址</th>
-                                                    <th>收货人号码</th>
-                                                    <th>物流信息</th>
+                                                    <th>下单时间</th>
+                                                    <th>交易状态</th>
+                                                    <th>物流员</th>
+                                                    <th>物流员手机</th>
+                                                    <th>物流收货时间</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>208456412314134</td>
-                                                    <td>娜娜</td>
-                                                    <td>水壶</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>暂未发货</td>
-                                                    <td>娜娜</td>
-                                                    <td>广东省中山市电子科技大学中山学院</td>
-                                                    <td>1234567890</td>
-                                                    <td>无</td>
+                                                    <td>订单编号</td>
+                                                    <td>产品名</td>
+                                                    <td>数量</td>
+                                                    <td>单位</td>
+                                                    <td>单价</td>
+                                                    <td>金额</td>
+                                                    <td>总金额</td>
+                                                    <td>用户姓名</td>
+                                                    <td>下单手机</td>
+                                                    <td>积分总数</td>
+                                                    <td>收货地址</td>
+                                                    <td>下单时间</td>
+                                                    <td>交易状态</td>
+                                                    <td>物流员</td>
+                                                    <td>物流员手机</td>
+                                                    <td>物流收货时间</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -172,35 +178,43 @@
 										<table id="dynamic-table2" class="table table-striped table-bordered table-hover"style="width: 100%;">
                                             <thead>
                                                 <tr>
-                                                     <th>订单编号</th>
-                                                    <th>用户名</th>
-                                                    <th>订单名称</th>
-                                                    <th>订单总价</th>
-                                                    <th>下单时间</th>
-                                                    <th>付款时间</th>
-                                                    <th>发货时间</th>
-                                                    <th>收货时间</th>
-                                                    <th>收货人</th>
+                                                    <th>订单编号</th>
+                                                    <th>产品名</th>
+                                                    <th>数量</th>
+                                                    <th>单位</th>
+                                                    <th>单价</th>
+                                                    <th>金额</th>
+                                                    <th>总金额</th>
+                                                    <th>用户姓名</th>
+                                                    <th>下单手机</th>
+                                                    <th>积分总数</th>
                                                     <th>收货地址</th>
-                                                    <th>收货人号码</th>
-                                                    <th>物流信息</th>
+                                                    <th>下单时间</th>
+                                                    <th>交易状态</th>
+                                                    <th>物流员</th>
+                                                    <th>物流员手机</th>
+                                                    <th>物流收货时间</th>
                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>208456412314134</td>
-                                                    <td>娜娜</td>
-                                                    <td>水壶</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>暂未发货</td>
-                                                    <td>娜娜</td>
-                                                    <td>广东省中山市电子科技大学中山学院</td>
-                                                    <td>1234567890</td>
-                                                    <td>无</td>
+                                                    <td>订单编号</td>
+                                                    <td>产品名</td>
+                                                    <td>数量</td>
+                                                    <td>单位</td>
+                                                    <td>单价</td>
+                                                    <td>金额</td>
+                                                    <td>总金额</td>
+                                                    <td>用户姓名</td>
+                                                    <td>下单手机</td>
+                                                    <td>积分总数</td>
+                                                    <td>收货地址</td>
+                                                    <td>下单时间</td>
+                                                    <td>交易状态</td>
+                                                    <td>物流员</td>
+                                                    <td>物流员手机</td>
+                                                    <td>物流收货时间</td>
                                                     
                                                 </tr>
                                             </tbody>
@@ -210,55 +224,121 @@
                                    <!--home3start-->
                                     <div id="home3" class="tab-pane">
                                        	<div class="search_ord">
-	                                       	<div class="jiange">订单编号:<input type="text" class="ddbh"></div>
-	                                       	<div class="jiange">用户名：<input type="text" class="yhm"></div>
-	                                       	<div class="jiange">收件人：<input type="text" class="sjr"></div>
-	                                       	<div class="jiange">收件人号码：<input type="text" class="hm"></div>
-	                                       	<div class="jiange">下单时间 :<input type="date" class="shijian plus">——<input type="date" class="shijian"></div>
-	                                       	<div class="jiange" data-toggle="distpicker">地区：
-												<select data-province="---- 选择省 ----" class="dq"></select>
-												<select data-city="---- 选择市 ----"></select>
-												<select data-district="---- 选择区 ----"></select><button class="chaxun btn btn-primary">查询</button>
+	                                       	<div class="jiange">
+	                                       		订单编号：<input type="text" id="ordnum">  产品名称：<input type="text" id="proname">
+	                                       	</div>   
+	                                       	<div class="jiange">
+	                                       		用户姓名：<input type="text" id="usename"> 下单号码：<input type="text" id="usephone">
+	                                       	</div>
+	                                       	<div class="jiange">
+	                                       		下单时间：<input type="date"id="ordtime">  收货时间：<input type="date"id="gettime">
+	                                       		
+	                                       	</div>
+	                                       	<div class="jiange">
+	                                       		物流员：<input type="text"id="sendname">  物流员手机：<input type="text"id="sendnumb">
+	                                       	</div>
+	                                        <div class="jiange">
+	                                        	交易状态：<input type="text" id="ordsta">
+	                                        	收货地址：<input type="text" id="address">
+	                                        	<button class="chaxun_ord btn btn-primary" id="ordsearch">查询</button>
 	                                        </div>
                                         </div>
                                       <table id="dynamic-table3" class="table table-striped table-bordered table-hover"style="width: 100%;">
                                             <thead>
                                                 <tr>
-                                                     <th>订单编号</th>
-                                                    <th>用户名</th>
-                                                    <th>订单名称</th>
-                                                    <th>订单总价</th>
-                                                    <th>下单时间</th>
-                                                    <th>付款时间</th>
-                                                    <th>发货时间</th>
-                                                    <th>收货时间</th>
-                                                    <th>收货人</th>
+                                                    <th>订单编号</th>
+                                                    <th>产品名</th>
+                                                    <th>类型</th>
+                                                    <th>数量</th>
+                                                    <th>单位</th>
+                                                    <th>单价</th>
+                                                    <th>金额</th>
+                                                    <th>总金额</th>
+                                                    <th>用户姓名</th>
+                                                    <th>下单手机</th>
+                                                    <th>积分总数</th>
                                                     <th>收货地址</th>
-                                                    <th>收货人号码</th>
-                                                    <th>物流信息</th>
+                                                    <th>下单时间</th>
+                                                    <th>交易状态</th>
+                                                    <th>物流员</th>
+                                                    <th>物流员手机</th>
+                                                    <th>物流收货时间</th>
                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>208456412314134</td>
-                                                    <td>娜娜</td>
-                                                    <td>水壶</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>2018.02.04</td>
-                                                    <td>暂未发货</td>
-                                                    <td>娜娜</td>
-                                                    <td>广东省中山市电子科技大学中山学院</td>
-                                                    <td>1234567890</td>
-                                                    <td>无</td>
+                                                    <td>订单编号</td>
+                                                    <td>产品名</td>
+                                                    <td>类型</td>
+                                                    <td>数量</td>
+                                                    <td>单位</td>
+                                                    <td>单价</td>
+                                                    <td>金额</td>
+                                                    <td>总金额</td>
+                                                    <td>用户姓名</td>
+                                                    <td>下单手机</td>
+                                                    <td>积分总数</td>
+                                                    <td>收货地址</td>
+                                                    <td>下单时间</td>
+                                                    <td>交易状态</td>
+                                                    <td>物流员</td>
+                                                    <td>物流员手机</td>
+                                                    <td>物流收货时间</td>
                                                     
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                    <!--home3over-->
+                                   <!--home4start-->
+                                   <div id="home4" class="tab-pane">
+										<table id="dynamic-table4" class="table table-striped table-bordered table-hover"style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>订单编号</th>
+                                                    <th>产品名</th>
+                                                    <th>数量</th>
+                                                    <th>单位</th>
+                                                    <th>单价</th>
+                                                    <th>金额</th>
+                                                    <th>总金额</th>
+                                                    <th>用户姓名</th>
+                                                    <th>下单手机</th>
+                                                    <th>积分总数</th>
+                                                    <th>收货地址</th>
+                                                    <th>下单时间</th>
+                                                    <th>交易状态</th>
+                                                    <th>物流员</th>
+                                                    <th>物流员手机</th>
+                                                    <th>物流收货时间</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>订单编号</td>
+                                                    <td>产品名</td>
+                                                    <td>数量</td>
+                                                    <td>单位</td>
+                                                    <td>单价</td>
+                                                    <td>金额</td>
+                                                    <td>总金额</td>
+                                                    <td>用户姓名</td>
+                                                    <td>下单手机</td>
+                                                    <td>积分总数</td>
+                                                    <td>收货地址</td>
+                                                    <td>下单时间</td>
+                                                    <td>交易状态</td>
+                                                    <td>物流员</td>
+                                                    <td>物流员手机</td>
+                                                    <td>物流收货时间</td>
+                                                    
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--home4end-->
                                 </div>
                             </div>
                         </div>
@@ -284,9 +364,9 @@
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
 			<!--地区三级联动插件-->
-		<script src="assets/js/self/distpicker.data.js"></script>
+		<!--<script src="assets/js/self/distpicker.data.js"></script>
 	  	<script src="assets/js/self/distpicker.js"></script>
-	  	<script src="assets/js/self/main.js"></script>
+	  	<script src="assets/js/self/main.js"></script>-->
 		<script type="text/javascript">
 		    /*
 		     * INI Page
@@ -299,17 +379,25 @@
 			     * INI DataTable
 			     */
 			    tabMesSimple_one = $('#dynamic-table1').DataTable({
-//                  ajax:showMes,
-//                  columns:[
-//                      {"data":'checkBox'},
-//                      {"visible": false,"data":'id'},
-//                      {"data":'rowNum'},
-//                      {"data":'TabNam'},
-//                      {"data":'TabCTm'},
-//                      {"visible": false,"data":'id'},
-//                      {"data":'id'},
-//                      {"visible": false,"data":'id'},
-//                  ],
+                    ajax:'php/TableShowOrd.php?falg=wait',
+                    columns:[
+                        {"data":'ordnum'},
+                        {"data":'proname'},
+                        {"data":'pronum'},
+                        {"data":'prounit'},
+                        {"data":'proprice'},
+                        {"data":'money'},
+                        {"data":'summoney'},
+                        {"data":'usename'},
+                        {"data":'usephone'},
+                        {"data":'excsum'},
+                        {"data":'address'},
+                        {"data":'ordtime'},
+                        {"data":'ordsta'},
+                        {"data":'sendname'},
+                        {"data":'sendnumb'},
+                        {"data":'gettime'},
+                    ],
                     oLanguage: {
                         sLengthMenu: "显示 _MENU_ 条数据",
                     },
@@ -321,17 +409,25 @@
                     }],
                 });
                  tabMesSimple_two = $('#dynamic-table2').DataTable({
-//                  ajax:showMes,
-//                  columns:[
-//                      {"data":'checkBox'},
-//                      {"visible": false,"data":'id'},
-//                      {"data":'rowNum'},
-//                      {"data":'TabNam'},
-//                      {"data":'TabCTm'},
-//                      {"visible": false,"data":'id'},
-//                      {"data":'id'},
-//                      {"visible": false,"data":'id'},
-//                  ],
+                    ajax:'php/TableShowOrd.php?falg=get',
+                    columns:[
+                        {"data":'ordnum'},
+                        {"data":'proname'},
+                        {"data":'pronum'},
+                        {"data":'prounit'},
+                        {"data":'proprice'},
+                        {"data":'money'},
+                        {"data":'summoney'},
+                        {"data":'usename'},
+                        {"data":'usephone'},
+                        {"data":'excsum'},
+                        {"data":'address'},
+                        {"data":'ordtime'},
+                        {"data":'ordsta'},
+                        {"data":'sendname'},
+                        {"data":'sendnumb'},
+                        {"data":'gettime'},
+                    ],
                     oLanguage: {
                         sLengthMenu: "显示 _MENU_ 条数据",
                     },
@@ -343,17 +439,92 @@
                     }],
                 });
                 tabMesSimple_three = $('#dynamic-table3').DataTable({
-//                  ajax:showMes,
-//                  columns:[
-//                      {"data":'checkBox'},
-//                      {"visible": false,"data":'id'},
-//                      {"data":'rowNum'},
-//                      {"data":'TabNam'},
-//                      {"data":'TabCTm'},
-//                      {"visible": false,"data":'id'},
-//                      {"data":'id'},
-//                      {"visible": false,"data":'id'},
-//                  ],
+                    ajax:'php/TableShowOrd.php?falg=all',
+                    columns:[
+                        {"data":'ordnum'},
+                        {"data":'proname'},
+                        {"data":'protype'},
+                        {"data":'pronum'},
+                        {"data":'prounit'},
+                        {"data":'proprice'},
+                        {"data":'money'},
+                        {"data":'summoney'},
+                        {"data":'usename'},
+                        {"data":'usephone'},
+                        {"data":'excsum'},
+                        {"data":'address'},
+                        {"data":'ordtime'},
+                        {"data":'ordsta'},
+                        {"data":'sendname'},
+                        {"data":'sendnumb'},
+                        {"data":'gettime'},
+                    ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0,1]
+                    }],
+                });
+                $("#ordsearch").on("click",function(){
+                	
+                	var pname = $("#proname").val();
+					var onum = $("#ordnum").val();
+					var uname = $("#usename").val();
+					var uphone = $("#usephone").val();
+					var otime = $("#ordtime").val();
+					var gtime = $("#gettime").val();
+					var sname = $("#sendname").val();
+					var snumb = $("#sendnumb").val();
+					var address = $("#address").val();
+					var osta = $("#ordsta").val();
+					tabMesSimple_three
+						.column(0)
+						.search(onum)
+						.column(1)
+						.search(pname)
+						.column(8)
+						.search(uname)
+						.column(9)
+						.search(uphone)
+						.column(11)
+						.search(address)
+						.column(12)
+						.search(otime)
+						.column(13)
+						.search(osta)
+						.column(14)
+						.search(sname)
+						.column(15)
+						.search(snumb)
+						.column(16)
+						.search(gtime)
+						.draw();
+
+                });
+                tabMesSimple_four = $('#dynamic-table4').DataTable({
+                    ajax:'php/TableShowOrd.php?falg=question',
+                    columns:[
+                        {"data":'ordnum'},
+                        {"data":'proname'},
+                        {"data":'pronum'},
+                        {"data":'prounit'},
+                        {"data":'proprice'},
+                        {"data":'money'},
+                        {"data":'summoney'},
+                        {"data":'usename'},
+                        {"data":'usephone'},
+                        {"data":'excsum'},
+                        {"data":'address'},
+                        {"data":'ordtime'},
+                        {"data":'ordsta'},
+                        {"data":'sendname'},
+                        {"data":'sendnumb'},
+                        {"data":'gettime'},
+                    ],
                     oLanguage: {
                         sLengthMenu: "显示 _MENU_ 条数据",
                     },
