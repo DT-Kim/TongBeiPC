@@ -353,13 +353,12 @@
             	type:"post",
             	url:"php/Proplus.php",
             	async:true,
-            	datatype:'json',
-            	data:{id:proid},
+            	dataType:'json',
+            	data:{
+            	    id:proid
+            	},
             	success:function(data){
-            		var ob = JSON.parse(data); 
-//          		alert(typeof(data))
-//	            		alert(ob.proname);
-	            		$('#proname').text(ob.proname);
+            	    console.log(data)
             	},
             	error:function(s,e,t){
             		
