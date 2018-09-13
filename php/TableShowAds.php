@@ -13,6 +13,7 @@
             $data['aaData'][$i]['url'] = $row['图片地址'];
             $data['aaData'][$i]['else'] = $row['广告说明'];
             $data['aaData'][$i]['place'] = $row['位置信息'];
+            $data['aaData'][$i]['stament'] = $row['图片状态'];
             $status = '否';
             if($row['热门状态'] == 1)
             {

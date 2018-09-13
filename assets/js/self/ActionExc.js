@@ -49,6 +49,7 @@ function DelExc(){
 			falg:'delExc',
 			id:$('#ExcId').val(),
 		},
+//		console.log(data)
 		success:function(data){
 			if(data['status'] == 'success')
             {

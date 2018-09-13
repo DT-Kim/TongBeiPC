@@ -29,7 +29,7 @@
 		<![endif]-->
 		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
-
+		<link rel="stylesheet" href="assets/css/self/buton.css" />
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
@@ -54,6 +54,7 @@
 				width: auto;
 				height: 350px;
 			}
+			
 		</style>
 	</head>
 	<body class="no-skin">
@@ -69,8 +70,8 @@
     			    <span style="font-size: 22px;"> 广告轮播</span>
                     <div class="hr hr8 hr-double hr-dotted"></div>
                     <div class="col-xs-5">
-                        <button class="btn btn-primary" id="NewAds">新建节点</button>
-                        <button class="btn btn-primary" id="DelAds">删除节点</button>
+                        <button class="btn btn-success" id="NewAds">新建节点</button>
+                        <button class="btn btn-danger" onclick="DelAds()">删除节点</button>
                     </div>
                     <div class="col-xs-7">
                         <button class="btn btn-primary" href="#ads-mes" role="button" data-toggle="modal">修改节点属性</button>
@@ -107,17 +108,23 @@
                             </div>
                             <div class="widget-body">
                                 <div class="widget-main">
-                                    <div class="tab-content">
+                                    <div class="tab-content" >
                                         <img width="426px" height="200px" id="ImgSel"/>
                                         <br /><br />
-                                        <div class="profile-user-info profile-user-info-striped">
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 状态</div>
-                                                <div class="profile-info-value">
-                                                    <button class="btn btn-primary">显示/隐藏</button>
-                                                </div>
+                                       
+                                        <div class="profile-user-info profile-user-info-striped"  >
+                                            <div class="profile-info-row" >
+                                            	<div class="profile-info-name">图片状态 </div>
+                                            	<div class="profile-info-value">
+                                                <div class="switch" id="refresh">
+													<div class="btn_fath clearfix on" id="move1" onclick="toogle(this)" >
+												    	<div class="move" value="" id="stament"></div>
+												    	<div class="btnSwitch btn1" id="sphoto">ON</div>
+												    	<div class="btnSwitch btn2" id="cphoto">OFF</div>
+												 </div>
+												</div>
                                             </div>
-                                             
+                                        </div>
                                         </div>
                                         <div class="profile-user-info profile-user-info-striped">
                                             <div class="profile-info-row">
@@ -128,7 +135,7 @@
                                             </div>
                                              
                                         </div>
-                                        
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -168,6 +175,26 @@
 				$("#leftTree").load("pageLeft.html")
 				$("#footer").load("pageFoot.html")
 				$('#model-ads').load('model_ads.html')
+				
+				function toogle(th){
+				    var ele = $(th).children(".move");
+				    if(ele.attr("value") == "on"){
+				    	ele.animate({left: "0"}, 300, function(){
+					    	ele.attr("value", "off");
+					    	$('#stament').attr("value","off");
+					    	closephoto();
+				    	});
+				    	$("#refresh").load(location.href+" #refresh");
+				    } 
+				    else if(ele.attr("value") == "off"){
+				    	ele.animate({left: '40px'}, 300, function(){
+					     	$(this).attr("value", "on");
+					     	$('#stament').attr("value","on");
+					    	showphoto();
+				    	});
+				   		$("#refresh").load(location.href+" #refresh");
+				  	}
+				}
 				jQuery(function($) {
 					/*
 					 * INI DataTable
@@ -190,15 +217,11 @@
 							'aTargets': [0]
 						}],
 					});
-					 var table = $('#dynamic-table').DataTable();
-    				$('.red').on( 'click', function () {
-					       table.row('tr').remove().draw( false );
-    				});
-    				$('.blue').on( 'click', function () {
-					       table.rows.add();
-    				});
+//					 
 				})
 				//ACTION
+					
+						
                 $('#dynamic-table tbody').on('click', 'tr', function () {
                     if ($(this).hasClass('selected')) {
                         $(this).removeClass('selected');
@@ -210,8 +233,10 @@
                     try{
                         
                         //右边信息框
+                        $('#MesId').attr('value',tabMesSimple.row('.selected').data().id)
                         $('#ImgSel').attr('src',tabMesSimple.row('.selected').data().url)
                         $('#ImgElse').text(tabMesSimple.row('.selected').data().else)
+                        
                         //模态框信息显示
                             //清空
                         $("#adsMes").val('')
@@ -222,13 +247,25 @@
                         $('#adsMes').val(tabMesSimple.row('.selected').data().else)
                         $('#AdsStaOp').text(tabMesSimple.row('.selected').data().status)
                         $('#ImgShow').attr('src',tabMesSimple.row('.selected').data().url)
-                    }catch(e){
+                        $('#stament').attr('value',tabMesSimple.row('.selected').data().stament)
+                         tabMesSimple.ajax.reload();
+						if($('#stament').attr("value")=="off"){
+								$("#move1").removeClass("on").addClass("off");
+							}
+						if($('#stament').attr("value")=="on")
+							{
+								$("#move1").removeClass("off").addClass("on");
+							}
+							
+                    }
+                    catch(e){
                         console.log(e)
                     }
                 })
                 //新建广告节点
                 $('#NewAds').on('click',function(){
                     //清空模态框中的数据
+                    $('#MesId').val('')
                     $("#adsMes").val('')
                     $('#AdsImg').val('')
                     $('#ImgShow').attr('src','')

@@ -38,7 +38,7 @@
                     $data['aaData'][$i]['ListUnit'] = $row['单位'];
                     $data['aaData'][$i]['ListPrice'] = $row['价格'];
                     $data['aaData'][$i]['ListScore'] = $row['积分倍数'];
-                    $data['aaData'][$i]['ListShow'] = $row['状态'];
+                    $data['aaData'][$i]['ListShow'] = $row['产品状态'];
                     $MesSta = '否';
                     if($row['热门状态'] == 1)
                     {

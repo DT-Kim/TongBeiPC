@@ -231,7 +231,7 @@
                     }
                     try{
 //                      console.log(tabMesList.row('.selected').data().ProListId)
-                        window.open('admin_pro_plus.html?data='+tabMesList.row('.selected').data().ProListId,'_blank')
+                        location.href='admin_pro_plus.html?data='+tabMesList.row('.selected').data().ProListId;
                     }catch(e){ }
                 })
             })

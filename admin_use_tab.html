@@ -45,12 +45,6 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
-
-		<style type="text/css">
-			.editable{
-				 border: 1px solid #FFFFFF;
-			}
-		</style>
 	</head>
 
 	<body class="no-skin">
@@ -174,34 +168,34 @@
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name"> 用户账号 </div>
                                                 <div class="profile-info-value">
-                                                    <input class="editable" id="useacc" onfocus=this.blur() >
+                                                    <span id="useacc"> </span>
                                                 </div>
                                             </div>
                                             
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name"> 真实姓名</div>
                                                 <div class="profile-info-value">
-                                                    <input class="editable" id="usename" onfocus=this.blur()>
+                                                    <span id="usename"> </span>
                                                 </div>
                                             </div>
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name">用户手机</div>
                                                 <div class="profile-info-value">
-                                                    <input id="usepho" class="editable" onfocus=this.blur()>
+                                                    <span id="usepho"> </span>
                                                 </div>
                                              </div>
                                             <div class="profile-info-row">
                                             	
                                                 <div class="profile-info-name">用户级别 </div>
                                                 <div class="profile-info-value">
-                                                    <input class="editable" id="uselev" onfocus=this.blur()>
+                                                    <span id="uselev"> </span>
                                                 </div>
                                             </div>
                                             
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name">注册时间</div>
                                                 <div class="profile-info-value">
-                                                    <input class="editable" id="usetime" onfocus=this.blur()> 
+                                                    <span id="usetime"> </span> 
                                                 </div>
                                             </div>
                                             <!--<div class="profile-info-row">
@@ -218,7 +212,7 @@
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name"> 权限级别 </div>
                                                 <div class="profile-info-value">
-                                                    <input class="editable" id="qxjb" onfocus=this.blur()> 
+                                                    <span id="qxjb"> </span>
                                                 </div>
                                             </div>
                                             <div class="profile-info-row">
@@ -343,12 +337,12 @@
                     }
                     try{
                     	$('#useid').attr('value',tabMesUse.row('.selected').data().id)
-                        $('#useacc').attr('value',tabMesUse.row('.selected').data().useacc)
-                        $('#usepho').attr('value',tabMesUse.row('.selected').data().usepho)
-                        $('#usename').attr('value',tabMesUse.row('.selected').data().usename)
-                        $('#uselev').attr('value',tabMesUse.row('.selected').data().uselev)
-                        $('#usetime').attr('value',tabMesUse.row('.selected').data().usetime)
-                        $('#qxjb').attr('value',tabMesUse.row('.selected').data().uselev)
+                        $('#useacc').html(tabMesUse.row('.selected').data().useacc)
+                        $('#usepho').html(tabMesUse.row('.selected').data().usepho)
+                        $('#usename').html(tabMesUse.row('.selected').data().usename)
+                        $('#uselev').html(tabMesUse.row('.selected').data().uselev)
+                        $('#usetime').html(tabMesUse.row('.selected').data().usetime)
+                        $('#qxjb').html(tabMesUse.row('.selected').data().uselev)
                         
                     }catch(e){
                         
