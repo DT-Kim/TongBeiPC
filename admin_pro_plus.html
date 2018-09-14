@@ -90,7 +90,7 @@
                     <div class="hr hr8 hr-double hr-dotted"></div>
                     <div class="col-xs-12">
                         <button class="btn btn-danger" id="DelDetali"> 删除详情 </button>
-                        <button class="btn btn-primary" id="showDetali"> 保存详情 </button>
+                        <button class="btn btn-primary" id="SaveDetali"> 保存详情 </button>
                     </div>
                     <div class="col-xs-12">
                         <div class="widget-box">
@@ -101,10 +101,10 @@
                             </div>
                             <div class="tabbable">
                                 <ul class="nav nav-tabs padding-12">
-                                    <li class="active">
+                                    <!--<li class="active">
                                         <a data-toggle="tab" href="#home1">基本信息</a>
-                                    </li>
-                                    <li>
+                                    </li>-->
+                                    <li class="active">
                                         <a data-toggle="tab" href="#home2">产品介绍</a>
                                     </li>
                                     <li>
@@ -112,135 +112,89 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content" >
-                                    <div id="home1" class="tab-pane in active">
-                                        <div class="profile-user-info profile-user-info-striped">
-                                            
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 产品名称 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id="proname"> 2018-7-15 </span>
-                                                </div>
-                                            </div>
-                                            <div class="profile-info-row" >
-                                            	<div class="profile-info-name">图片状态 </div>
-                                            	<div class="profile-info-value">
-                                                <div class="switch" id="refresh">
-													<div class="btn_fath clearfix on" id="move1" onclick="toogle(this)" >
-												    	<div class="move" value="" id="stament"></div>
-												    	<div class="btnSwitch btn1" id="sphoto">ON</div>
-												    	<div class="btnSwitch btn2" id="cphoto">OFF</div>
-												 </div>
-												</div>
-                                            </div>
-                                        </div>
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 积分倍数 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id="">  </span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 单位 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id=""> 2018-7-15 </span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 单价 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id=""> 2018-7-15 </span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 是否热门 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id=""> 2018-7-15 </span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 其他 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id=""> 2018-7-15 </span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="profile-info-row">
-                                                <div class="profile-info-name"> 展示图 </div>
-                                                <div class="profile-info-value">
-                                                    <span class="editable" id=""> 2018-7-15 </span>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                    <div id="home2" class="tab-pane">
+                                    
+                                    <div id="home2" class="tab-pane in active">
 											<div class="clearfix" id="add_picture">
 												<form action="" method="post" class="form form-horizontal" id="form-article-add">
-													<div class="clearfix cl">
-											         <label class="form-label col-2"><span class="c-red">*</span>图片标题：</label>
-													 <div class="formControls col-10"><input type="text" class="input-text" value="" placeholder="" id="" name=""></div>
-													</div>
+													<!--<div class=" clearfix cl">-->
+													
+													<!--</div>-->
 													<div class=" clearfix cl">
-											         <label class="form-label col-2">简略标题：</label>
-												     <div class="formControls col-10"><input type="text" class="input-text" value="" placeholder="" id="" name=""></div>
-													</div>
-													<div class=" clearfix cl">
-														
 														<div class="Add_p_s">
+											         	<label class="form-label col-2">产品名称：</label>
+												     	<div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="proname" name=""></div>
+														</div>
+														<!--<div class="Add_p_s">
 											            <label class="form-label col-2">产品编号：</label>
-														<div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name=""></div>
+														<div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="pronum" name=""></div>
 											            </div>
 														<div class="Add_p_s">
 											             <label class="form-label col-2">产&nbsp;&nbsp;&nbsp;&nbsp;地：</label>	
-														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name=""></div>
+														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="proplace" name=""></div>
 														</div>
 											            <div class="Add_p_s">
-											             <label class="form-label col-2">材&nbsp;&nbsp;&nbsp;&nbsp;质：</label>	
-														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name=""></div>
+											             <label class="form-label col-2">材&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;质：</label>	
+														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="promateri" name=""></div>
 														</div>
 											            <div class="Add_p_s">
-											             <label class="form-label col-2">品&nbsp;&nbsp;&nbsp;&nbsp;牌：</label>	
-														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name=""></div>
+											             <label class="form-label col-2">品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;牌：</label>	
+														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="probrand" name=""></div>
 														</div>
 											             <div class="Add_p_s">
 											             <label class="form-label col-2">产品重量：</label>	
-														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name="" >kg</div>
-														</div>
+														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="proweg" name="" >kg</div>
+														</div>-->
 											             <div class="Add_p_s">
-											             <label class="form-label col-2">单位：</label>	
+											             <label class="form-label col-2">单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</label>	
 														 <div class="formControls col-2"><span class="select-box">
-															<select class="select">
+															<select class="select" id="prounit">
 																<option>请选择</option>
-																<option value="1">件</option>
-																<option value="2">斤</option>
-																<option value="3">KG</option>
-																<option value="4">吨</option>
-																<option value="5">套</option>
+																<option value="件">件</option>
+																<option value="斤">斤</option>
+																<option value="KG">KG</option>
+																<option value="吨">吨</option>
+																<option value="套">套</option>
 															</select>
 															</span></div>
 														</div>
-											            <div class="Add_p_s">
-											             <label class="form-label col-2">展示价格：</label>	
-														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name="" >元</div>
+														<div class="Add_p_s">
+											             <label class="form-label col-2">价&nbsp;&nbsp;&nbsp;&nbsp;格：</label>	
+														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="proprice" name="" >元</div>
 														</div>
-											            <div class="Add_p_s">
+													</div>
+													<div class=" clearfix cl">
+											            
+											            <!--<div class="Add_p_s">
 											             <label class="form-label col-2">市场价格：</label>	
-														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name="" >元</div>
-														</div>
-											           
+														 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="promarket" name="" >元</div>
+														</div>-->
+														<div class="Add_p_s">
+															<label class="form-label col-2">产品状态：</label>
+															<div class="formControls col-2">
+															 	<select class="select" id="prosta">
+																	<option>请选择</option>
+																	<option value="显示">显示</option>
+																	<option value="关闭">关闭</option>
+																</select>
+													        </div>
+												            </div>
+											           <div class="Add_p_s">
+															<label class="form-label col-2">热门状态：</label>
+															<div class="formControls col-2">
+															 	<select class="select" id="prohot">
+																	<option>请选择</option>
+																	<option value="是">是</option>
+																	<option value="否">否</option>
+																</select>
+													        </div>
+											           </div>
+											           <div class="Add_p_s">
+												         	<label class="form-label col-2">积分倍数：</label>
+													     	<div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="exc" name=""></div>
+														    </div>
 														
-													</div>
-													
-													<div class="clearfix cl">
-														<label class="form-label col-2">关键词：</label>
-														<div class="formControls col-10">
-															<input type="text" class="input-text" value="" placeholder="" id="" name="">
 														</div>
-													</div>
+													
 													<div class="clearfix cl">
 														<label class="form-label col-2">内容摘要：</label>
 														<div class="formControls col-10">
@@ -249,7 +203,7 @@
 														</div>
 													</div>
 													
-													<div class="clearfix cl">
+													<!--<div class="clearfix cl">
 														<label class="form-label col-2">图片上传：</label>
 														<div class="formControls col-10">
 															<div class="uploader-list-container"> 
@@ -269,26 +223,14 @@
 																</div>
 															</div>
 														</div>
-													</div>
+													</div>-->
 											         <div class="clearfix cl">
 											         <label class="form-label col-2">详细内容：</label>
 														<div class="formControls col-10">
 															<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> 
 											             </div>
 											        </div>
-											        <div class="clearfix cl">
-											         <label class="form-label col-2">允许评论：</label>
-														<div class="formControls col-2 skin-minimal">
-														 <div class="check-box" style=" margin-top:9px"><input type="checkbox" id="checkbox-1"><label for="checkbox-1">&nbsp;</label></div>
-											             </div>
-											        </div>
-													<div class="clearfix cl">
-														<div class="Button_operation">
-															<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="icon-save "></i>保存并提交审核</button>
-															<button onClick="article_save();" class="btn btn-secondary  btn-warning" type="button"><i class="icon-save"></i>保存草稿</button>
-															<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
-														</div>
-													</div>
+											      
 												</form>
 											    </div>
 																						
@@ -338,10 +280,8 @@
 		$("#top").load("pageTop.html")
 		$("#leftTree").load("pageLeft.html")
 		$("#footer").load("pageFoot.html")
-		jQuery(function($) { //show detali 
-			// 	$('#showDetali').on('click',function(){ 
-			// 		self.location = 'admin_pro_tree.html' window.close(); 
-			// 	}) 
+		jQuery(function($) { 
+			
 			var loc=location.href;
 			var n1=loc.length;//地址的总长度
 			var n2=loc.indexOf("=");//取得=号的位置
@@ -349,45 +289,87 @@
 //			alert(id);
             var proid=document.getElementById("proid").value;
             proid=id;
+              
+//          显示数据
             $.ajax({
             	type:"post",
             	url:"php/Proplus.php",
             	async:true,
             	dataType:'json',
             	data:{
-            	    id:proid
+            		falg:'show',
+            	    id:proid,
             	},
             	success:function(data){
             	    console.log(data)
+            	    $("#proname").val(data.proname);
+            	   	$("#prounit").val(data.prounit);
+            	    $("#proprice").val(data.proprice);
+//          	    $('#protext').val(data.protext);
+            	    $('#prosta').val(data.prosta);
+            	    $('#prohot').val(data.prohot);
+            	    $('#exc').val(data.exc);
             	},
             	error:function(s,e,t){
             		
         		}
-            });
-            function toogle(th) {
-				var ele = $(th).children(".move");
-				if(ele.attr("value") == "on") {
-					ele.animate({
-						left: "0"
-					}, 300, function() {
-						ele.attr("value", "off");
-						$('#stament').attr("value", "off");
-						closephoto();
-					});
-					$("#refresh").load(location.href + " #refresh");
-				} 
-				
-				else if(ele.attr("value") == "off") {
-					ele.animate({
-						left: '40px'
-					}, 300, function() {
-						$(this).attr("value", "on");
-						$('#stament').attr("value", "on");
-						showphoto();
-					});
-					$("#refresh").load(location.href + " #refresh");
-				}
-			}
+            	});
+            	//保存详情
+		 	$('#SaveDetali').on('click',function(){ 
+		 		fData = new FormData();
+		 		fData.append("falg","save");
+		 		fData.append("id",proid);
+			    fData.append("pname",$("#proname").val());
+		 		fData.append('punit',$("#prounit").val());
+		 		fData.append('pprice',$("#proprice").val());
+		 		fData.append('phot',$("#prohot").val());
+		 		fData.append('psta',$("#prosta").val());
+		 		fData.append('exc',$("#exc").val());
+		 		$.ajax({
+		 			type:"post",
+		 			url:"php/Proplus.php",
+		 			async:true,
+		 			dataType:'json',
+		 			data:fData,
+		 			processData:false,
+    				contentType:false,
+		 			success:function(data){
+		 				if(data['status'] == 'success'){
+            				alert('保存成功')
+        				}
+		 			},
+        			error:function(s,e,t){
+				         alert('出现错误，请及时联系管理员');
+					   }
+		 			
+		 		});
+		 		
+		 	}); 
+        
+//          function toogle(th) {
+//          	alert('hello');
+//				var ele = $(th).children(".move");
+//				if(ele.attr("value") == "on") {
+//					ele.animate({left: "0"}, 300, function() {
+//						ele.attr("value", "off");
+//						$('#stament').attr("value", "off");
+////						closephoto();
+//						
+//					});
+//					$("#refresh").load(location.href + " #refresh");
+//				} 
+//				
+//				else if(ele.attr("value") == "off") {
+//					ele.animate({
+//						left: '40px'
+//					}, 300, function() {
+//						$(this).attr("value", "on");
+//						$('#stament').attr("value", "on");
+//						showphoto();
+//					});
+////					$("#refresh").load(location.href + " #refresh");
+//				}
+//			}
 		})
 		
 		</script>
@@ -427,88 +409,7 @@
 				}
 			};
 		
-			var zNodes = [{
-					id: 1,
-					pId: 0,
-					name: "",
-					open: true
-				},
-				{
-					id: 11,
-					pId: 1,
-					name: ""
-				},
-				{
-					id: 111,
-					pId: 11,
-					name: ""
-				},
-				{
-					id: 112,
-					pId: 11,
-					name: ""
-				},
-				{
-					id: 113,
-					pId: 11,
-					name: ""
-				},
-				{
-					id: 114,
-					pId: 11,
-					name: ""
-				},
-				{
-					id: 115,
-					pId: 11,
-					name: "青菜"
-				},
-				{
-					id: 12,
-					pId: 1,
-					name: "手机数码"
-				},
-				{
-					id: 121,
-					pId: 12,
-					name: "手机 "
-				},
-				{
-					id: 122,
-					pId: 12,
-					name: "照相机 "
-				},
-				{
-					id: 13,
-					pId: 1,
-					name: "电脑配件"
-				},
-				{
-					id: 131,
-					pId: 13,
-					name: "手机 "
-				},
-				{
-					id: 122,
-					pId: 13,
-					name: "照相机 "
-				},
-				{
-					id: 14,
-					pId: 1,
-					name: "服装鞋帽"
-				},
-				{
-					id: 141,
-					pId: 14,
-					name: "手机 "
-				},
-				{
-					id: 42,
-					pId: 14,
-					name: "照相机 "
-				},
-			];
+			var zNodes = [];
 		</script>
 		<script type="text/javascript">
 			$(function() {

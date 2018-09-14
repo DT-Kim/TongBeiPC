@@ -1,21 +1,55 @@
 <?php
 	require('conn.php');
-//	$id=$_POST['id'];
-	$id = "1";
-	$sql_sel = "select `产品名称`,`单位`,`价格`,`介绍`,`展示图` from 产品信息  where id ='".$id."'";
-	$result_sel = $conn->query($sql_sel);
-	$data= array();
-       if($result_sel->num_rows > 0)
-        {
-            while($row = $result_sel->fetch_assoc())
-            {
-                $data['proname'] = $row['产品名称'];
-                $data['prounit'] = $row['单位'];
-                $data['proprice'] = $row['价格'];
-                $data['prointro'] = $row['介绍'];
-                $data['prophoto'] = $row['展示图'];
-            }
-        }
-    $json = json_encode($data);
-    echo $json;
+	$falg=$_POST['falg'];
+	switch($falg)
+	{
+		case 'show':
+			$id=$_POST['id'];
+			$sql_sel = "select * from 产品信息  where id ='".$id."'";
+			$result_sel = $conn->query($sql_sel);
+			$data= array();
+		       if($result_sel->num_rows > 0)
+		        {
+		            while($row = $result_sel->fetch_assoc())
+		            {
+		                $data['proname'] = $row['产品名称'];
+		                $data['prounit'] = $row['单位'];
+		                $data['proprice'] = $row['价格'];
+		                $data['exc'] = $row['积分倍数'];
+		                $data['prohot'] = $row['热门状态'];
+		                $data['prointro'] = $row['介绍'];
+		                $data['prophoto'] = $row['展示图'];
+		                $data['protext'] = $row['内容摘要'];
+		                $data['prosta'] = $row['产品状态'];
+//		                $data['probrand'] = $row['品牌'];
+//		                $data['proplace'] = $row['产地'];
+//		                $data['promaterial'] = $row['材质'];
+//		                $data['promarket'] = $row['市场价格'];
+//		                $data['proweg'] = $row['产品重量'];
+//		                $data['phototitle'] = $row['图片标题'];
+		            }
+		        }
+		    $json = json_encode($data);
+		    echo $json;
+    		break;
+        case 'save':
+        	$id=$_POST['id'];
+        	$pname=$_POST["pname"];
+	        $punit = $_POST['punit'];
+	        $phot = $_POST['phot'];
+	        $pprice = $_POST['pprice'];
+	        $psta = $_POST['psta'];
+	        $exc = $_POST['exc'];
+	        $sql_save = "update `产品信息` set `产品名称`= '".$pname."', `单位`= '".$punit."', `价格`= '".$pprice."', `产品状态`= '".$psta."', `热门状态`= '".$phot."', `积分倍数`= '".$exc."'where id = '".$id."'";
+	       
+	        $result_save = $conn->query($sql_save);
+	        $data['status'] = 'error';
+	        if($result_save){
+	            $data['status'] = 'success';
+	        }
+	        $json = json_encode($data);
+	        echo $json;
+		    break;
+		default:break;
+    }
 ?>
