@@ -105,6 +105,7 @@
                                 <h4 class="widget-title smaller">
                                     <span> 广告节点属性 </span>
                                 </h4>
+                            <input type="text" id="setid" hidden="hidden">
                             </div>
                             <div class="widget-body">
                                 <div class="widget-main">
@@ -114,17 +115,15 @@
                                        
                                         <div class="profile-user-info profile-user-info-striped"  >
                                             <div class="profile-info-row" >
-                                            	<div class="profile-info-name">图片状态 </div>
-                                            	<div class="profile-info-value">
-                                                <div class="switch" id="refresh">
-													<div class="btn_fath clearfix on" id="move1" onclick="toogle(this)" >
-												    	<div class="move" value="" id="stament"></div>
-												    	<div class="btnSwitch btn1" id="sphoto">ON</div>
-												    	<div class="btnSwitch btn2" id="cphoto">OFF</div>
-												 </div>
-												</div>
+                                            	<div class="profile-info-name">图片状态</div>
+                                        		<div class="profile-info-value">
+											 		<select class="select" id="stament">
+														<option value="显示">显示</option>
+														<option value="关闭">关闭</option>
+													</select>
+													<button id="savestament">保存</button>
+							       				</div>
                                             </div>
-                                        </div>
                                         </div>
                                         <div class="profile-user-info profile-user-info-striped">
                                             <div class="profile-info-row">
@@ -133,9 +132,7 @@
                                                     <span class="editable" id="ImgElse">  </span>
                                                 </div>
                                             </div>
-                                             
                                         </div>
-                                       
                                     </div>
                                 </div>
                             </div>
@@ -176,25 +173,30 @@
 				$("#footer").load("pageFoot.html")
 				$('#model-ads').load('model_ads.html')
 				
-				function toogle(th){
-				    var ele = $(th).children(".move");
-				    if(ele.attr("value") == "on"){
-				    	ele.animate({left: "0"}, 300, function(){
-					    	ele.attr("value", "off");
-					    	$('#stament').attr("value","off");
-					    	closephoto();
-				    	});
-				    	$("#refresh").load(location.href+" #refresh");
-				    } 
-				    else if(ele.attr("value") == "off"){
-				    	ele.animate({left: '40px'}, 300, function(){
-					     	$(this).attr("value", "on");
-					     	$('#stament').attr("value","on");
-					    	showphoto();
-				    	});
-				   		$("#refresh").load(location.href+" #refresh");
-				  	}
-				}
+				$('#savestament').on('click',function(){
+    		 		$.ajax({
+    		 			type:"post",
+    		 			url:"php/Ads.php",
+    		 			async:true,
+    		 			dataType:'json',
+    		 			data:{
+    		 				flag:'savesta',
+    		 				id:$('#setid').val(),
+							psta:$('#stament').val(),
+    		 			},
+    		 			success:function(data){
+    		 			 if(data['status'] == 'success')
+    		 			 {
+    		 				alert('保存成功')
+    		 				$("#setid").load(location.href+" #setid");
+    		 				tabMesSimple.ajax.reload();
+    		 				}
+    		 			},
+    		 			error:function(s,e,t){
+			        	    alert('失败，请及时联系管理员')
+			        	}
+    		 		});
+    		 	})
 				jQuery(function($) {
 					/*
 					 * INI DataTable
@@ -236,7 +238,8 @@
                         $('#MesId').attr('value',tabMesSimple.row('.selected').data().id)
                         $('#ImgSel').attr('src',tabMesSimple.row('.selected').data().url)
                         $('#ImgElse').text(tabMesSimple.row('.selected').data().else)
-                        
+                        $('#setid').attr('value',tabMesSimple.row('.selected').data().id)
+                        $('#stament').val(tabMesSimple.row('.selected').data().stament)
                         //模态框信息显示
                             //清空
                         $("#adsMes").val('')
@@ -247,15 +250,7 @@
                         $('#adsMes').val(tabMesSimple.row('.selected').data().else)
                         $('#AdsStaOp').text(tabMesSimple.row('.selected').data().status)
                         $('#ImgShow').attr('src',tabMesSimple.row('.selected').data().url)
-                        $('#stament').attr('value',tabMesSimple.row('.selected').data().stament)
                          tabMesSimple.ajax.reload();
-						if($('#stament').attr("value")=="off"){
-								$("#move1").removeClass("on").addClass("off");
-							}
-						if($('#stament').attr("value")=="on")
-							{
-								$("#move1").removeClass("off").addClass("on");
-							}
 							
                     }
                     catch(e){

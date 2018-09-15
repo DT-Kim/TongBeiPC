@@ -35,11 +35,11 @@
             }
             //广告节点保存
                 //获取最后一条
-            $sqlChe = "select 位置信息 from 广告轮播图 order by 位置信息 desc";
+            $sqlChe = "select 位置信息 from 产品轮播图 order by 位置信息 desc";
             $Num = $conn->query($sqlChe)->fetch_assoc();
             $PlaceNum = $Num['位置信息'] + 1;
                 //保存广告信息
-            $sqlSave = "insert into 广告轮播图 (图片地址,广告说明,位置信息) values('".$UrlData."','".$Dec."','".$PlaceNum."') ";
+            $sqlSave = "insert into 产品轮播图 (图片地址,图片说明,位置信息) values('".$UrlData."','".$Dec."','".$PlaceNum."') ";
             $conn->query($sqlSave);
             
             $json = json_encode($data);
@@ -49,7 +49,7 @@
 //删除节点         
         case 'delAds':
         	$id=$_POST['id'];
-        	$sql_del="delete from `广告轮播图` where id = '".$id."'";
+        	$sql_del="delete from `产品轮播图` where id = '".$id."'";
         	$result_del = $conn->query($sql_del);
             $data['status'] = 'error';
             if($result_del){
@@ -93,11 +93,11 @@
             }
 //            广告节点保存
                 //获取最后一条
-            $sqlChe = "select 位置信息 from 广告轮播图 order by 位置信息 desc";
+            $sqlChe = "select 位置信息 from 产品轮播图 order by 位置信息 desc";
             $Num = $conn->query($sqlChe)->fetch_assoc();
             $PlaceNum = $Num['位置信息'] + 1;
 //                更新广告信息
-            $sqlSave = "update `广告轮播图`  set `图片地址` = '".$UrlData."',`广告说明`= '".$Dec."',  `热门状态`= '".$AdsSta."'where id = '".$id."' ";
+            $sqlSave = "update `产品轮播图`  set `图片地址` = '".$UrlData."',`图片说明`= '".$Dec."',  `热门状态`= '".$AdsSta."'where id = '".$id."' ";
             $conn->query($sqlSave);
             $json = json_encode($data);
             echo $json;
@@ -107,7 +107,7 @@
             $id=$_POST['id'];
 	        $Dec = $_POST['dec'];
 	        $AdsSta = $_POST['AdsSta'];
-	        $sql_save = "update `广告轮播图`  set `广告说明`= '".$Dec."', `热门状态`= '".$AdsSta."'where id = '".$id."'";
+	        $sql_save = "update `产品轮播图`  set `图片说明`= '".$Dec."', `热门状态`= '".$AdsSta."'where id = '".$id."'";
 	        $result_save = $conn->query($sql_save);
 	        $data['status'] = 'error';
 	        if($result_save){
@@ -120,7 +120,7 @@
 //	    case 'closephoto':
 //      	$id=$_POST['id'];
 //          $stament = $_POST['stament'];
-//          $sql_save = "update `广告轮播图`  set `图片状态`= '".$stament."'where id = '".$id."'";
+//          $sql_save = "update `产品轮播图`  set `图片状态`= '".$stament."'where id = '".$id."'";
 //          $result_save = $conn->query($sql_save);
 //          $data['status'] = 'error';
 //          if($result_save){
@@ -133,7 +133,7 @@
 //	    case 'showphoto':
 //      	$id=$_POST['id'];
 //          $stament = $_POST['stament'];
-//          $sql_save = "update `广告轮播图`  set `图片状态`= '".$stament."'where id = '".$id."'";
+//          $sql_save = "update `产品轮播图`  set `图片状态`= '".$stament."'where id = '".$id."'";
 //          $result_save = $conn->query($sql_save);
 //          $data['status'] = 'error';
 //          if($result_save){
@@ -145,7 +145,7 @@
 		case 'savesta':
         	$id=$_POST['id'];
             $psta = $_POST['psta'];
-            $sql_save = "update `广告轮播图`  set `图片状态`= '".$psta."'where id = '".$id."'";
+            $sql_save = "update `产品轮播图`  set `图片状态`= '".$psta."'where id = '".$id."'";
             $result_save = $conn->query($sql_save);
             $data['status'] = 'error';
             if($result_save){
@@ -154,6 +154,7 @@
             $json = json_encode($data);
             echo $json;
 	        break;
+	     //显示图片
 	    default:break;
     }
     /*

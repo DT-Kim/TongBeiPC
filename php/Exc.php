@@ -64,7 +64,27 @@
             $json = json_encode($data);
             echo $json;
         break;
-        default:break;
+    case 'save':
+    	$id=$_POST['id'];
+    	$pname=$_POST["pname"];
+        $punit = $_POST['punit'];
+        $phot = $_POST['phot'];
+//      $pprice = $_POST['pprice'];
+        $psta = $_POST['psta'];
+        $exc = $_POST['exc'];
+        $ptext = $_POST['ptext'];
+        $pcontent = $_POST['pcontent'];
+        $sql_save = "update `积分商品` set `商品名称`= '".$pname."', `单位`= '".$punit."', `详细内容`= '".$pcontent."', `商品状态`= '".$psta."', `热门状态`= '".$phot."', `积分要求`= '".$exc."', `商品描述`= '".$ptext."'where id = '".$id."'";
+       
+        $result_save = $conn->query($sql_save);
+        $data['status'] = 'error';
+        if($result_save){
+            $data['status'] = 'success';
+        }
+        $json = json_encode($data);
+        echo $json;
+	    break;
+	default:break;
    }
    
 ?>

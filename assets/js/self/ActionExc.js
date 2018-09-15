@@ -22,6 +22,7 @@ function AddExc()
         	        $('#ProExcName').attr('value','')
         	        $('#ExcReq').attr('value','')
         	        $('#ProExcElse').attr('value','')
+        	        tabMesType.ajax.reload();
         	    }
         	    if(data['status'] == 'exist')
         	    {
@@ -53,7 +54,8 @@ function DelExc(){
 		success:function(data){
 			if(data['status'] == 'success')
             {
-                alert('商品删除成功')
+                alert('商品删除成功');
+                window.location.reload();
             }
         },
         error:function(s,e,t)
@@ -88,6 +90,7 @@ function EditExc(){
         	        $('#ProExcName').attr('value','')
         	        $('#ExcReq').attr('value','')
                     $('#ProExcElse').attr('value','')
+                    tabMesType.ajax.reload();
         	    }
         	},
         	error:function(s,e,t){
