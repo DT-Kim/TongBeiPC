@@ -355,11 +355,12 @@
     //			alert(id);
                 var proid=document.getElementById("proid").value;
                 proid=id;
+//              alert(proid)
                 /*
 				 * INI DataTable
 				 */
 				tabMesSimple = $('#dynamic-table').DataTable({
-	                ajax:'php/TableShowProplus.php',
+	                ajax:'php/TableShowProplus.php?id='+id,
 	                columns:[
 	                    {"data":'else'},
 	                    {"data":'place'},

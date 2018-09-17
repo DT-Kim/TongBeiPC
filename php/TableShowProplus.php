@@ -1,7 +1,7 @@
 <?php
     require('conn.php');
-    
-    $sql = "select * from 产品轮播图 where 有效状态 = 0 order by 位置信息";
+    $id=$_GET['id'];
+    $sql = "select * from 产品轮播图  where 产品信息id='".$id."' AND 有效状态 = 0 order by 位置信息";
     $result = $conn->query($sql);
     $data['aaData'] = array();
     if($result->num_rows>0)
