@@ -215,6 +215,12 @@
                         $('#ProTypeId').attr('value',TypeId)
                         $('#ProTypeName').attr('value',tabMesType.row('.selected').data().typeName)
                         $('#ProTypeElse').text(tabMesType.row('.selected').data().typeElse)
+                        
+                        $('#NewPro').on('click',function(){
+                        	
+							$('#promes-add').modal('show')
+							
+						})
                         //刷新产品列表
                         tabMesList.ajax.url( 'php/TableShowPro.php?falg=list&typeId='+TypeId ).load();
                     }catch(e){
@@ -242,15 +248,10 @@
 				$('#NewType').on('click',function(){
 				    $('#ProTypeId').val('')
 	                $('#ProTypeName').val('')
-	                $('#ProTypeElse').val('')
+	                $('#ProTypeElse').val('') 
 	                $('#protype-add').modal('show')
 				})
 				
-				$('#NewPro').on('click',function(){
-					
-					$('#promes-add').modal('show')
-				})
-			
 		</script>
 	</body>
 
