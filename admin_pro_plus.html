@@ -119,7 +119,7 @@
 													<!--<div class=" clearfix cl">-->
 													
 													<!--</div>-->
-														<div class=" clearfix cl">
+														<div class=" clearfix cl" style="margin-top: 20px;">
 															<div class="Add_p_s">
 													         	<label class="form-label col-2">产品名称：</label>
 														     	<div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="proname" name=""></div>
@@ -174,7 +174,6 @@
 																<label class="form-label col-2">产品状态：</label>
 																<div class="formControls col-2">
 																 	<select class="select" id="prosta">
-																		<option>请选择</option>
 																		<option value="显示">显示</option>
 																		<option value="关闭">关闭</option>
 																	</select>
@@ -184,7 +183,6 @@
 																<label class="form-label col-2">热门状态：</label>
 																<div class="formControls col-2">
 																 	<select class="select" id="prohot">
-																		<option>请选择</option>
 																		<option value="是">是</option>
 																		<option value="否">否</option>
 																	</select>
@@ -195,29 +193,26 @@
 															     	<div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="exc" name=""></div>
 															</div>
 														</div>
-														
+														<div class="clearfix cl">
+															<label class="form-label col-2">内容摘要：</label>
+															<div class="formControls col-2">
+																<input type="text" id="protext" class="textarea"  style="width: 1000px;">
+																<!--<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>-->
+															</div>
+														</div>
 														<div class=" clearfix cl">
                                                             <label class="form-label col-2">产品图示：</label>
                                                             <div class="formControls col-10" style="border-color: black;">
-                                                                <img id="prophoto" />
+                                                                <img id="prophoto" style="width: 320px;height: 300px;" />
                                                             </div>
-                                                        </div>
-													
-														<div class="clearfix cl">
-															<label class="form-label col-2">内容摘要：</label>
-															<div class="formControls col-10">
-																<textarea name="" cols="" rows="" id="protext" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,200)"></textarea>
-																<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
-															</div>
-														</div>
-														
-												         <div class="clearfix cl">
+                                                       </div>
+												         <!--<div class="clearfix cl">
 													        <label class="form-label col-2">详细内容：</label>
 																<div class="formControls col-10">
 																	<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> 
 																	<input id='content' type='hidden'/>
 													            </div>
-												        </div>
+												        </div>-->
 											      	</div>
 												</form>
 											</div>								
@@ -323,9 +318,9 @@
 		<script type="text/javascript" src="assets/Widget/zTree/js/jquery.ztree.all-3.5.min.js"></script>
 		<script type="text/javascript" src="assets/Widget/Validform/5.3.2/Validform.min.js"></script>
 		<script type="text/javascript" src="assets/Widget/webuploader/0.1.5/webuploader.min.js"></script>
-		<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/ueditor.config.js"></script>
-		<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/ueditor.all.min.js"></script>
-		<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+		<!--<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/ueditor.config.js"></script>
+		<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/ueditor.all.min.js"></script>-->
+		<!--<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>-->
 		<!--<script src="js/jquery-1.9.1.min.js"></script>-->
 		<script src="assets/js/bootstrap.min.js"></script>
 		
@@ -336,10 +331,10 @@
 		<script src="assets/js/dataTables.select.min.js"></script>
 		<!--self-->
 	    <script src="assets/js/self/Actionproplus.js"></script>
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 //			实例化
 	        var editor = UE.getEditor('editor');
-	    </script>
+	    </script>-->
 		<script type="text/javascript">
     		/* * INI Page */
     		$("#top").load("pageTop.html")
@@ -349,15 +344,15 @@
     		$('#model-ads').load('model_plus.html')
     		
     		/*textarea 字数限制*/
-			function textarealength(obj,maxlength){
-				var v = $(obj).val();
-				var l = v.length;
-				if( l > maxlength){
-					v = v.substring(0,maxlength);
-				}
-				$(obj).parent().find(".textarea-length").text(v.length);
-			}
-			
+//			function textarealength(obj,maxlength){
+//				var v = $(obj).val();
+//				var l = v.length;
+//				if( l > maxlength){
+//					v = v.substring(0,maxlength);
+//				}
+//				$(obj).parent().find(".textarea-length").text(v.length);
+//			}
+//			
     		jQuery(function($) { 
     			
     			var loc=location.href;
@@ -408,7 +403,7 @@
                 	    $('#prosta').val(data.prosta);
                 	    $('#prohot').val(data.prohot);
                 	    $('#exc').val(data.exc);
-                	    $('#content').val(data.procontent);
+//              	    $('#content').val(data.procontent);//详情
                 	    $('#prophoto').attr('src',data.prophoto)
                 	},
                 	error:function(s,e,t){
@@ -418,7 +413,7 @@
                 	//保存详情
                
     		 	$('#SaveDetali').on('click',function(){
-    		 		var pcontent = UE.getEditor('editor').getContent();
+//  		 		var pcontent = UE.getEditor('editor').getContent();
     		 		var text =$("#protext").val();
     		 		fData = new FormData();
     		 		fData.append("falg","save");
@@ -430,7 +425,7 @@
     		 		fData.append('psta',$("#prosta").val());
     		 		fData.append('exc',$("#exc").val());
     		 		fData.append('ptext',text);
-    		 		fData.append('pcontent',pcontent);
+//  		 		fData.append('pcontent',pcontent);
     		 		$.ajax({
     		 			type:"post",
     		 			url:"php/Proplus.php",
@@ -521,10 +516,10 @@
 		 		});
 		 	})
 			//ue实例化之后
-			editor.ready(function()
-			{
-			    editor.setContent($("#content").val());
-			});
+//			editor.ready(function()
+//			{
+//			    editor.setContent($("#content").val());
+//			});
 		
 			
 		</script>

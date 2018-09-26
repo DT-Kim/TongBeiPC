@@ -17,7 +17,7 @@
 		                $data['proprice'] = $row['价格'];
 		                $data['exc'] = $row['积分倍数'];
 		                $data['prohot'] = $row['热门状态'];
-		                $data['procontent'] = $row['介绍'];
+//		                $data['procontent'] = $row['介绍'];
 		                $data['prophoto'] = $row['展示图'];
 		                $data['protext'] = $row['内容摘要'];
 		                $data['prosta'] = $row['产品状态'];
@@ -41,13 +41,12 @@
 	        $psta = $_POST['psta'];
 	        $exc = $_POST['exc'];
 	        $ptext = $_POST['ptext'];
-	        $pcontent = $_POST['pcontent'];
-	        $sql_save = "update `产品信息` set `产品名称`= '".$pname."', `单位`= '".$punit."', `介绍`= '".$pcontent."', `价格`= '".$pprice."', `产品状态`= '".$psta."', `热门状态`= '".$phot."', `积分倍数`= '".$exc."', `内容摘要`= '".$ptext."'where id = '".$id."'";
-	       
+//	        $pcontent = $_POST['pcontent'];
+	        $sql_save = "update `产品信息` set `产品名称`= '".$pname."', `单位`= '".$punit."',  `价格`= '".$pprice."', `产品状态`= '".$psta."', `热门状态`= '".$phot."', `积分倍数`= '".$exc."', `内容摘要`= '".$ptext."'where id = '".$id."'";
 	        $result_save = $conn->query($sql_save);
 	        $data['status'] = 'error';
 	        if($result_save){
-	            $data['status'] = 'success';
+	            $data['status'] ='success';
 	        }
 	        $json = json_encode($data);
 	        echo $json;
