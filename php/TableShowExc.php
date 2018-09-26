@@ -1,5 +1,5 @@
 <?php
-
+header("Access-Control-Allow-Origin: *");
     $falg = $_GET['falg'];
 //  $falg = 'type';
     require('conn.php');

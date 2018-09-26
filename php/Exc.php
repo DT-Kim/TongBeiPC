@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
    require('conn.php');
    $falg = $_POST['falg'];
 

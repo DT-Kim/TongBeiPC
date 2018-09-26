@@ -1,5 +1,5 @@
 <?php
-
+header("Access-Control-Allow-Origin: *");
     require('conn.php');
            $sql_sel = "SELECT * FROM `查询用户信息` ";
             $result_sel = $conn->query($sql_sel);

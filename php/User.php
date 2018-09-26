@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 	require('conn.php');
 	$id=$_POST['id'];
     $psta = $_POST['psta'];

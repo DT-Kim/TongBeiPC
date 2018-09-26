@@ -1,9 +1,11 @@
 <?php
+	header("Access-Control-Allow-Origin: *");
     require('conn.php');
     
     $sql = "select * from 广告轮播图 where 有效状态 = 0 order by 位置信息";
-    $result = $conn->query($sql);
     $data['aaData'] = array();
+    $result = $conn->query($sql);
+//	print_r($result);
     if($result->num_rows>0)
     {
         $i = 0;

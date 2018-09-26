@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
     require('conn.php');
     $id=$_GET['id'];
     $sql = "select * from 产品轮播图  where 产品信息id='".$id."' AND 有效状态 = 0 order by 位置信息";

@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
     $falg = $_GET['falg'];
 //  $falg = 'list';
     require('conn.php');

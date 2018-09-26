@@ -1,4 +1,5 @@
 <?php
+	header("Access-Control-Allow-Origin: *");
     $flag = $_POST['flag'];
     require('conn.php');
     switch($flag)
