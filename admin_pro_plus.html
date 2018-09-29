@@ -206,13 +206,13 @@
                                                                 <img id="prophoto" style="width: 320px;height: 300px;" />
                                                             </div>
                                                        </div>
-												         <!--<div class="clearfix cl">
+												         <div class="clearfix cl">
 													        <label class="form-label col-2">详细内容：</label>
 																<div class="formControls col-10">
 																	<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> 
 																	<input id='content' type='hidden'/>
 													            </div>
-												        </div>-->
+												        </div>
 											      	</div>
 												</form>
 											</div>								
@@ -318,9 +318,9 @@
 		<script type="text/javascript" src="assets/Widget/zTree/js/jquery.ztree.all-3.5.min.js"></script>
 		<script type="text/javascript" src="assets/Widget/Validform/5.3.2/Validform.min.js"></script>
 		<script type="text/javascript" src="assets/Widget/webuploader/0.1.5/webuploader.min.js"></script>
-		<!--<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/ueditor.config.js"></script>
-		<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/ueditor.all.min.js"></script>-->
-		<!--<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>-->
+		<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/ueditor.config.js"></script>
+		<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/ueditor.all.min.js"></script>
+		<script type="text/javascript" src="assets/Widget/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
 		<!--<script src="js/jquery-1.9.1.min.js"></script>-->
 		<script src="assets/js/bootstrap.min.js"></script>
 		
@@ -331,10 +331,10 @@
 		<script src="assets/js/dataTables.select.min.js"></script>
 		<!--self-->
 	    <script src="assets/js/self/Actionproplus.js"></script>
-		<!--<script type="text/javascript">
+		<script type="text/javascript">
 //			实例化
 	        var editor = UE.getEditor('editor');
-	    </script>-->
+	    </script>
 		<script type="text/javascript">
     		/* * INI Page */
     		$("#top").load("pageTop.html")
@@ -403,7 +403,7 @@
                 	    $('#prosta').val(data.prosta);
                 	    $('#prohot').val(data.prohot);
                 	    $('#exc').val(data.exc);
-//              	    $('#content').val(data.procontent);//详情
+                	    $('#content').val(data.procontent);//详情
                 	    $('#prophoto').attr('src',data.prophoto)
                 	},
                 	error:function(s,e,t){
@@ -413,7 +413,7 @@
                 	//保存详情
                
     		 	$('#SaveDetali').on('click',function(){
-//  		 		var pcontent = UE.getEditor('editor').getContent();
+    		 		var pcontent = UE.getEditor('editor').getContent();
     		 		var text =$("#protext").val();
     		 		fData = new FormData();
     		 		fData.append("falg","save");
@@ -425,7 +425,7 @@
     		 		fData.append('psta',$("#prosta").val());
     		 		fData.append('exc',$("#exc").val());
     		 		fData.append('ptext',text);
-//  		 		fData.append('pcontent',pcontent);
+    		 		fData.append('pcontent',pcontent);
     		 		$.ajax({
     		 			type:"post",
     		 			url:"php/Proplus.php",
@@ -515,11 +515,11 @@
 		        	}
 		 		});
 		 	})
-			//ue实例化之后
-//			editor.ready(function()
-//			{
-//			    editor.setContent($("#content").val());
-//			});
+//			ue实例化之后
+			editor.ready(function()
+			{
+			    editor.setContent($("#content").val());
+			});
 		
 			
 		</script>
