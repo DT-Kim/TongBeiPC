@@ -1,0 +1,85 @@
+<!--ads begin-->
+<div id="ads_mes_2" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header no-padding">
+                <div class="table-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <span class="white">&times;</span>
+                    </button>
+                    <span>位置设置</span>
+                    <input id="MesId" hidden="hidden" />
+                </div>
+            </div>
+            <div class="modal-body no-padding" id="addressinfo">
+            	
+                <!--<div class="form-group has-info page-header" style="height: 50px;">
+                    <label class="col-sm-3 control-label no-padding-right"> 位置1：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <select class="select form-control">
+                                <option selected="selected" value="38">7777</option>
+                                <option value="39">77777</option>
+                                <option value="40">1111</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="help-block col-xs-12 col-sm-reset inline"> </div>
+                </div>-->
+                
+            </div>
+            <br /><br />
+            <div class="modal-footer no-margin-top">
+                <button class="btn btn-sm btn-success pull-right" data-dismiss="" id="savesetaddress">
+                    <i class="ace-icon fa fa-floppy-o bigger-125"></i>
+                    <span>保存</span>
+                </button>
+                <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+                    <i class="ace-icon fa fa-times"></i>
+                    <span>关闭</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--ads end-->
+<script type="text/javascript">
+$("#savesetaddress").on('click',function(){
+	var repeatflag = "success";//用于检测是否重复的图片位置一样
+	var send_data = {
+		"flag" : "SaveSetAddress",
+		"sdata" : new Array()
+	};
+	$("#addressinfo select").each(function(){
+		console.log(send_data.sdata.indexOf($(this).val()));
+		if(send_data.sdata.indexOf($(this).val()) >= 0){
+			repeatflag = "default";
+		}else{
+			send_data.sdata.push($(this).val());
+		}
+	});
+	if(repeatflag == "success"){
+		$.ajax({
+			type:"POST",
+			url:"php/Ads.php",
+			data:send_data,
+			dataType:"json",
+			success:function(data){
+				console.log(data);
+				if(data.state == "success"){
+					alert("设置成功");
+					location.reload();
+				}else{
+					alert("设置失败");
+					console.log(data.message);
+				}
+			},
+			error:function(x,s,t){
+				console.log(s+": "+t);
+			}
+		});
+	}else{
+		alert("有图片位置重复，请更正再保存");
+	}
+});
+</script>

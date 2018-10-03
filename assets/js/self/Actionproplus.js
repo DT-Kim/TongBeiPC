@@ -13,6 +13,7 @@ function AddAds()
     fData.append("dec",$('#adsMes').val())
     fData.append('AdsImg',my_files[0])
     fData.append('AdsSta',$('#AdsSta option:selected') .val())
+    fData.append('PrcID',$('#proid') .val());
     
     $.ajax({
         type:"post",
@@ -114,31 +115,35 @@ function EditAds()
 //删除广告信息
 function DelAds()
 {
-	fData = new FormData();
-    fData.append("flag",'delAds')
-    fData.append("id",$('#MesId').val())
-    $.ajax({
-		type:"post",
-		url:"php/plus.php",
-		dataType:'json',
-		async:true,
-		data:fData,
-        processData:false,
-        contentType:false,
-		success:function(data){
-			if(data['status'] == 'success')
-            {
-                alert('广告节点删除成功')
-                tabMesSimple.ajax.reload();
-//             window.location.reload()
-            }
-        },
-        error:function(s,e,t)
-        {
-            alert('广告删除失败，请及时联系管理员')
-        }
-		
-	});
+	if($("#adsMes").val() != "" || $("#adsMes").attr("value") != undefined){
+		fData = new FormData();
+	    fData.append("flag",'delAds')
+	    fData.append("id",$('#MesId').val())
+	    $.ajax({
+			type:"post",
+			url:"php/plus.php",
+			dataType:'json',
+			async:true,
+			data:fData,
+	        processData:false,
+	        contentType:false,
+			success:function(data){
+				if(data['status'] == 'success')
+	            {
+	                alert('广告节点删除成功')
+	                tabMesSimple.ajax.reload();
+	//             window.location.reload()
+	            }
+	        },
+	        error:function(s,e,t)
+	        {
+	            alert('广告删除失败，请及时联系管理员')
+	        }
+			
+		});
+	}else{
+		alert("请选择节点后再操作")
+	}
 }
 function closephoto(){
 	

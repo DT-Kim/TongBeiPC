@@ -90,7 +90,7 @@
                             <div class="widget-header widget-header-flat">
                                 <h4 class="widget-title smaller">产品类型列表</h4>
                                 <h4 class="widget-title smaller" id="ProName"></h4>
-                                <input type="text" id="proid" hidden="hidden">
+                                <input type="text" id="proid" value="" hidden="hidden">
                             </div>
                             <div class="tabbable ">
                                 <ul class="nav nav-tabs padding-12">
@@ -222,9 +222,11 @@
                     						<div class="col-xs-5">
 						                        <button class="btn btn-success" id="NewAds">新建节点</button>
 						                        <button class="btn btn-danger" onclick="DelAds()">删除节点</button>
+						                        <button class="btn btn-primary" id="setaddress">设置位置</button>
                     						</div>
 						                    <div class="col-xs-7">
-						                        <button class="btn btn-primary" href="#ads-mes" role="button" data-toggle="modal">修改节点属性</button>
+						                        <!--<button class="btn btn-primary" href="#ads-mes" role="button" data-toggle="modal">修改节点属性</button>-->
+						                        <button class="btn btn-primary" id="alterdata">修改节点属性</button>
 						                    </div>
 						    				<div class="col-xs-5">
 						    				    <div class="widget-box">
@@ -238,6 +240,7 @@
 					            						<table id="dynamic-table" class="table table-striped table-bordered table-hover" style="width:100%;height:100%;">
 					            							<thead>
 					            								<tr>
+					            									<th>序号</th>
 					            									<th>文字说明</th>
 					            									<th>位置</th>
 					            									<th>是否热门</th>
@@ -270,7 +273,7 @@
 																		<option value="显示">显示</option>
 																		<option value="关闭">关闭</option>
 																	</select>
-																	<button id="savestament">保存</button>
+																	<!--<button class="hidden" id="savestament">保存</button>-->
 													        		</div>
 					                                            </div>
 					                                        </div>
@@ -360,7 +363,9 @@
     			var n2=loc.indexOf("=");//取得=号的位置
     			var id=decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
     //			alert(id);
-                var proid=document.getElementById("proid").value;
+    			$("#proid").attr("value",id);
+//              var proid=document.getElementById("proid").value;
+                
                 proid=id;
 //              alert(proid)
                 /*
@@ -369,6 +374,7 @@
 				tabMesSimple = $('#dynamic-table').DataTable({
 	                ajax:'php/TableShowProplus.php?id='+id,
 	                columns:[
+	                	{"data":"serialnum"},
 	                    {"data":'else'},
 	                    {"data":'place'},
 	                    {"data":'status'},
@@ -520,7 +526,58 @@
 			{
 			    editor.setContent($("#content").val());
 			});
-		
+			
+			//判断选中节点后再显示模态框
+			$("#alterdata").on("click",function(){
+				if($("#adsMes").val() != "" || $("#adsMes").attr("value") != undefined){
+					//显示模态框
+                	$('#ads-mes').modal('show');
+				}else{
+					alert("请选择节点后再点击");
+				}
+			})
+			
+			//设置位置
+            $("#setaddress").on('click',function(){
+            	$.ajax({
+					type:"POST",
+					url:"php/plus.php",
+					data:{
+						flag :"GetAddress",
+						proid : proid
+					},
+					dataType:"json",
+					success:function(data){
+						console.log(data);
+						if(data.state == "success"){
+							$("#addressinfo").html('');//清除html
+							var i = 1;
+							for(ky in data.data){
+								var temphtml = '<div class="form-group has-info page-header" style="height: 50px;">';
+								temphtml += '<label class="col-sm-3 control-label no-padding-right"> 位置'+i+'：</label>';
+								temphtml += '<div class="col-sm-5">';
+								temphtml += '<span class="block input-icon input-icon-right">';
+								temphtml += '<select class="select form-control">';
+								temphtml += '<option selected="selected" value="'+data.data[ky]["rowid"]+'">'+data.data[ky]["Ads"]+'</option>';
+								for(ky_2 in data.data){
+									if(ky_2 != ky){
+										temphtml += '<option value="'+data.data[ky_2]["rowid"]+'">'+data.data[ky_2]["Ads"]+'</option>';
+									}
+								}
+								temphtml += '</select>';
+								temphtml += '</span></div><div class="help-block col-xs-12 col-sm-reset inline"> </div></div>';
+								$("#addressinfo").append(temphtml);
+								i++;
+							}
+						}
+						//显示模态框
+                		$('#ads_mes_2').modal('show');
+					},
+					error:function(x,s,t){
+						console.log(s+": "+t);
+					}
+				});
+            });
 			
 		</script>
 	</body>

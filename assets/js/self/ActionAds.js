@@ -114,30 +114,35 @@ function EditAds()
 //删除广告信息
 function DelAds()
 {
-	fData = new FormData();
-    fData.append("flag",'delAds')
-    fData.append("id",$('#MesId').val())
-    $.ajax({
-		type:"post",
-		url:"php/Ads.php",
-		dataType:'json',
-		async:true,
-		data:fData,
-        processData:false,
-        contentType:false,
-		success:function(data){
-			if(data['status'] == 'success')
-            {
-                alert('广告节点删除成功')
-               window.location.reload()
-            }
-        },
-        error:function(s,e,t)
-        {
-            alert('广告删除失败，请及时联系管理员')
-        }
-		
-	});
+	if($('#MesId').val()){
+		fData = new FormData();
+	    fData.append("flag",'delAds')
+	    fData.append("id",$('#MesId').val())
+	    $.ajax({
+			type:"post",
+			url:"php/Ads.php",
+			dataType:'json',
+			async:true,
+			data:fData,
+	        processData:false,
+	        contentType:false,
+			success:function(data){
+				if(data['status'] == 'success')
+	            {
+	                alert('广告节点删除成功')
+	               window.location.reload()
+	            }
+	        },
+	        error:function(s,e,t)
+	        {
+	            alert('广告删除失败，请及时联系管理员')
+	        }
+			
+		});
+	}else{
+		alert("请选中后再点击删除");
+	}
+	
 }
 function closephoto(){
 	

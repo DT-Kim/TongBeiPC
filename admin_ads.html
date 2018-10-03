@@ -72,9 +72,12 @@
                     <div class="col-xs-5">
                         <button class="btn btn-success" id="NewAds">新建节点</button>
                         <button class="btn btn-danger" onclick="DelAds()">删除节点</button>
+                        <!--<button class="btn btn-primary" href="#ads_mes_2" role="button" data-toggle="modal">设置位置</button>-->
+                        <button class="btn btn-primary" id="setaddress">设置位置</button>
                     </div>
                     <div class="col-xs-7">
-                        <button class="btn btn-primary" href="#ads-mes" role="button" data-toggle="modal">修改节点属性</button>
+                        <!--<button class="btn btn-primary" id="alterAds" href="#ads-mes" role="button" data-toggle="modal">修改节点属性</button>-->
+                        <button class="btn btn-primary" id="alterAds">修改节点属性</button>
                     </div>
     				<div class="col-xs-5">
     				    <div class="widget-box">
@@ -90,7 +93,7 @@
             								<tr>
             									<th>文字说明</th>
             									<th>位置</th>
-            									<th>是否热门</th>
+            									<!--<th>是否热门</th>-->
             								</tr>
             							</thead>
             							<tbody></tbody>
@@ -121,7 +124,7 @@
 														<option value="显示">显示</option>
 														<option value="关闭">关闭</option>
 													</select>
-													<button id="savestament">保存</button>
+													<!--<button id="savestament">保存</button>-->
 							       				</div>
                                             </div>
                                         </div>
@@ -143,6 +146,10 @@
 			
 			<!--model page begin-->
 			<div id="model-ads"></div>
+			<!--model page end-->
+			
+			<!--model page begin-->
+			<div id="model_ads_2"></div>
 			<!--model page end-->
 			
 			<!--footer part begin-->
@@ -172,6 +179,7 @@
 				$("#leftTree").load("pageLeft.html")
 				$("#footer").load("pageFoot.html")
 				$('#model-ads').load('model_ads.html')
+				$('#model_ads_2').load('model_ads_2.html');
 				
 				$('#savestament').on('click',function(){
     		 		$.ajax({
@@ -207,7 +215,7 @@
     	                columns:[
     	                    {"data":'else'},
     	                    {"data":'place'},
-    	                    {"data":'status'},
+//  	                    {"data":'status'},
     	                ],
 						oLanguage: {
 							sLengthMenu: "显示 _MENU_ 条数据",
@@ -268,6 +276,54 @@
                     //显示模态框
                     $('#ads-mes').modal('show')
                 })
+                //
+                $("#alterAds").on('click',function(){
+                	if($("#adsMes").val() != "" || $("#adsMes").attr("value") != undefined){
+                		//显示模态框
+                    	$('#ads-mes').modal('show');
+                	}else{
+                		alert("请选择节点后再点击");
+                	}
+                });
+                //设置位置
+                $("#setaddress").on('click',function(){
+                	$.ajax({
+						type:"POST",
+						url:"php/Ads.php",
+						data:{
+							flag :"GetAddress"
+						},
+						dataType:"json",
+						success:function(data){
+							if(data.state == "success"){
+								$("#addressinfo").html('');//清除html
+								var i = 1;
+								for(ky in data.data){
+									var temphtml = '<div class="form-group has-info page-header" style="height: 50px;">';
+									temphtml += '<label class="col-sm-3 control-label no-padding-right"> 位置'+i+'：</label>';
+									temphtml += '<div class="col-sm-5">';
+									temphtml += '<span class="block input-icon input-icon-right">';
+									temphtml += '<select class="select form-control">';
+									temphtml += '<option selected="selected" value="'+data.data[ky]["rowid"]+'">'+data.data[ky]["Ads"]+'</option>';
+									for(ky_2 in data.data){
+										if(ky_2 != ky){
+											temphtml += '<option value="'+data.data[ky_2]["rowid"]+'">'+data.data[ky_2]["Ads"]+'</option>';
+										}
+									}
+									temphtml += '</select>';
+									temphtml += '</span></div><div class="help-block col-xs-12 col-sm-reset inline"> </div></div>';
+									$("#addressinfo").append(temphtml);
+									i++;
+								}
+							}
+							//显示模态框
+                    		$('#ads_mes_2').modal('show');
+						},
+						error:function(x,s,t){
+							console.log(s+": "+t);
+						}
+					});
+                });
 			</script>
 	</body>
 

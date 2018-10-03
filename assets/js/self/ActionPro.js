@@ -22,7 +22,7 @@ function AddProType()
         	processData:false,
         	contentType:false,
         	success:function(data){
-        		console.log(data);
+//      		console.log(data);
         	    if(data['status'] == 'success')
         	    {
         	        alert('新建成功')
@@ -49,62 +49,111 @@ function AddProType()
 function DelProType()
 {
 	var id = $('#ProTypeId').val();
-//	alert(id);
-    $.ajax({
-    	type:"post",
-        url:"php/ProType.php",
-        dataType:'json',
-        async:true,
-        data:{
-            falg:'delType',
-            id:$('#ProTypeId').val(),
-        },
-        success:function(data){
-            if(data['status'] == 'success')
-            {
-                alert('产品类型删除成功')
-                tabMesType.ajax.reload();
-            }
-        },
-        error:function(s,e,t)
-        {
-            alert('产品类型删除失败，请及时联系管理员')
-        }
-    });
+	if(id != ""){
+		$.ajax({
+	    	type:"post",
+	        url:"php/ProType.php",
+	        dataType:'json',
+	        async:true,
+	        data:{
+	            falg:'delType',
+	            id:$('#ProTypeId').val(),
+	        },
+	        success:function(data){
+	            if(data['status'] == 'success')
+	            {
+	                alert('产品类型删除成功')
+	                tabMesType.ajax.reload();
+	            }
+	        },
+	        error:function(s,e,t)
+	        {
+	            alert('产品类型删除失败，请及时联系管理员')
+	        }
+	    });
+	}else{
+		alert("请选择产品类型再进行删除");
+	}
+    
 }
 
 //编辑类型
 function EditProType()
 {
-    if(($('#ProTypeName').val()).length)
+	if(($('#ProTypeName').val()).length)
     {
+        
+    	ProTypeLogo = document.getElementById("ProTypeLogo").files;
+    	ProTypeFile = document.getElementById("ProTypeFile").files;
+    	fData = new FormData();
+	    fData.append("falg",'editType')
+	    fData.append("name",$('#ProTypeName').val())
+	    fData.append('else',$('#ProTypeElse').val())
+	    fData.append('id',$('#ProTypeId').val())
+	    if(ProTypeLogo.length > 0){
+	    	fData.append('ProTypeLogo',ProTypeLogo[0])
+	    }
+	    if(ProTypeFile.length > 0){
+	    	fData.append('ProTypeFile',ProTypeFile[0])
+	    }
+	    
         $.ajax({
         	type:"post",
         	url:"php/ProType.php",
-        	dataType:'json',
         	async:true,
-        	data:{
-        	    falg:'editType',
-        	    name:$('#ProTypeName').val(),
-                else:$('#ProTypeElse').val(),
-                id:$('#ProTypeId').val(),
-        	},
+        	dataType:'json',
+        	data:fData,
+        	processData:false,
+        	contentType:false,
         	success:function(data){
+//      		console.log(data);
         	    if(data['status'] == 'success')
-        	    {
+//      	    {
         	        alert('产品类型修改成功')
         	        $('#ProTypeName').attr('value','')
                     $('#ProTypeElse').attr('value','')
+                    $('#ProTypeLogo').val("");
+                    $('#ProTypeFile').val("");
                     tabMesType.ajax.reload();
-        	    }
-        	}, 
-        	error:function(s,e,t){
-        	    alert('产品类型修改失败，请及时联系管理员')
+//      	    }
+        	},
+        	error:function(x,s,t){
+        		console.log(s+": "+t);
+        	    alert('产品类型新建失败，请及时联系管理员')
         	}
         });
     }else{
         alert('请将产品类型名填写完整')
     }
+//  if(($('#ProTypeName').val()).length)
+//  {
+//      $.ajax({
+//      	type:"post",
+//      	url:"php/ProType.php",
+//      	dataType:'json',
+//      	async:true,
+//      	data:{
+//      	    falg:'editType',
+//      	    name:$('#ProTypeName').val(),
+//              else:$('#ProTypeElse').val(),
+//              id:$('#ProTypeId').val(),
+//      	},
+//      	success:function(data){
+//      	    if(data['status'] == 'success')
+//      	    {
+//      	        alert('产品类型修改成功')
+//      	        $('#ProTypeName').attr('value','')
+//                  $('#ProTypeElse').attr('value','')
+//                  tabMesType.ajax.reload();
+//      	    }
+//      	}, 
+//      	error:function(s,e,t){
+//      	    alert('产品类型修改失败，请及时联系管理员')
+//      	}
+//      });
+//  }else{
+//      alert('请将产品类型名填写完整')
+//  }
 }
 
 //新建产品

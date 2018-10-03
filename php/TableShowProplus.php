@@ -10,6 +10,7 @@ header("Access-Control-Allow-Origin: *");
         $i = 0;
         while($row = $result->fetch_assoc())
         {
+        	$data['aaData'][$i]['serialnum'] = ($i+1);
             $data['aaData'][$i]['id'] = $row['id'];
             $data['aaData'][$i]['url'] = $row['图片地址'];
             $data['aaData'][$i]['else'] = $row['图片说明'];

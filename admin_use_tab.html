@@ -79,8 +79,14 @@
                                     <li class="active">
                                         <a data-toggle="tab" href="#list1"> 用户列表 </a>
                                     </li>
-                                    <li>
+                                    <!--<li>
                                         <a data-toggle="tab" href="#list2"> 统计视图 </a>
+                                    </li>-->
+                                    <li>
+                                        <a data-toggle="tab" href="#list3"> 物流人员 </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#list4"> 管理员 </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
@@ -110,7 +116,7 @@
                                         </table>
                                     </div>
                                    <!-- home1over-->
-                                   <div id="list2" class="tab-pane">
+                                    <div id="list2" class="tab-pane">
                                    	 <table id='myTable5'>
 											<caption>会员地区分布</caption>
 											<thead>
@@ -136,7 +142,61 @@
 												</tr>
 											</tbody>
 										</table>  
-                                   </div>
+                                    </div>
+                                    <!--物流人员 start-->
+                                    <div id="list3" class="tab-pane">
+                                        <table id="dynamic-table-logistician" class="table table-striped table-bordered table-hover" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>用户账号</th>
+                                                    <th>真实姓名</th>
+                                                    <th>用户级别</th>
+                                                    <th>省</th>
+                                                    <th>市</th>
+                                                    <th>县</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>用户账号</td>
+                                                    <td>真实姓名</td>
+                                                    <td>用户级别</td>
+                                                    <td>省</td>
+                                                    <td>市</td>
+                                                    <td>县</td>
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--物流人员 end-->
+                                    <!--管理员 start-->
+                                    <div id="list4" class="tab-pane">
+                                        <table id="dynamic-table-admin" class="table table-striped table-bordered table-hover" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>用户账号</th>
+                                                    <th>真实姓名</th>
+                                                    <th>用户级别</th>
+                                                    <th>省</th>
+                                                    <th>市</th>
+                                                    <th>县</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>用户账号</td>
+                                                    <td>真实姓名</td>
+                                                    <td>用户级别</td>
+                                                    <td>省</td>
+                                                    <td>市</td>
+                                                    <td>县</td>
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--管理员 end-->
                                 </div>
                             </div>
                         </div>
@@ -185,13 +245,29 @@
                                                 </div>
                                              </div>
                                             <div class="profile-info-row">
-                                            	
                                                 <div class="profile-info-name">用户级别 </div>
                                                 <div class="profile-info-value">
                                                     <span id="uselev"> </span>
                                                 </div>
                                             </div>
-                                            
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name">省 </div>
+                                                <div class="profile-info-value">
+                                                    <span id="usepro"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name">市 </div>
+                                                <div class="profile-info-value">
+                                                    <span id="usecity"> </span>
+                                                </div>
+                                            </div>
+                                            <div class="profile-info-row">
+                                                <div class="profile-info-name">县 </div>
+                                                <div class="profile-info-value">
+                                                    <span id="usecoun"> </span>
+                                                </div>
+                                            </div>
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name">注册时间</div>
                                                 <div class="profile-info-value">
@@ -302,8 +378,13 @@
 				/*
 			     * INI DataTable
 			     */
+			    //用户信息表格
 			    tabMesUse = $('#dynamic-table-user').DataTable({
-                 ajax:'php/TableShowUse.php',
+                 	ajax:'php/TableShowUse.php',
+                 	"sServerMethod": "GET",
+			        "fnServerParams": function ( aoData ) {
+				        aoData.push({ "name": "my_flag", "value": "user" });
+				    },
                     columns:[
                         {"data":'useacc'},
                         {"data":'usename'},
@@ -338,8 +419,115 @@
                         $('#usepho').html(tabMesUse.row('.selected').data().usepho)
                         $('#usename').html(tabMesUse.row('.selected').data().usename)
                         $('#uselev').html(tabMesUse.row('.selected').data().uselev)
+                        $('#usepro').html(tabMesUse.row('.selected').data().useprov)
+                        $('#usecity').html(tabMesUse.row('.selected').data().usecity)
+                        $('#usecoun').html(tabMesUse.row('.selected').data().usearea)
                         $('#usetime').html(tabMesUse.row('.selected').data().usetime)
                         $('#setlevel').val(tabMesUse.row('.selected').data().uselev)
+                        
+                    }catch(e){
+                        
+                    }
+                   
+                })
+                //物流人员表格
+                tabMesLogistician = $('#dynamic-table-logistician').DataTable({
+                 	ajax:'php/TableShowUse.php',
+                 	"sServerMethod": "GET",
+			        "fnServerParams": function ( aoData ) {
+				        aoData.push({ "name": "my_flag", "value": "logistician" });
+				    },
+                    columns:[
+                        {"data":'useacc'},
+                        {"data":'usename'},
+                        {"data":'uselev'},
+                        {"data":'useprov'},
+                        {"data":'usecity'},
+                        {"data":'usearea'},
+                    ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': []
+                    }],
+                });
+                
+                $('#dynamic-table-logistician tbody').on('click', 'tr', function () {
+                	         
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        tabMesLogistician.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                    try{
+                    	$('#useid').attr('value',tabMesLogistician.row('.selected').data().id)
+                        $('#useacc').html(tabMesLogistician.row('.selected').data().useacc)
+                        $('#usepho').html(tabMesLogistician.row('.selected').data().usepho)
+                        $('#usename').html(tabMesLogistician.row('.selected').data().usename)
+                        $('#uselev').html(tabMesLogistician.row('.selected').data().uselev)
+                        $('#usepro').html(tabMesLogistician.row('.selected').data().useprov)
+                        $('#usecity').html(tabMesLogistician.row('.selected').data().usecity)
+                        $('#usecoun').html(tabMesLogistician.row('.selected').data().usearea)
+                        $('#usetime').html(tabMesLogistician.row('.selected').data().usetime)
+                        $('#setlevel').val(tabMesLogistician.row('.selected').data().uselev)
+                        
+                    }catch(e){
+                        
+                    }
+                   
+                })
+                //管理员表格
+                tabMesAdmin = $('#dynamic-table-admin').DataTable({
+                 	ajax:'php/TableShowUse.php',
+                 	"sServerMethod": "GET",
+			        "fnServerParams": function ( aoData ) {
+				        aoData.push({ "name": "my_flag", "value": "admin" });
+				    },
+                    columns:[
+                        {"data":'useacc'},
+                        {"data":'usename'},
+                        {"data":'uselev'},
+                        {"data":'useprov'},
+                        {"data":'usecity'},
+                        {"data":'usearea'},
+                    ],
+                    oLanguage: {
+                        sLengthMenu: "显示 _MENU_ 条数据",
+                    },
+                    "processing": true,
+                    "aaSorting": [],
+                    "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': []
+                    }],
+                });
+                
+                $('#dynamic-table-admin tbody').on('click', 'tr', function () {
+                	         
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        tabMesAdmin.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                    try{
+                    	$('#useid').attr('value',tabMesAdmin.row('.selected').data().id)
+                        $('#useacc').html(tabMesAdmin.row('.selected').data().useacc)
+                        $('#usepho').html(tabMesAdmin.row('.selected').data().usepho)
+                        $('#usename').html(tabMesAdmin.row('.selected').data().usename)
+                        $('#uselev').html(tabMesAdmin.row('.selected').data().uselev)
+                        $('#usepro').html(tabMesAdmin.row('.selected').data().useprov)
+                        $('#usecity').html(tabMesAdmin.row('.selected').data().usecity)
+                        $('#usecoun').html(tabMesAdmin.row('.selected').data().usearea)
+                        $('#usetime').html(tabMesAdmin.row('.selected').data().usetime)
+                        $('#setlevel').val(tabMesAdmin.row('.selected').data().uselev)
                         
                     }catch(e){
                         

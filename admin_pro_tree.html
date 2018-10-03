@@ -65,7 +65,8 @@
                     <div class="col-xs-5">
                         <button class="btn btn-success" id="NewType">增加类型</button>
                         <button class="btn btn-danger" onclick="DelProType()">删除类型</button>
-                        <button class="btn btn-primary" href="#protype-add" role="button" data-toggle="modal">编辑类型</button>
+                        <!--<button class="btn btn-primary" href="#protype-add" role="button" data-toggle="modal">编辑类型</button>-->
+                        <button class="btn btn-primary" id="altertype">编辑类型</button>
                     </div>
                     <div class="col-xs-7">
                         <button class="btn btn-success" id="NewPro">增加产品</button>
@@ -215,11 +216,10 @@
                         $('#ProTypeId').attr('value',TypeId)
                         $('#ProTypeName').attr('value',tabMesType.row('.selected').data().typeName)
                         $('#ProTypeElse').text(tabMesType.row('.selected').data().typeElse)
-                        
                         $('#NewPro').on('click',function(){
                         	
-							$('#promes-add').modal('show')
-							
+                    		$('#promes-add').modal('show');
+                        	
 						})
                         //刷新产品列表
                         tabMesList.ajax.url( 'php/TableShowPro.php?falg=list&typeId='+TypeId ).load();
@@ -251,6 +251,15 @@
 	                $('#ProTypeElse').val('') 
 	                $('#protype-add').modal('show')
 				})
+				
+				//判断是否有点击节点才能打开编辑类型
+				$("#altertype").on('click',function(){
+					if($('#ProTypeId').attr("value") != undefined || $('#ProTypeId').val() != ""){
+						$('#protype-add').modal('show');
+					}else{
+						alert("请选择产品类型后再进行编辑");
+					}
+				});
 				
 		</script>
 	</body>
