@@ -181,6 +181,7 @@
 				$('#model-ads').load('model_ads.html')
 				$('#model_ads_2').load('model_ads_2.html');
 				
+				
 				$('#savestament').on('click',function(){
     		 		$.ajax({
     		 			type:"post",
@@ -324,6 +325,12 @@
 						}
 					});
                 });
+                
+                //左边树添加active
+                setTimeout(function(){
+                	SetTreeActive(0);
+                },1)
+                
 			</script>
 	</body>
 

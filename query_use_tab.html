@@ -225,6 +225,10 @@
 			     */
 			    tabMesSimple = $('#dynamic-table').DataTable({
                     ajax:'php/TableShowUse.php',
+                    "sServerMethod": "GET",
+			        "fnServerParams": function ( aoData ) {
+				        aoData.push({ "name": "my_flag", "value": "all" });
+				    },
                     columns:[
                         {"data":'uselev'},
                         {"data":'useacc'},
@@ -248,6 +252,10 @@
                 });
                 tabMesSimple_two = $('#dynamic-table2').DataTable({
                     ajax:'php/TableShowUse.php',
+                    "sServerMethod": "GET",
+			        "fnServerParams": function ( aoData ) {
+				        aoData.push({ "name": "my_flag", "value": "all" });
+				    },
                     columns:[
                         {"data":'uselev'},
                         {"data":'useacc'},
@@ -301,6 +309,11 @@
 					});
                 
             })
+			
+			//左边树添加active
+                setTimeout(function(){
+                	SetTreeActive(6);
+                },1)
 		</script>
 	</body>
 
