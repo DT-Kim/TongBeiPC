@@ -212,8 +212,10 @@
                     try{
                         //显示产品类型信息
                         var TypeId = tabMesType.row('.selected').data().id
-                        $('#ProTypeId').attr('value',TypeId)
-                        $('#ProTypeName').attr('value',tabMesType.row('.selected').data().typeName)
+//                      $('#ProTypeId').attr('value',TypeId)
+                        $('#ProTypeId').val(TypeId)
+//                      $('#ProTypeName').attr('value',tabMesType.row('.selected').data().typeName)
+                        $('#ProTypeName').val(tabMesType.row('.selected').data().typeName)
                         $('#ProTypeElse').text(tabMesType.row('.selected').data().typeElse)
                         $('#NewPro').on('click',function(){
                         	

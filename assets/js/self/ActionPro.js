@@ -29,6 +29,7 @@ function AddProType()
         	        $('#ProTypeName').attr('value','')
         	        $('#ProTypeElse').attr('value','')
         	        tabMesType.ajax.reload();
+//                  windows.location.relaod();
         	    }
         	    if(data['status'] == 'exist')
         	    {
@@ -184,11 +185,16 @@ function AddProNew()
         	    if(data['status'] == 'success')
         	    {
         	        alert('新建成功')
-        	        $('#ListName').attr('value','')
-        	        $('#ListUnit').attr('value','')
-        	        $('#ListPrice').attr('value','')
-        	        $('#ListScore').attr('value','')
-        	        $('#ListId').attr('value','')
+        	        $('#ListName').val()
+                    $('#ListUnit').val()
+                    $('#ListPrice').val()
+                    $('#ListScore').val()
+                    $('#ListId').val()
+//      	        $('#ListName').attr('value','')
+//      	        $('#ListUnit').attr('value','')
+//      	        $('#ListPrice').attr('value','')
+//      	        $('#ListScore').attr('value','')
+//      	        $('#ListId').attr('value','')
         	        tabMesList.ajax.reload();
         	    }
         	    if(data['status'] == 'exist')
