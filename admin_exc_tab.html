@@ -401,13 +401,16 @@
                         $(this).addClass('selected');
                     }
                     try{
-                        $('#ExcId').attr('value',tabMesType.row('.selected').data().id)
-                        $('#ProExcName').attr('value',tabMesType.row('.selected').data().excName)
-                        $('#ExcReq').attr('value',tabMesType.row('.selected').data().excreq)
+//                      $('#ExcId').attr('value',tabMesType.row('.selected').data().id)
+//                      $('#ProExcName').attr('value',tabMesType.row('.selected').data().excName)
+//                      $('#ExcReq').attr('value',tabMesType.row('.selected').data().excreq)
+						$('#ExcId').val(tabMesType.row('.selected').data().id)
+                        $('#ProExcName').val(tabMesType.row('.selected').data().excName)
+                        $('#ExcReq').val(tabMesType.row('.selected').data().excreq)
                         $('#ProExcElse').text(tabMesType.row('.selected').data().excElse)
                         
                         
-                        $('#goodid').attr('value',tabMesType.row('.selected').data().id)
+                        $('#goodid').val(tabMesType.row('.selected').data().id)
                         $("#proname").val(tabMesType.row('.selected').data().excName);
                 	   	$("#prounit").val(tabMesType.row('.selected').data().excunit);
 //              	    $("#proprice").val(tabMesType.row('.selected').data().id);

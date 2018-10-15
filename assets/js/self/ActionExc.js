@@ -19,9 +19,12 @@ function AddExc()
 				if(data['status'] == 'success')
         	    {
         	        alert('新建成功')
-        	        $('#ProExcName').attr('value','')
-        	        $('#ExcReq').attr('value','')
-        	        $('#ProExcElse').attr('value','')
+//      	        $('#ProExcName').attr('value','')
+//      	        $('#ExcReq').attr('value','')
+//      	        $('#ProExcElse').attr('value','')
+					$('#ProExcName').val('')
+        	        $('#ExcReq')..val('')
+        	        $('#ProExcElse')..val('')
         	        tabMesType.ajax.reload();
         	    }
         	    if(data['status'] == 'exist')
@@ -87,9 +90,12 @@ function EditExc(){
         	    if(data['status'] == 'success')
         	    {
         	        alert('商品修改成功')
-        	        $('#ProExcName').attr('value','')
-        	        $('#ExcReq').attr('value','')
-                    $('#ProExcElse').attr('value','')
+//      	        $('#ProExcName').attr('value','')
+//      	        $('#ExcReq').attr('value','')
+//                  $('#ProExcElse').attr('value','')
+					$('#ProExcName').val('')
+        	        $('#ExcReq')..val('')
+        	        $('#ProExcElse')..val('')
                     tabMesType.ajax.reload();
         	    }
         	},

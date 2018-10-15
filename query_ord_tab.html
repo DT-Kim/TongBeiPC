@@ -145,8 +145,8 @@
                                                     <th>收货地址</th>
                                                     <th>下单时间</th>
                                                     <th>交易状态</th>
-                                                    <th>物流员</th>
-                                                    <th>物流员手机</th>
+                                                    <!--<th>物流员</th>
+                                                    <th>物流员手机</th>-->
                                                     <th>物流收货时间</th>
                                                 </tr>
                                             </thead>
@@ -165,8 +165,8 @@
                                                     <td>收货地址</td>
                                                     <td>下单时间</td>
                                                     <td>交易状态</td>
-                                                    <td>物流员</td>
-                                                    <td>物流员手机</td>
+                                                    <!--<td>物流员</td>
+                                                    <td>物流员手机</td>-->
                                                     <td>物流收货时间</td>
                                                 </tr>
                                             </tbody>
@@ -191,8 +191,8 @@
                                                     <th>收货地址</th>
                                                     <th>下单时间</th>
                                                     <th>交易状态</th>
-                                                    <th>物流员</th>
-                                                    <th>物流员手机</th>
+                                                    <!--<th>物流员</th>
+                                                    <th>物流员手机</th>-->
                                                     <th>物流收货时间</th>
                                                    
                                                 </tr>
@@ -212,8 +212,8 @@
                                                     <td>收货地址</td>
                                                     <td>下单时间</td>
                                                     <td>交易状态</td>
-                                                    <td>物流员</td>
-                                                    <td>物流员手机</td>
+                                                    <!--<td>物流员</td>
+                                                    <td>物流员手机</td>-->
                                                     <td>物流收货时间</td>
                                                     
                                                 </tr>
@@ -234,9 +234,9 @@
 	                                       		下单时间：<input type="date"id="ordtime">  收货时间：<input type="date"id="gettime">
 	                                       		
 	                                       	</div>
-	                                       	<div class="jiange">
+	                                       	<!--<div class="jiange">
 	                                       		物流员：<input type="text"id="sendname">  物流员手机：<input type="text"id="sendnumb">
-	                                       	</div>
+	                                       	</div>-->
 	                                        <div class="jiange">
 	                                        	交易状态：<input type="text" id="ordsta">
 	                                        	收货地址：<input type="text" id="address">
@@ -260,8 +260,8 @@
                                                     <th>收货地址</th>
                                                     <th>下单时间</th>
                                                     <th>交易状态</th>
-                                                    <th>物流员</th>
-                                                    <th>物流员手机</th>
+                                                    <!--<th>物流员</th>
+                                                    <th>物流员手机</th>-->
                                                     <th>物流收货时间</th>
                                                    
                                                 </tr>
@@ -282,8 +282,8 @@
                                                     <td>收货地址</td>
                                                     <td>下单时间</td>
                                                     <td>交易状态</td>
-                                                    <td>物流员</td>
-                                                    <td>物流员手机</td>
+                                                    <!--<td>物流员</td>
+                                                    <td>物流员手机</td>-->
                                                     <td>物流收货时间</td>
                                                     
                                                 </tr>
@@ -309,8 +309,8 @@
                                                     <th>收货地址</th>
                                                     <th>下单时间</th>
                                                     <th>交易状态</th>
-                                                    <th>物流员</th>
-                                                    <th>物流员手机</th>
+                                                    <!--<th>物流员</th>
+                                                    <th>物流员手机</th>-->
                                                     <th>物流收货时间</th>
                                                    
                                                 </tr>
@@ -330,8 +330,8 @@
                                                     <td>收货地址</td>
                                                     <td>下单时间</td>
                                                     <td>交易状态</td>
-                                                    <td>物流员</td>
-                                                    <td>物流员手机</td>
+                                                    <!--<td>物流员</td>
+                                                    <td>物流员手机</td>-->
                                                     <td>物流收货时间</td>
                                                     
                                                 </tr>
@@ -394,8 +394,8 @@
                         {"data":'address'},
                         {"data":'ordtime'},
                         {"data":'ordsta'},
-                        {"data":'sendname'},
-                        {"data":'sendnumb'},
+//                      {"data":'sendname'},
+//                      {"data":'sendnumb'},
                         {"data":'gettime'},
                     ],
                     oLanguage: {
@@ -424,8 +424,8 @@
                         {"data":'address'},
                         {"data":'ordtime'},
                         {"data":'ordsta'},
-                        {"data":'sendname'},
-                        {"data":'sendnumb'},
+//                      {"data":'sendname'},
+//                      {"data":'sendnumb'},
                         {"data":'gettime'},
                     ],
                     oLanguage: {
@@ -455,8 +455,8 @@
                         {"data":'address'},
                         {"data":'ordtime'},
                         {"data":'ordsta'},
-                        {"data":'sendname'},
-                        {"data":'sendnumb'},
+//                      {"data":'sendname'},
+//                      {"data":'sendnumb'},
                         {"data":'gettime'},
                     ],
                     oLanguage: {
@@ -477,8 +477,8 @@
 					var uphone = $("#usephone").val();
 					var otime = $("#ordtime").val();
 					var gtime = $("#gettime").val();
-					var sname = $("#sendname").val();
-					var snumb = $("#sendnumb").val();
+//					var sname = $("#sendname").val();
+//					var snumb = $("#sendnumb").val();
 					var address = $("#address").val();
 					var osta = $("#ordsta").val();
 					tabMesSimple_three
@@ -497,10 +497,10 @@
 						.column(13)
 						.search(osta)
 						.column(14)
-						.search(sname)
-						.column(15)
-						.search(snumb)
-						.column(16)
+//						.search(sname)
+//						.column(15)
+//						.search(snumb)
+//						.column(16)
 						.search(gtime)
 						.draw();
 
@@ -521,8 +521,8 @@
                         {"data":'address'},
                         {"data":'ordtime'},
                         {"data":'ordsta'},
-                        {"data":'sendname'},
-                        {"data":'sendnumb'},
+//                      {"data":'sendname'},
+//                      {"data":'sendnumb'},
                         {"data":'gettime'},
                     ],
                     oLanguage: {

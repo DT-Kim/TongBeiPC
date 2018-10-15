@@ -121,7 +121,7 @@
                                             	<div class="profile-info-name">图片状态</div>
                                         		<div class="profile-info-value">
 											 		<select class="select" id="stament">
-														<option value="显示">显示</option>
+														<option value="显示" >显示</option>
 														<option value="关闭">关闭</option>
 													</select>
 													<!--<button id="savestament">保存</button>-->
@@ -182,7 +182,8 @@
 				$('#model_ads_2').load('model_ads_2.html');
 				
 				
-				$('#savestament').on('click',function(){
+				$('#stament').on('change',function(){
+//					alert('123')
     		 		$.ajax({
     		 			type:"post",
     		 			url:"php/Ads.php",
