@@ -312,6 +312,7 @@
         					success:function(data){
         						if(data['state'] == 'success'){
         							location.href='admin_ads.html';
+        							sessionStorage.setItem("key",data['name'])
             					}
         						else{
         							alert('用户名或密码错误')

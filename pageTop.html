@@ -27,7 +27,7 @@
                         <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
                         <span class="user-info">
                             <small>Welcome,</small>
-                            <span id="username">56</span>
+                            <span id="username"></span>
                         </span>
     
                         <i class="ace-icon fa fa-caret-down"></i>
@@ -46,8 +46,7 @@
 			if(r!=null)return  unescape(r[2]);
 			return null;
 		}
-		var user=geturl("user");
-		var value = sessionStorage.getItem("key"); 
-		$("#username").html(value);
+//		var user=geturl("user");
+		$("#username").html(sessionStorage.getItem("key"));
 //		alert(value);
 	</script>

@@ -1,10 +1,16 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Origin: *");
 	require('conn.php');
-	$id=$_POST['id'];
+	
+	$id = $_POST['id'];
     $psta = $_POST['psta'];
-    $sql_save = "update `查询用户信息`  set `用户级别`= '".$psta."'where 用户id = '".$id."'";
+    
+//  $id = 5;
+//  $psta = 3;
+    
+    $sql_save = "update `用户信息`  set `用户级别id`= '".$psta."'where id = '".$id."'";
     $result_save = $conn->query($sql_save);
+//  echo $sql_save;
     $data['status'] = 'error';
     if($result_save){
     	

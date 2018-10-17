@@ -30,12 +30,14 @@
 		$ret_data["state"] = "success";
 		$ret_data["message"] = "登录成功";
 		
+		
 		//存入服务器session
 		while($row = $result->fetch_assoc()){
 			session_start();//打开session会话
 			//向session存入数据
 			$_SESSION["account"] = $account;
 			$_SESSION["realname"] = $row["真实姓名"];
+			$ret_data["name"] =  $row["真实姓名"];
 			$_SESSION["phonenumber"] = $row["用户手机"];
 			$_SESSION["gradeID"] = $row["用户级别id"];
 		}

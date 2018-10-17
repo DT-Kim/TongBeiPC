@@ -96,21 +96,21 @@
                                                 <tr>
                                                     <th>用户账号</th>
                                                     <th>真实姓名</th>
-                                                    <th>用户级别</th>
+                                                    <th>注册时间</th>
                                                     <th>省</th>
                                                     <th>市</th>
                                                     <th>县</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <!--<tr>
                                                     <td>用户账号</td>
                                                     <td>真实姓名</td>
                                                     <td>用户级别</td>
                                                     <td>省</td>
                                                     <td>市</td>
                                                     <td>县</td>
-                                                </tr>
+                                                </tr>-->
                                                
                                             </tbody>
                                         </table>
@@ -150,21 +150,21 @@
                                                 <tr>
                                                     <th>用户账号</th>
                                                     <th>真实姓名</th>
-                                                    <th>用户级别</th>
+                                                    <th>注册时间</th>
                                                     <th>省</th>
                                                     <th>市</th>
                                                     <th>县</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <!--<tr>
                                                     <td>用户账号</td>
                                                     <td>真实姓名</td>
                                                     <td>用户级别</td>
                                                     <td>省</td>
                                                     <td>市</td>
                                                     <td>县</td>
-                                                </tr>
+                                                </tr>-->
                                                
                                             </tbody>
                                         </table>
@@ -177,21 +177,21 @@
                                                 <tr>
                                                     <th>用户账号</th>
                                                     <th>真实姓名</th>
-                                                    <th>用户级别</th>
+                                                    <th>注册时间</th>
                                                     <th>省</th>
                                                     <th>市</th>
                                                     <th>县</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <!--<tr>
                                                     <td>用户账号</td>
                                                     <td>真实姓名</td>
                                                     <td>用户级别</td>
                                                     <td>省</td>
                                                     <td>市</td>
                                                     <td>县</td>
-                                                </tr>
+                                                </tr>-->
                                                
                                             </tbody>
                                         </table>
@@ -222,7 +222,7 @@
                                <!-- menu部分-->
                                 <div class="tab-content">
                                     <div id="menu" class="tab-pane in active">
-                                    <!--	<input id="useid" hidden="hidden" />-->
+                                    	<input id="useid" hidden="hidden" />
                                         <div class="profile-user-info profile-user-info-striped">
                                             
                                             <div class="profile-info-row">
@@ -245,7 +245,7 @@
                                                 </div>
                                              </div>
                                             <div class="profile-info-row">
-                                                <div class="profile-info-name">用户级别 </div>
+                                                <div class="profile-info-name"> 用户级别 </div>
                                                 <div class="profile-info-value">
                                                     <span id="uselev"> </span>
                                                 </div>
@@ -278,10 +278,10 @@
                                                 <div class="profile-info-name">设置权限</div>
                                                 <div class="profile-info-value">
                                                   <select id="setlevel">
-											        <option value="普通客户">普通客户</option>
-											        <option value="vip">vip</option>
-											        <option value="物流人员">物流人员</option>
-											        <option value="管理员">管理员</option>
+											        <option value="普通客户" data-id='2' >普通客户</option>
+											        <option value="vip" data-id='0'>vip客户</option>
+											        <option value="物流人员" data-id='3'>物流人员</option>
+											        <option value="管理员" data-id='1'>管理员</option>
 											    </select>
                                                 </div>
                                             </div>
@@ -353,21 +353,18 @@
 		<script type="text/javascript" src="assets/js/chart/jquery.ba-resize.min.js"></script>
 		
 		<script type="text/javascript">
-		gvChartInit();
-		$(document).ready(function(){
-			$('#myTable5').gvChart({
-				chartType: 'PieChart',
-				gvSettings: {
-					vAxis: {title: 'No of players'},
-					hAxis: {title: 'Month'},
-					width: 420,
-					height: 350
-				}
-			});
-		});
-		</script>
-			  	
-		<script type="text/javascript">
+    		gvChartInit();
+    		$(document).ready(function(){
+    			$('#myTable5').gvChart({
+    				chartType: 'PieChart',
+    				gvSettings: {
+    					vAxis: {title: 'No of players'},
+    					hAxis: {title: 'Month'},
+    					width: 420,
+    					height: 350
+    				}
+    			});
+    		});
 		    /*
 		     * INI Page
 		     */
@@ -389,7 +386,7 @@
                     columns:[
                         {"data":'useacc'},
                         {"data":'usename'},
-                        {"data":'uselev'},
+                        {"data":'usetime'},
                         {"data":'useprov'},
                         {"data":'usecity'},
                         {"data":'usearea'},
@@ -441,7 +438,7 @@
                     columns:[
                         {"data":'useacc'},
                         {"data":'usename'},
-                        {"data":'uselev'},
+                        {"data":'usetime'},
                         {"data":'useprov'},
                         {"data":'usecity'},
                         {"data":'usearea'},
@@ -493,7 +490,7 @@
                     columns:[
                         {"data":'useacc'},
                         {"data":'usename'},
-                        {"data":'uselev'},
+                        {"data":'usetime'},
                         {"data":'useprov'},
                         {"data":'usecity'},
                         {"data":'usearea'},
@@ -533,10 +530,26 @@
                     }catch(e){
                         
                     }
-                   
                 })
                 
-                $('#SaveDetali').on('click',function(){
+                $('#setlevel').on('change',function(){
+//                  alert($('#useid').val())
+                    var UseType = 0
+                    switch($('#setlevel').val()){
+                        case '普通客户':
+                            UseType = 2
+                        break;
+                        case 'vip客户':
+                            UseType = 0
+                        break;
+                        case '物流人员':
+                            UseType = 3
+                        break;
+                        case '管理员':
+                            UseType = 1
+                        break;
+                        default:break;
+                    }
     		 		$.ajax({
     		 			type:"post",
     		 			url:"php/User.php",
@@ -544,14 +557,16 @@
     		 			dataType:'json',
     		 			data:{
     		 				id:$('#useid').val(),
-							psta:$('#setlevel').val(),
+							psta:UseType,
     		 			},
     		 			success:function(data){
-    		 			 if(data['status'] == 'success')
-    		 			 {
-    		 				alert('保存成功')
-    		 				window.location.reload();
-    		 			}
+    		 			    if(data['status'] == 'success')
+    		 			    {
+    		 				    alert('保存成功')
+    		 				    window.location.reload();
+    		 			    }else{
+    		 			        console.log(data)
+    		 			    }
     		 			},
     		 			error:function(s,e,t){
 			        	    alert('失败，请及时联系管理员')

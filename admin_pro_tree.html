@@ -67,12 +67,6 @@
                         <button class="btn btn-danger" onclick="DelProType()">删除类型</button>
                         <!--<button class="btn btn-primary" href="#protype-add" role="button" data-toggle="modal">编辑类型</button>-->
                         <button class="btn btn-primary" id="altertype">编辑类型</button>
-                    </div>
-                    <div class="col-xs-7">
-                        <button class="btn btn-success" id="NewPro">增加产品</button>
-                        <!--<a href="admin_pro_plus.html" target="_blank"><button class="btn btn-primary" id="showDetali">查看详情</button></a>-->
-                    </div>
-                    <div class="col-xs-5">
                         <div class="widget-box">
                             <div class="widget-header widget-header-flat">
                                 <h4 class="widget-title smaller">
@@ -100,6 +94,7 @@
                         </div>
                     </div>
                     <div class="col-xs-7">
+                        <button class="btn btn-success" id="NewPro">增加产品</button>
                         <div class="widget-box">
                             <div class="widget-header widget-header-flat">
                                 <h4 class="widget-title smaller">
@@ -217,6 +212,27 @@
 //                      $('#ProTypeName').attr('value',tabMesType.row('.selected').data().typeName)
                         $('#ProTypeName').val(tabMesType.row('.selected').data().typeName)
                         $('#ProTypeElse').text(tabMesType.row('.selected').data().typeElse)
+                        $.ajax({
+                        	type:"post",
+                        	url:"php/GetTypeImg.php",
+                        	async:true,
+                        	data:{
+                        	    TypeId:TypeId
+                        	},
+                        	dataType:'json',
+                        	success:function(data){
+                        	    if(data['status'] == 'success'){
+                        	        $('#TypeLogo').attr('src',data['TypeLogo'])
+                        	       $('#TypePic').attr('src',data['TypePic'])
+                        	    }else{
+                        	        alert('出现错误，错误类型'+e)
+                        	    }
+                        	    
+                        	},
+                        	error:function(s,e,t){
+                        	    alert('出现错误，错误类型：'+e)
+                        	}
+                        });
                         $('#NewPro').on('click',function(){
                         	
                     		$('#promes-add').modal('show');
