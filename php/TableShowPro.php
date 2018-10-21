@@ -40,12 +40,13 @@ header("Access-Control-Allow-Origin: *");
                     $data['aaData'][$i]['ListPrice'] = $row['价格'];
                     $data['aaData'][$i]['ListScore'] = $row['积分倍数'];
                     $data['aaData'][$i]['ListShow'] = $row['产品状态'];
-                    $MesSta = '否';
-                    if($row['热门状态'] == 1)
-                    {
-                        $MesSta = '是';
-                    }
-                    $data['aaData'][$i]['ListSta'] = $MesSta;
+                    $data['aaData'][$i]['ListSta'] = $row['热门状态'];
+//                  $MesSta = '否';
+//                  if($row['热门状态'] == 1)
+//                  {
+//                      $MesSta = '是';
+//                  }
+//                  $data['aaData'][$i]['ListSta'] = $MesSta;
                     
                     $i++;
                 }

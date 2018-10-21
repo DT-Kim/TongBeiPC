@@ -12,7 +12,7 @@ function AddAds()
     fData.append("flag",'addNew')
     fData.append("dec",$('#adsMes').val())
     fData.append('AdsImg',my_files[0])
-    fData.append('AdsSta',$('#AdsSta option:selected') .val())
+    fData.append('PhoSta',$('#AdsSta option:selected').val())
     fData.append('PrcID',$('#proid') .val());
     
     $.ajax({
@@ -24,7 +24,7 @@ function AddAds()
         processData:false,
         contentType:false,
         success:function(data){
-//          console.log(data)
+            console.log(data)
             if(data['status'] == 'success'){
                 //显示图片
                 $('#ImgShow').attr('src',data['url'])
@@ -36,6 +36,7 @@ function AddAds()
             return
         },
         error:function(s,e,t){
+        	console.log(s +"  "+e)
             alert('出现错误，请及时联系管理员')
         }
     });
@@ -52,7 +53,7 @@ function EditAds()
     fData.append("flag",'editAds')
     fData.append("dec",$('#adsMes').val())
     fData.append('AdsImg',my_files[0])
-    fData.append('AdsSta',$('#AdsSta option:selected') .val())
+    fData.append('PhoSta',$('#AdsSta option:selected').val())
     fData.append("id",$('#MesId').val())
     $.ajax({
         type:"post",
@@ -84,7 +85,7 @@ function EditAds()
     	fData = new FormData();
 	    fData.append("flag",'editAds2')
 	    fData.append("dec",$('#adsMes').val())
-	    fData.append('AdsSta',$('#AdsSta option:selected') .val())
+	    fData.append('PhoSta',$('#AdsSta option:selected').val())
 	    fData.append("id",$('#MesId').val())
     	$.ajax({
     		type:"post",
@@ -145,60 +146,60 @@ function DelAds()
 		alert("请选择节点后再操作")
 	}
 }
-function closephoto(){
-	
-	fData = new FormData();
-    fData.append("flag",'closephoto')
-    fData.append("id",$('#MesId').val())
-    fData.append("stament",$('#stament').attr("value"));
-	$.ajax({
-		type:"post",
-		url:"php/plus.php",
-		async:true,
-		datatype:'json',
-		data:fData,
-		processData:false,
-        contentType:false,
-		success:function(data){
-			if(data['status'] = 'success')
-            {
-            	$("#move1").removeClass("on").addClass("off");
-                alert('关闭图片成功！')
-			
-            }
-		},
-		error:function(s,e,t)
-        {
-            alert('关闭图片失败，请及时联系管理员')
-        }
-	});
-}
-function showphoto(){
-	
-	fData = new FormData();
-    fData.append("flag",'showphoto')
-    fData.append("id",$('#MesId').val())
-    fData.append("stament",$('#stament').attr("value"))
-	$.ajax({
-		type:"post",
-		url:"php/plus.php",
-		async:true,
-		datatype:'json',
-		data:fData,
-		processData:false,
-        contentType:false,
-		success:function(data){
-			if(data['status'] = 'success')
-            {
-            	$("#move1").removeClass("off").addClass("on");
-                alert('显示图片成功！')
-            }
-     
-		},
-		error:function(s,e,t)
-        {
-            alert('显示图片失败，请及时联系管理员')
-        }
-	});
-	
-}
+//function closephoto(){
+//	
+//	fData = new FormData();
+//  fData.append("flag",'closephoto')
+//  fData.append("id",$('#MesId').val())
+//  fData.append("stament",$('#stament').attr("value"));
+//	$.ajax({
+//		type:"post",
+//		url:"php/plus.php",
+//		async:true,
+//		datatype:'json',
+//		data:fData,
+//		processData:false,
+//      contentType:false,
+//		success:function(data){
+//			if(data['status'] = 'success')
+//          {
+//          	$("#move1").removeClass("on").addClass("off");
+//              alert('关闭图片成功！')
+//			
+//          }
+//		},
+//		error:function(s,e,t)
+//      {
+//          alert('关闭图片失败，请及时联系管理员')
+//      }
+//	});
+//}
+//function showphoto(){
+//	
+//	fData = new FormData();
+//  fData.append("flag",'showphoto')
+//  fData.append("id",$('#MesId').val())
+//  fData.append("stament",$('#stament').attr("value"))
+//	$.ajax({
+//		type:"post",
+//		url:"php/plus.php",
+//		async:true,
+//		datatype:'json',
+//		data:fData,
+//		processData:false,
+//      contentType:false,
+//		success:function(data){
+//			if(data['status'] = 'success')
+//          {
+//          	$("#move1").removeClass("off").addClass("on");
+//              alert('显示图片成功！')
+//          }
+//   
+//		},
+//		error:function(s,e,t)
+//      {
+//          alert('显示图片失败，请及时联系管理员')
+//      }
+//	});
+//	
+//}

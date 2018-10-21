@@ -71,16 +71,16 @@
 
 			<div class="main-content">
 				<div class="widget-main padding-24">
-			    	<span style="font-size: 22px;"> 积分管理</span>
+			    	<span style="font-size: 22px;">积分管理</span>
                     <div class="hr hr8 hr-double hr-dotted"></div>
-                    <div class="col-xs-5">
+                    <div class="col-xs-12">
                         <button class="btn btn-success" id="NewExc">增加商品</button>
                         <button class="btn btn-danger" onclick="DelExc()">删除商品</button>
                         <button class="btn btn-primary"  href="#Exc-add" role="button"  data-toggle="modal">编辑商品</button>
                     </div>
-                    <div class="col-xs-7">
+                    <!--<div class="col-xs-7">
                         <button class="btn btn-primary" id="SaveDetali"> 保存详情 </button>
-                    </div>
+                    </div>-->
                     <div class="col-xs-5">
                         <div class="widget-box">
                             <div class="widget-header widget-header-flat">
@@ -113,7 +113,6 @@
                                         </table>
                                     </div>
                                     <div id="home2" class="tab-pane">
-
                                     </div>
                                 </div>
                             </div>
@@ -121,64 +120,31 @@
                         <div class="space-6"></div>
                     </div>
                 <div class="col-xs-7">
-                    <div class="widget-box">
+                    <div class="widget-box widget-color-blue">
                         <div class="widget-header widget-header-flat">
                             <h4 class="widget-title smaller">详细信息</h4>
                             <h4 class="widget-title smaller" id="ProName"></h4>
-                            <input type="text" id="goodid" hidden="hidden">
+                            <input type="text" id="goodid" hidden="hidden"> 
                         </div>
                         <div class="tabbable">
                             <ul class="nav nav-tabs padding-12">
-                                <!--<li class="active">
-                                    <a data-toggle="tab" href="#menu">基本信息</a>
-                                </li>-->
                                 <li class="active">
                                     <a data-toggle="tab" href="#menu1">商品介绍</a>
                                 </li>
-                                
+                                <li>
+                                    <a data-toggle="tab" href="#menu2">轮播设置</a>
+                                </li>
                             </ul>
                            <!-- menu部分-->
                             <div class="tab-content">
-                                <!--<div id="menu" class="tab-pane in active">
-                                   <div class="profile-user-info profile-user-info-striped">
-                                        
-                                        <div class="profile-info-row">
-                                            <div class="profile-info-name"> 商品名称 </div>
-                                            <div class="profile-info-value">
-                                                <input class="editable" id="" onfocus=this.blur() >
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="profile-info-row">
-                                            <div class="profile-info-name"> 商品</div>
-                                            <div class="profile-info-value">
-                                                <input class="editable" id="" onfocus=this.blur()>
-                                            </div>
-                                        </div>
-                                        <div class="profile-info-row">
-                                            <div class="profile-info-name">商品</div>
-                                            <div class="profile-info-value">
-                                                <input id="" class="editable" onfocus=this.blur()>
-                                            </div>
-                                         </div>
-                                        <div class="profile-info-row">
-                                        	
-                                            <div class="profile-info-name">商品 </div>
-                                            <div class="profile-info-value">
-                                                <input class="editable" id="" onfocus=this.blur()>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="profile-info-row">
-                                            <div class="profile-info-name">商品</div>
-                                            <div class="profile-info-value">
-                                                <input class="editable" id="" onfocus=this.blur()> 
-                                            </div>
-                                        </div>
-                                </div>
-                               </div>-->
                                <!-- menu1部分-->
                                 <div id="menu1" class="tab-pane in active">
+                                <div class="clearfix">
+                        		<div class="col-xs-12" style="margin-bottom: 10px">
+                				<button class="btn btn-primary" id="SaveDetali"> 保存详情 </button>
+            					</div>
+            					</div>
+            					<div class="widget-box">
 									<div class="clearfix" id="add_picture">
 										<form action="" method="post" class="form form-horizontal" id="form-article-add">
 										<div class=" clearfix cl">
@@ -191,7 +157,7 @@
 												<div class="formControls col-2">
 													<span class="select-box">
 														<select class="select" id="prounit">
-															<option>请选择</option>
+														<!--	<option>请选择</option>-->
 															<option value="件">件</option>
 															<option value="斤">斤</option>
 															<option value="KG">KG</option>
@@ -207,7 +173,7 @@
 												<label class="form-label col-2">商品状态：</label>
 												<div class="formControls col-2">
 												 	<select class="select" id="prosta">
-														<option>请选择</option>
+														<!--<option>请选择</option>-->
 														<option value="显示">显示</option>
 														<option value="关闭">关闭</option>
 													</select>
@@ -217,7 +183,7 @@
 												<label class="form-label col-2">热门状态：</label>
 												<div class="formControls col-2">
 												 	<select class="select" id="prohot">
-														<option>请选择</option>
+														<!--<option>请选择</option>-->
 														<option value="是">是</option>
 														<option value="否">否</option>
 													</select>
@@ -227,32 +193,108 @@
 									         	<label class="form-label col-2">所需积分：</label>
 										     	<div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="exc" name=""></div>
 											</div>
-											<!--<div class="Add_p_s">
-								             <label class="form-label col-2">价&nbsp;&nbsp;&nbsp;&nbsp;格：</label>	
-											 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="proprice" name="" >元</div>
-											</div>-->
-											
 										</div>
-											
+										
 										<div class="clearfix cl">
 											<label class="form-label col-2">内容摘要：</label>
-											<div class="formControls col-10">
-												<textarea name="" cols="" rows="" id="protext" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,200)"></textarea>
-												<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+											<div class="formControls col-2">
+												<input type="text" id="protext" class="textarea"  style="width: 550px;">
 											</div>
 										</div>
+										<div class=" clearfix cl">
+                                            <label class="form-label col-2">商品图示：</label>
+                                            <div class="formControls col-10" style="border-color: black;">
+                                                <img id="prophoto" style="width: 150px;height: 130px;" />
+                                            </div>
+                                       </div>
 											
 								        <div class="clearfix cl">
 								        <label class="form-label col-2">详细内容：</label>
 											<div class="formControls col-10">
-												<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> 
+												<script id="editor" type="text/plain" style="width:100%;height:300px;"></script> 
 												<input id='content' type='hidden'/>
 								             </div>
 									   </div>
 										</form>
-								    </div>		
+								    </div>
+								 </div><!--另一个tab-->
                                 </div>
                                 <!--menu1结束  -->
+                                <!--<menu2start>-->
+                            	<div id="menu2" class="tab-pane">
+                            		<div class="clearfix">
+            						<div class="col-xs-12">
+				                        <button class="btn btn-success" id="NewAds">新建节点</button>
+				                        <button class="btn btn-danger" onclick="DelAds()">删除节点</button>
+				                        <button class="btn btn-primary" id="setaddress">设置位置</button>
+            						</div>
+				                    
+				    				<div class="col-xs-10">
+				    				    <div class="widget-box">
+				        					<div class="widget-header widget-header-flat">
+				                                <h4 class="widget-title smaller">
+				                                    <span>设置 </span>
+                        						</h4>
+                   						 	</div>
+			        					<div class="widget-body">
+			        					    <div class="widget-main">
+			            						<table id="dynamic-table-list" class="table table-striped table-bordered table-hover" style="width:100%;height:100%;">
+			            							<thead>
+			            								<tr>
+			            									<th>序号</th>
+			            									<th>文字说明</th>
+			            									<th>位置</th>
+			            									<!--<th>是否热门</th>-->
+			            								</tr>
+			            							</thead>
+			            							<tbody></tbody>
+			            						</table>
+			        					   </div>
+			        					</div>
+			        			    </div>
+			    				</div>
+		    					<div class="col-xs-12">
+			                        <!--<button class="btn btn-primary" href="#ads-mes" role="button" data-toggle="modal">修改节点属性</button>-->
+			                        <button class="btn btn-primary" id="alterdata">修改节点属性</button>
+			                   </div>
+			    				<div class="col-xs-12">
+			                        <div class="widget-box">
+			                            <div class="widget-header widget-header-flat">
+			                                <h4 class="widget-title smaller">
+			                                    <span> 节点属性 </span>
+			                                </h4>
+			                                <input type="text" hidden="hidden" id="setid">
+			                            </div>
+			                            <div class="widget-body">
+			                                <div class="widget-main">
+			                                    <div class="tab-content" >
+			                                        <img width="400px" height="200px" id="ImgSel"/>
+			                                        <br /><br />
+			                                        <div class="profile-user-info profile-user-info-striped"  >
+			                                            <div class="profile-info-row" >
+			                                            	<div class="profile-info-name">图片状态</div>
+			                                            	<div class="profile-info-value">
+													 		<span class="editable" id="stament"></span>
+															<!--<button class="hidden" id="savestament">保存</button>-->
+											        		</div>
+			                                            </div>
+			                                        </div>
+			                                        <div class="profile-user-info profile-user-info-striped">
+			                                            <div class="profile-info-row">
+			                                                <div class="profile-info-name"> 图片说明 </div>
+			                                                <div class="profile-info-value">
+			                                                    <span class="editable" id="ImgElse">  </span>
+			                                                </div>
+			                                            </div>
+			                                        </div>
+			                                    </div>
+			                                </div>
+			                            </div>
+			                        </div>
+			                   </div>
+							</div>
+							</div>
+								<!--menu2over-->
                             </div><!--table结束-->
                         </div>
                     </div>
@@ -297,16 +339,6 @@
             $("#leftTree").load("pageLeft.html")
             $("#footer").load("pageFoot.html")
             $('#model-exc').load('model_exc.html')
-            /*textarea 字数限制*/
-			function textarealength(obj,maxlength){
-				var v = $(obj).val();
-				var l = v.length;
-				if( l > maxlength){
-					v = v.substring(0,maxlength);
-				}
-				$(obj).parent().find(".textarea-length").text(v.length);
-			}
-            
 			jQuery(function($) {
 				 //show detali
 //              $('#showDetali').on('click',function(){
@@ -320,7 +352,7 @@
 			     * INI DataTable
 			     */
 			    tabMesType = $('#dynamic-table-exc').DataTable({
-                    ajax:'php/TableShowExc.php?falg=exc',
+                    ajax:'php/TableShowExc.php?flag=exc',
                     columns:[
                         {"data":'excName'},
                         {"data":'excreq'},
@@ -336,30 +368,32 @@
                         'aTargets': []
                     }],
                 });
-                 tabMesList = $('#dynamic-table-list').DataTable({
-//                  ajax:showMes,
-//                  columns:[
-//                      {"data":'formName'},
-//                      {"data":'uploadTime'},
-//                      {"data":'page'},
-//                      {"data":'page'},
-//                  ],
-                    oLanguage: {
-                        sLengthMenu: "显示 _MENU_ 条数据",
-                    },
-                    "processing": true,
-                    "aaSorting": [],
-                    "aoColumnDefs": [{
-                        'bSortable': false,
-                        'aTargets': [0]
-                    }],
-                });
+                //轮播表格显示
+                 tabMesList  = $('#dynamic-table-list').DataTable({
+	                ajax:'php/TableShowExc.php?flag=list&excId=0',
+	                columns:[
+	                	{"data":"serialnum"},
+	                    {"data":'else'},
+	                    {"data":'location'},
+//	                    {"data":'phosta'},
+	                ],
+					oLanguage: {
+						sLengthMenu: "显示 _MENU_ 条数据",
+					},
+					"processing": true,
+					"aaSorting": [],
+					"aoColumnDefs": [{
+						'bSortable': false,
+						'aTargets': [0]
+					}],
+				});
+                
 //              保存
                 $('#SaveDetali').on('click',function(){
     		 		var pcontent = UE.getEditor('editor').getContent();
     		 		var text =$("#protext").val();
     		 		fData = new FormData();
-    		 		fData.append("falg","save");
+    		 		fData.append("flag","save");
     		 		fData.append("id",$("#goodid").val());
     			    fData.append("pname",$("#proname").val());
     		 		fData.append('punit',$("#prounit").val());
@@ -378,7 +412,6 @@
     		 			processData:false,
         				contentType:false,
     		 			success:function(data){
-    		 				
     		 				if(data['status'] == 'success'){
                 				alert('保存成功');
                 				window.location.reload();
@@ -389,8 +422,6 @@
     					}
     		 		});
     		 	});
-    		 	
-    		 	
              //action
                 $('#dynamic-table-exc tbody').on('click', 'tr', function () {
                     if ($(this).hasClass('selected')) {
@@ -401,13 +432,11 @@
                         $(this).addClass('selected');
                     }
                     try{
-//                      $('#ExcId').attr('value',tabMesType.row('.selected').data().id)
-//                      $('#ProExcName').attr('value',tabMesType.row('.selected').data().excName)
-//                      $('#ExcReq').attr('value',tabMesType.row('.selected').data().excreq)
 						$('#ExcId').val(tabMesType.row('.selected').data().id)
                         $('#ProExcName').val(tabMesType.row('.selected').data().excName)
                         $('#ExcReq').val(tabMesType.row('.selected').data().excreq)
-                        $('#ProExcElse').text(tabMesType.row('.selected').data().excElse)
+                        $('#ProExcElse').val(tabMesType.row('.selected').data().excElse)
+                        $('#ProListPic').val('')//使图片上传那为空
                         
                         
                         $('#goodid').val(tabMesType.row('.selected').data().id)
@@ -419,15 +448,23 @@
                 	    $('#prohot').val(tabMesType.row('.selected').data().exchot);
                 	    $('#exc').val(tabMesType.row('.selected').data().excreq);
                 	    $('#content').val(tabMesType.row('.selected').data().exctext);
+                	    $('#prophoto').attr('src', tabMesType.row('.selected').data().prophoto);
+                	    
+                	    
                 	    //ue实例化之后
 						editor.ready(function()
 						{
 						    editor.setContent($("#content").val());
 						})
+//						var goodid=$('#goodid').val()
+						//刷新产品列表
+						var ExcId=$('#goodid').val();
+                        tabMesList.ajax.url( 'php/TableShowExc.php?flag=list&excId='+ExcId).load();
                     }catch(e){
                         
                     }
                 })
+                
                 $('#dynamic-table-list tbody').on('click', 'tr', function () {
                     if ($(this).hasClass('selected')) {
                         $(this).removeClass('selected');
@@ -437,10 +474,23 @@
                         $(this).addClass('selected');
                     }
                     try{
-                        alert('click')
+//                      alert('click')
+						//模态框商品轮播id
+                        $('#MesId').val(tabMesList.row('.selected').data().id)
+                        //修改节点属性的显示
+                        $('#adsMes').val(tabMesList.row('.selected').data().else)
+                        $('#AdsSta').val(tabMesList.row('.selected').data().phosta)
+                        $('#ImgShow').attr('src',tabMesList.row('.selected').data().url)
+                        //清空
+                       
+                       	$('#ImgSel').attr('src',tabMesList.row('.selected').data().url)
+                    	$('#ImgElse').text(tabMesList.row('.selected').data().else)
+                    	$('#stament').html(tabMesList.row('.selected').data().phosta)
+                    	
+                    	
                     }catch(e){ }
                 })
-           
+           		
                 /*
                  * function
                  */
@@ -449,10 +499,80 @@
 	                $('#ProExcName').val('')
 	                $('#ExcReq').val('')
 	                $('#ProExcElse').val('')
+	                
 	                $('#Exc-add').modal('show')
 	                //直接显示
+	               
                 })
+                //新建广告节点
+	            $('#NewAds').on('click',function(){
+	                //清空模态框中的数据
+	                $('#MesId').val('')
+	                $("#adsMes").val('')
+	                $('#AdsImg').val('')
+	                $('#ImgShow').attr('src','')
+	                $('#AdsSta').val('')
+	//                  //显示模态框
+					if (($('#ExcId').val()).length){
+	                $('#ads-mes').modal('show')
+	                }
+					else{
+				    	alert("请先点击商品,才能创建")
+				   }
+	            })
+	            //修改属性的模态框
+                $("#alterdata").on("click",function(){
+				if($("#adsMes").val()!= "" || $("#adsMes").attr("value") != undefined){
+					//显示模态框
+                	$('#ads-mes').modal('show');
+				}else{
+					alert("请选择节点后再点击");
+				}
 			})
+                
+			})
+			//设置位置ok
+			$("#setaddress").on('click',function(){
+            	$.ajax({
+					type:"POST",
+					url:"php/Exc.php",
+					data:{
+						flag :"GetAddress",
+						goodid : $('#goodid').val()
+					},
+					dataType:"json",
+					success:function(data){
+						console.log(data);
+						if(data.state== "success"){
+//							console.log('123')
+							$("#addressinfo").html('');//清除html
+							var i = 1;
+							for(ky in data.data){
+								var temphtml = '<div class="form-group has-info page-header" style="height: 50px;">';
+								temphtml += '<label class="col-sm-3 control-label no-padding-right"> 位置'+i+'：</label>';
+								temphtml += '<div class="col-sm-5">';
+								temphtml += '<span class="block input-icon input-icon-right">';
+								temphtml += '<select class="select form-control">';
+								temphtml += '<option selected="selected" value="'+data.data[ky]["rowid"]+'">'+data.data[ky]["Ads"]+'</option>';
+								for(ky_2 in data.data){
+									if(ky_2 != ky){
+										temphtml += '<option value="'+data.data[ky_2]["rowid"]+'">'+data.data[ky_2]["Ads"]+'</option>';
+									}
+								}
+								temphtml += '</select>';
+								temphtml += '</span></div><div class="help-block col-xs-12 col-sm-reset inline"> </div></div>';
+								$("#addressinfo").append(temphtml);
+								i++;
+							}
+						}
+						//显示模态框
+                		$('#ads_mes_2').modal('show');
+					},
+					error:function(x,s,t){
+						console.log(s+": "+t);
+					}
+				});
+            });
 			
 			//左边树添加active
                 setTimeout(function(){

@@ -243,7 +243,7 @@
 					            									<th>序号</th>
 					            									<th>文字说明</th>
 					            									<th>位置</th>
-					            									<th>是否热门</th>
+					            									<!--<th>是否热门</th>-->
 					            								</tr>
 					            							</thead>
 					            							<tbody></tbody>
@@ -269,11 +269,12 @@
 					                                            <div class="profile-info-row" >
 					                                            	<div class="profile-info-name">图片状态</div>
 					                                            	<div class="profile-info-value">
-															 		<select class="select" id="stament">
+					                                            		<span class="editable" id="stament">  </span>
+															 		<!--<select class="select" id="stament">
 																		<option value="显示">显示</option>
-																		<option value="关闭">关闭</option>
+																		<option value="隐藏">隐藏</option>
 																	</select>
-																	<!--<button class="hidden" id="savestament">保存</button>-->
+																	<button class="hidden" id="savestament">保存</button>-->
 													        		</div>
 					                                            </div>
 					                                        </div>
@@ -343,7 +344,6 @@
     		$("#top").load("pageTop.html")
     		$("#leftTree").load("pageLeft.html")
     		$("#footer").load("pageFoot.html")
-    		
     		$('#model-ads').load('model_plus.html')
     		
     		/*textarea 字数限制*/
@@ -377,7 +377,7 @@
 	                	{"data":"serialnum"},
 	                    {"data":'else'},
 	                    {"data":'place'},
-	                    {"data":'status'},
+//	                    {"data":'status'},
 	                ],
 					oLanguage: {
 						sLengthMenu: "显示 _MENU_ 条数据",
@@ -410,7 +410,8 @@
                 	    $('#prohot').val(data.prohot);
                 	    $('#exc').val(data.exc);
                 	    $('#content').val(data.procontent);//详情
-                	    $('#prophoto').attr('src',data.prophoto)
+                	    $('#prophoto').attr('src', data.prophoto )
+                	    
                 	},
                 	error:function(s,e,t){
                 		alert('出现错误，请联系管理员')
@@ -432,6 +433,7 @@
     		 		fData.append('exc',$("#exc").val());
     		 		fData.append('ptext',text);
     		 		fData.append('pcontent',pcontent);
+//  		 		alert($("#prohot").val())
     		 		$.ajax({
     		 			type:"post",
     		 			url:"php/Proplus.php",
@@ -462,12 +464,12 @@
                     $(this).addClass('selected');
                 }
                 try{
-                   $('#setid').attr('value',tabMesSimple.row('.selected').data().id)
+                   	$('#setid').val(tabMesSimple.row('.selected').data().id)
                     //右边信息框
-                    $('#MesId').attr('value',tabMesSimple.row('.selected').data().id)
+                    $('#MesId').val(tabMesSimple.row('.selected').data().id)
                     $('#ImgSel').attr('src',tabMesSimple.row('.selected').data().url)
                     $('#ImgElse').text(tabMesSimple.row('.selected').data().else)
-                    $('#stament').val(tabMesSimple.row('.selected').data().stament)
+                    $('#stament').html(tabMesSimple.row('.selected').data().stament)
                     
                     //模态框信息显示
                         //清空
@@ -482,7 +484,7 @@
                     
                 }
                 catch(e){
-                    console.log(e)
+//                  console.log(e)
                 }
             })
             //新建广告节点
@@ -550,6 +552,7 @@
 					success:function(data){
 						console.log(data);
 						if(data.state == "success"){
+							console.log('123')
 							$("#addressinfo").html('');//清除html
 							var i = 1;
 							for(ky in data.data){

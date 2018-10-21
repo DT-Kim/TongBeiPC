@@ -207,7 +207,7 @@
                     try{
                         //显示产品类型信息
                         var TypeId = tabMesType.row('.selected').data().id
-//                      $('#ProTypeId').attr('value',TypeId)
+//                      
                         $('#ProTypeId').val(TypeId)
 //                      $('#ProTypeName').attr('value',tabMesType.row('.selected').data().typeName)
                         $('#ProTypeName').val(tabMesType.row('.selected').data().typeName)
@@ -222,7 +222,7 @@
                         	dataType:'json',
                         	success:function(data){
                         	    if(data['status'] == 'success'){
-                        	        $('#TypeLogo').attr('src',data['TypeLogo'])
+                        	       $('#TypeLogo').attr('src',data['TypeLogo'])
                         	       $('#TypePic').attr('src',data['TypePic'])
                         	    }else{
                         	        alert('出现错误，错误类型'+e)

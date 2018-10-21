@@ -10,6 +10,7 @@ header("Access-Control-Allow-Origin: *");
             $data['status'] = 'error';
             $Dec = $_POST['dec'];
 			$PrcID = $_POST['PrcID'];//产品信息id
+			$PhoSta = $_POST['PhoSta'];//产品信息id
             $ImgData = getimagesize($_FILES['AdsImg']['tmp_name']);
             $Che = new upload('AdsImg');
             $UrlData = $Che->uploadFile();
@@ -41,9 +42,8 @@ header("Access-Control-Allow-Origin: *");
             $Num = $conn->query($sqlChe)->fetch_assoc();
             $PlaceNum = $Num['位置信息'] + 1;
                 //保存广告信息
-            $sqlSave = "insert into 产品轮播图 (图片地址,图片说明,位置信息,产品信息id) values('".$UrlData."','".$Dec."','".$PlaceNum."','".$PrcID."') ";
+            $sqlSave = "insert into 产品轮播图 (图片地址,图片说明,位置信息,产品信息id,图片状态) values('".$UrlData."','".$Dec."','".$PlaceNum."','".$PrcID."','".$PhoSta."') ";
             $conn->query($sqlSave);
-            
             $json = json_encode($data);
             echo $json;
             break;
@@ -87,7 +87,7 @@ header("Access-Control-Allow-Origin: *");
             $data['status'] = 'error';
             $id=$_POST['id'];
             $Dec = $_POST['dec'];
-            $AdsSta = $_POST['AdsSta'];
+            $PhoSta = $_POST['PhoSta'];
             $ImgData = getimagesize($_FILES['AdsImg']['tmp_name']);
             $Che = new upload('AdsImg');
             $UrlData = $Che->uploadFile();
@@ -119,7 +119,7 @@ header("Access-Control-Allow-Origin: *");
             $Num = $conn->query($sqlChe)->fetch_assoc();
             $PlaceNum = $Num['位置信息'] + 1;
 //                更新广告信息
-            $sqlSave = "update `产品轮播图`  set `图片地址` = '".$UrlData."',`图片说明`= '".$Dec."',  `热门状态`= '".$AdsSta."'where id = '".$id."' ";
+            $sqlSave = "update `产品轮播图`  set `图片地址` = '".$UrlData."',`图片说明`= '".$Dec."',  `图片状态`= '".$PhoSta."'where id = '".$id."' ";
             $conn->query($sqlSave);
             $json = json_encode($data);
             echo $json;
@@ -128,8 +128,8 @@ header("Access-Control-Allow-Origin: *");
         case 'editAds2':
             $id=$_POST['id'];
 	        $Dec = $_POST['dec'];
-	        $AdsSta = $_POST['AdsSta'];
-	        $sql_save = "update `产品轮播图`  set `图片说明`= '".$Dec."', `热门状态`= '".$AdsSta."'where id = '".$id."'";
+	        $PhoSta = $_POST['PhoSta'];
+	        $sql_save = "update `产品轮播图`  set `图片说明`= '".$Dec."', `图片状态`= '".$PhoSta."'where id = '".$id."'";
 	        $result_save = $conn->query($sql_save);
 	        $data['status'] = 'error';
 	        if($result_save){
