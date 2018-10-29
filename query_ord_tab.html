@@ -119,9 +119,8 @@
                                         <a data-toggle="tab" href="#home4">待核实 </a>
                                     </li>
                                     <li>
-                                        <a data-toggle="tab" href="#home2">已完成 </a>
+                                        <a data-toggle="tab" href="#home2">待核实 </a>
                                     </li>
-                                    
                                     <li>
                                         <a data-toggle="tab" href="#home3">条件查询 </a>
                                     </li>
@@ -337,9 +336,19 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div>
+                                    </div></div>
+                                    <!---->
+                                    <!--修改折线图开始-->
+                                    <div id="home5" class="tab-pane"  style="height:400px; overflow:hidden; width:100%; overflow:hidden">
+								 		<div class=" page-content clearfix"style="height:400px;width:80%;">
+								 		<div class="t_Record">
+									            <div id="main" style="height:400px; overflow:hidden;width:80%; overflow:hidden " ></div>     
+									        </div> 
+										</div></div>
+                                    <!--修改折线图结束-->
+                                    
                                     <!--home4end-->
-                                </div>
+                                
                             </div>
                         </div>
                         </div>
@@ -363,6 +372,7 @@
 		<!--ace-->
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
+		<script src="assets/js/echarts.js"></script>
 			<!--地区三级联动插件-->
 		<!--<script src="assets/js/self/distpicker.data.js"></script>
 	  	<script src="assets/js/self/distpicker.js"></script>
@@ -378,6 +388,7 @@
 			    /*
 			     * INI DataTable
 			     */
+			    
 			    tabMesSimple_one = $('#dynamic-table1').DataTable({
                     ajax:'php/TableShowOrd.php?falg=wait',
                     columns:[
@@ -540,10 +551,106 @@
 			
 			//左边树添加active
                 setTimeout(function(){
-                	SetTreeActive(4);
+//              	SetTreeActive(4);
                 },1)
-	
-		</script>
+                </script>
+                
+		<!--	修改开始-->
+		<script type="text/javascript">
+	 
+		$.ajax({
+		type:"post",
+		url:"php/TableShowOrd2.php",
+		async:true,
+//		data:{
+//      	    year:$("#year").text
+//      	},
+		dataType:'json',
+		success:function(adata){
+		$(document).ready(function(){						 
+			$(".t_Record").width($(window).width()-60);
+				  //当文档窗口发生改变时 触发  
+		    $(window).resize(function(){
+				 $(".t_Record").width($(window).width()-60);
+			});
+		});			
+		require.config({
+		    paths: {
+		        echarts: './assets/dist'
+		    }
+		});
+		require(
+		    [
+		        'echarts',
+				'echarts/theme/macarons',
+		        'echarts/chart/line',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+		        'echarts/chart/bar'
+		    ],
+		    function (ec,theme) {
+		        var myChart = ec.init(document.getElementById('main'),theme);
+		      	option = {
+				title : {
+				    text: '月购买订单交易记录',
+				    subtext: '实时获取用户订单购买记录'
+				},
+				tooltip : {
+				    trigger: 'axis' 
+				},
+				legend: {
+				    data:['所有订单','待收货','待核实','已完成']
+				},
+				toolbox: {
+				    show : true,
+				    feature : {
+				        mark : {show: true},
+				        dataView : {show: true, readOnly: false},
+				        magicType : {show: true, type: ['line', 'bar']},
+				        restore : {show: true},
+				        saveAsImage : {show: true}
+				    }
+				},
+				calculable : true,
+				xAxis : [
+				    {
+				        type : 'category',
+				        data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+				    }
+				],
+				yAxis : [
+				    {
+				        type : 'value'
+				    }
+				],
+				series : [
+				    {
+				        name:'所有订单',
+				        type:'bar',
+				        data:[adata['aaData']['all']['1'], adata['aaData']['all']['2'],adata['aaData']['all']['3'],adata['aaData']['all']['4'], adata['aaData']['all']['5'],adata['aaData']['all']['6'],adata['aaData']['all']['7'],adata['aaData']['all']['8'],adata['aaData']['all']['9'],adata['aaData']['all']['10'],adata['aaData']['all']['11'],adata['aaData']['all']['12']],         
+				    },
+				    {
+				        name:'待收货',
+				        type:'bar',
+				        data:[adata['aaData']['wait']['1'], adata['aaData']['wait']['2'],adata['aaData']['wait']['3'],adata['aaData']['wait']['4'], adata['aaData']['wait']['5'],adata['aaData']['wait']['6'],adata['aaData']['wait']['7'],adata['aaData']['wait']['8'],adata['aaData']['wait']['9'],adata['aaData']['wait']['10'],adata['aaData']['wait']['11'],adata['aaData']['wait']['12']],
+				    }
+					, {
+				        name:'待核实',
+				        type:'bar',
+				        data:[adata['aaData']['get']['1'], adata['aaData']['get']['2'],adata['aaData']['get']['3'],adata['aaData']['get']['4'], adata['aaData']['get']['5'],adata['aaData']['get']['6'],adata['aaData']['get']['7'],adata['aaData']['get']['8'],adata['aaData']['get']['9'],adata['aaData']['get']['10'],adata['aaData']['get']['11'],adata['aaData']['get']['12']],
+					}
+					, {
+				        name:'已完成',
+				        type:'bar',
+				        data:[adata['aaData']['question']['1'], adata['aaData']['question']['2'],adata['aaData']['question']['3'],adata['aaData']['question']['4'], adata['aaData']['question']['5'],adata['aaData']['question']['6'],adata['aaData']['question']['7'],adata['aaData']['question']['8'],adata['aaData']['question']['9'],adata['aaData']['question']['10'],adata['aaData']['question']['11'],adata['aaData']['question']['12']],
+					}
+				]
+			};
+			myChart.setOption(option);
+				}
+				);
+			}
+		});
+		</script> 
+		
 	</body>
 
 </html>
