@@ -105,7 +105,6 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content" >
-                                    
                                     <div id="home2" class="tab-pane in active">
 											<div class="clearfix" id="add_picture">
 												<button class="btn btn-primary" id="SaveDetali">保存详情 </button>
@@ -203,15 +202,21 @@
 														<div class=" clearfix cl">
                                                             <label class="form-label col-2">产品图示：</label>
                                                             <div class="formControls col-10" style="border-color: black;">
-                                                                <img id="prophoto" style="width: 320px;height: 300px;" />
+                                                            	<div class="col-sm-3">
+                                                            		<img id="prophoto" style="width: 200px;height: 180px;"/>
+                                                            	</div>
+                                                                <div class="col-sm-5">
+                                                                	<input type="file" id="ProImg" value="修改图片" style="margin-top: 160px;"/>
+                                                                	<!--<div style="background-color: #000000; width: ;">-->
+                                                                </div>
                                                             </div>
                                                        </div>
 												         <div class="clearfix cl">
 													        <label class="form-label col-2">详细内容：</label>
-																<div class="formControls col-10">
-																	<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> 
-																	<input id='content' type='hidden'/>
-													            </div>
+															<div class="formControls col-10">
+																<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> 
+																<input id='content' type='hidden'/>
+												            </div>
 												        </div>
 											      	</div>
 												</form>
@@ -246,7 +251,11 @@
 					            									<!--<th>是否热门</th>-->
 					            								</tr>
 					            							</thead>
-					            							<tbody></tbody>
+					            							<tbody>
+					            								<td colspan="14">序号</td>
+				            									<td>文字说明</td>
+				            									<td>位置</td>
+					            							</tbody>
 					            						</table>
 					        					   </div>
 					        					</div>
@@ -263,7 +272,7 @@
 					                            <div class="widget-body">
 					                                <div class="widget-main">
 					                                    <div class="tab-content" >
-					                                        <img width="426px" height="200px" id="ImgSel"/>
+					                                        <img width="300px" height="200px" id="ImgSel"/>
 					                                        <br /><br />
 					                                        <div class="profile-user-info profile-user-info-striped"  >
 					                                            <div class="profile-info-row" >
@@ -345,7 +354,6 @@
     		$("#leftTree").load("pageLeft.html")
     		$("#footer").load("pageFoot.html")
     		$('#model-ads').load('model_plus.html')
-    		
     		/*textarea 字数限制*/
 //			function textarealength(obj,maxlength){
 //				var v = $(obj).val();
@@ -355,7 +363,6 @@
 //				}
 //				$(obj).parent().find(".textarea-length").text(v.length);
 //			}
-//			
     		jQuery(function($) { 
     			
     			var loc=location.href;
@@ -365,31 +372,8 @@
     //			alert(id);
     			$("#proid").attr("value",id);
 //              var proid=document.getElementById("proid").value;
-                
                 proid=id;
 //              alert(proid)
-                /*
-				 * INI DataTable
-				 */
-				tabMesSimple = $('#dynamic-table').DataTable({
-	                ajax:'php/TableShowProplus.php?id='+id,
-	                columns:[
-	                	{"data":"serialnum"},
-	                    {"data":'else'},
-	                    {"data":'place'},
-//	                    {"data":'status'},
-	                ],
-					oLanguage: {
-						sLengthMenu: "显示 _MENU_ 条数据",
-					},
-					"processing": true,
-					"aaSorting": [],
-					"aoColumnDefs": [{
-						'bSortable': false,
-						'aTargets': [0]
-					}],
-				});
-//				 
     //          显示数据
                 $.ajax({
                 	type:"post",
@@ -397,7 +381,7 @@
                 	async:true,
                 	dataType:'json',
                 	data:{
-                		falg:'show',
+                		flag:'show',
                 	    id:proid,
                 	},
                 	success:function(data){
@@ -407,7 +391,13 @@
                 	    $("#proprice").val(data.proprice);
                 	    $('#protext').val(data.protext);
                 	    $('#prosta').val(data.prosta);
-                	    $('#prohot').val(data.prohot);
+                	    if(data.prohot=="1"){
+                	    	prohot='是';
+                	    }
+                	    else{
+                	    	prohot='否';
+                	    }
+                	    $('#prohot').val(prohot);
                 	    $('#exc').val(data.exc);
                 	    $('#content').val(data.procontent);//详情
                 	    $('#prophoto').attr('src', data.prophoto )
@@ -417,22 +407,56 @@
                 		alert('出现错误，请联系管理员')
             		}
                 	});
+                	//上传图片
+                $('#ProImg').on('change',function(){
+					  var objUrl = getObjectURL(this.files[0]) ;
+				    	if(objUrl){
+				    		alert('已上传')
+				    	}
+			    	$("#prophoto").attr("src", objUrl) ;
+			    //建立一個可存取到該file的url
+					function getObjectURL(file) {
+					  var url = null ; 
+					  // 下面函数执行的效果是一样的，只是需要针对不同的浏览器执行不同的 js 函数而已
+					  if (window.createObjectURL!=undefined) { // basic
+					    url = window.createObjectURL(file) ;
+					  } 
+					  else if (window.URL!=undefined) { // mozilla(firefox)
+					    url = window.URL.createObjectURL(file) ;
+					  } 
+					  else if (window.webkitURL!=undefined) { // webkit or chrome
+					    url = window.webkitURL.createObjectURL(file) ;
+					  }
+					//alert(url)
+					  return url ;
+					}
+				})
+                
                 	//保存详情
-               
     		 	$('#SaveDetali').on('click',function(){
+    		 		
+//  		 		alert(ProImg)
     		 		var pcontent = UE.getEditor('editor').getContent();
     		 		var text =$("#protext").val();
+    		 		var prohot=$("#prohot").val();
+    		 		if(prohot=='是'){
+    		 			prohot=1;
+    		 		}
+    		 		else{
+    		 			prohot=0;
+    		 		}
     		 		fData = new FormData();
-    		 		fData.append("falg","save");
+    		 		fData.append("flag","save");
     		 		fData.append("id",proid);
     			    fData.append("pname",$("#proname").val());
     		 		fData.append('punit',$("#prounit").val());
     		 		fData.append('pprice',$("#proprice").val());
-    		 		fData.append('phot',$("#prohot").val());
+    		 		fData.append('phot',prohot);
     		 		fData.append('psta',$("#prosta").val());
     		 		fData.append('exc',$("#exc").val());
     		 		fData.append('ptext',text);
     		 		fData.append('pcontent',pcontent);
+    		 		fData.append('ProImg',ProImg[0]);
 //  		 		alert($("#prohot").val())
     		 		$.ajax({
     		 			type:"post",
@@ -443,8 +467,10 @@
     		 			processData:false,
         				contentType:false,
     		 			success:function(data){
+    		 				console.log(data)
     		 				if(data['status'] == 'success'){
                 				alert('保存成功')
+                				self.location="admin_pro_tree.html";
             				}
     		 			},
             			error:function(s,e,t){
@@ -452,8 +478,50 @@
     					}
     		 		});
     		 	});
-    		 	
+    		 	$('#DelDetali').on('click',function(){
+    		 		$.ajax({
+    		 			type:"post",
+    		 			url:"php/Proplus.php",
+    		 			async:true,
+    		 			dataType:'json',
+    		 			data:{
+    		 				flag:'del',
+    		 				proid:proid,
+    		 			},
+    		 			success:function(data){
+    		 				if(data['status'] == 'success'){
+                				alert('删除成功');
+                				self.location="admin_pro_tree.html";
+            				}
+    		 			},
+    		 			error:function(s,e,t){
+    		 				alert('删除失败');
+    		 			}
+    		 		});
+    		 	})
     		})
+    			 /*
+				 * INI DataTable
+				 */
+				tabMesSimple = $('#dynamic-table').DataTable({
+	                ajax:'php/TableShowProplus.php?id='+proid,
+	                columns:[
+	                	{"data":'serialnum'},
+	                    {"data":'else'},
+	                    {"data":'place'}
+	                ],
+					oLanguage: {
+						sLengthMenu: "显示 _MENU_ 条数据",
+					},
+					"autoWidth": true,
+					"processing": true,
+					"aaSorting": [],
+					"aoColumnDefs": [{
+						'bSortable': false,
+						'aTargets': [0]//隐藏第一列
+					}],
+				});
+//				 
     		//ACTION	
             $('#dynamic-table tbody').on('click', 'tr', function () {
                 if ($(this).hasClass('selected')) {

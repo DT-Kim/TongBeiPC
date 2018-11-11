@@ -119,7 +119,7 @@
                                         <a data-toggle="tab" href="#home4">待核实 </a>
                                     </li>
                                     <li>
-                                        <a data-toggle="tab" href="#home2">待核实 </a>
+                                        <a data-toggle="tab" href="#home2">已完成 </a>
                                     </li>
                                     <li>
                                         <a data-toggle="tab" href="#home3">条件查询 </a>
@@ -128,22 +128,22 @@
                                 <div class="tab-content">
                                 	<!--home1start未收货-->
                                     <div id="home1" class="tab-pane in active">
-                                        <table id="dynamic-table1" class="table table-striped table-bordered table-hover">
+                                        <table id="dynamic-table1" class="table table-striped table-bordered table-hover" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>订单编号</th>
                                                     <th>产品名</th>
                                                     <th>数量</th>
                                                     <th>单位</th>
-                                                    <th>单价</th>
-                                                    <th>金额</th>
+                                                    <!--<th>单价</th>-->
+                                                    <!--<th>金额</th>-->
                                                     <th>总金额</th>
                                                     <th>用户姓名</th>
                                                     <th>下单手机</th>
                                                     <th>积分总数</th>
                                                     <th>收货地址</th>
                                                     <th>下单时间</th>
-                                                    <th>交易状态</th>
+                                                    <!--<th>交易状态</th>-->
                                                     <!--<th>物流员</th>
                                                     <th>物流员手机</th>-->
                                                     <th>物流收货时间</th>
@@ -151,25 +151,12 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>订单编号</td>
-                                                    <td>产品名</td>
-                                                    <td>数量</td>
-                                                    <td>单位</td>
-                                                    <td>单价</td>
-                                                    <td>金额</td>
-                                                    <td>总金额</td>
-                                                    <td>用户姓名</td>
-                                                    <td>下单手机</td>
-                                                    <td>积分总数</td>
-                                                    <td>收货地址</td>
-                                                    <td>下单时间</td>
-                                                    <td>交易状态</td>
-                                                    <!--<td>物流员</td>
-                                                    <td>物流员手机</td>-->
-                                                    <td>物流收货时间</td>
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <div id="main" style="height:400px;overflow:hidden; width:40%; overflow:hidden;float: left;" ></div>
+                                        <div id="detail" style="height:400px;overflow:hidden; width:60%; overflow:hidden;float: left;" ></div>
+                                         <div class="clearfix"></div>
                                     </div>
                                     <!--home1over-->
                                     <!-- home2part-->
@@ -181,15 +168,15 @@
                                                     <th>产品名</th>
                                                     <th>数量</th>
                                                     <th>单位</th>
-                                                    <th>单价</th>
-                                                    <th>金额</th>
+                                                    <!--<th>单价</th>
+                                                    <th>金额</th>-->
                                                     <th>总金额</th>
                                                     <th>用户姓名</th>
                                                     <th>下单手机</th>
                                                     <th>积分总数</th>
                                                     <th>收货地址</th>
                                                     <th>下单时间</th>
-                                                    <th>交易状态</th>
+                                                    <!--<th>交易状态</th>-->
                                                     <!--<th>物流员</th>
                                                     <th>物流员手机</th>-->
                                                     <th>物流收货时间</th>
@@ -198,26 +185,13 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>订单编号</td>
-                                                    <td>产品名</td>
-                                                    <td>数量</td>
-                                                    <td>单位</td>
-                                                    <td>单价</td>
-                                                    <td>金额</td>
-                                                    <td>总金额</td>
-                                                    <td>用户姓名</td>
-                                                    <td>下单手机</td>
-                                                    <td>积分总数</td>
-                                                    <td>收货地址</td>
-                                                    <td>下单时间</td>
-                                                    <td>交易状态</td>
-                                                    <!--<td>物流员</td>
-                                                    <td>物流员手机</td>-->
-                                                    <td>物流收货时间</td>
-                                                    
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <!--已完成表格-->
+                                        <div id="main2" style="height:400px;overflow:hidden; width:40%; overflow:hidden;float: left;"></div>
+                                         <div id="detail2" style="height:400px;overflow:hidden; width:60%; overflow:hidden;float: right;" ></div>
+                                        <div class="clearfix"></div>
                                     </div>
                                    <!-- home2over-->
                                    <!--home3start-->
@@ -247,11 +221,11 @@
                                                 <tr>
                                                     <th>订单编号</th>
                                                     <th>产品名</th>
-                                                    <th>类型</th>
+                                                    <!--<th>类型</th>-->
                                                     <th>数量</th>
                                                     <th>单位</th>
-                                                    <th>单价</th>
-                                                    <th>金额</th>
+                                                    <!--<th>单价</th>
+                                                    <th>金额</th>-->
                                                     <th>总金额</th>
                                                     <th>用户姓名</th>
                                                     <th>下单手机</th>
@@ -267,31 +241,17 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>订单编号</td>
-                                                    <td>产品名</td>
-                                                    <td>类型</td>
-                                                    <td>数量</td>
-                                                    <td>单位</td>
-                                                    <td>单价</td>
-                                                    <td>金额</td>
-                                                    <td>总金额</td>
-                                                    <td>用户姓名</td>
-                                                    <td>下单手机</td>
-                                                    <td>积分总数</td>
-                                                    <td>收货地址</td>
-                                                    <td>下单时间</td>
-                                                    <td>交易状态</td>
-                                                    <!--<td>物流员</td>
-                                                    <td>物流员手机</td>-->
-                                                    <td>物流收货时间</td>
-                                                    
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                    <!--home3over-->
                                    <!--home4start-->
+                                  	<!-- 待核实-->
                                    <div id="home4" class="tab-pane">
+	                                   	<div class="col-xs-12">
+					                        <button class="btn btn-primary" id="check">确认核实 </button>
+					                    </div>
 										<table id="dynamic-table4" class="table table-striped table-bordered table-hover"style="width: 100%;">
                                             <thead>
                                                 <tr>
@@ -299,63 +259,36 @@
                                                     <th>产品名</th>
                                                     <th>数量</th>
                                                     <th>单位</th>
-                                                    <th>单价</th>
-                                                    <th>金额</th>
+                                                    <!--<th>单价</th>
+                                                    <th>金额</th>-->
                                                     <th>总金额</th>
                                                     <th>用户姓名</th>
                                                     <th>下单手机</th>
                                                     <th>积分总数</th>
                                                     <th>收货地址</th>
                                                     <th>下单时间</th>
-                                                    <th>交易状态</th>
+                                                    <!--<th>交易状态</th>-->
                                                     <!--<th>物流员</th>
                                                     <th>物流员手机</th>-->
                                                     <th>物流收货时间</th>
-                                                   
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>订单编号</td>
-                                                    <td>产品名</td>
-                                                    <td>数量</td>
-                                                    <td>单位</td>
-                                                    <td>单价</td>
-                                                    <td>金额</td>
-                                                    <td>总金额</td>
-                                                    <td>用户姓名</td>
-                                                    <td>下单手机</td>
-                                                    <td>积分总数</td>
-                                                    <td>收货地址</td>
-                                                    <td>下单时间</td>
-                                                    <td>交易状态</td>
-                                                    <!--<td>物流员</td>
-                                                    <td>物流员手机</td>-->
-                                                    <td>物流收货时间</td>
-                                                    
+                                                 <tr>&nbsp;
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div></div>
-                                    <!---->
-                                    <!--修改折线图开始-->
-                                    <div id="home5" class="tab-pane"  style="height:400px; overflow:hidden; width:100%; overflow:hidden">
-								 		<div class=" page-content clearfix"style="height:400px;width:80%;">
-								 		<div class="t_Record">
-									            <div id="main" style="height:400px; overflow:hidden;width:80%; overflow:hidden " ></div>     
-									        </div> 
-										</div></div>
-                                    <!--修改折线图结束-->
-                                    
-                                    <!--home4end-->
-                                
-                            </div>
-                        </div>
+                                        <div id="main4" style="height:400px;overflow:hidden; width:40%; overflow:hidden;float: left;" ></div>
+                                         <div id="detail4" style="height:400px;overflow:hidden; width:60%; overflow:hidden;float: right;" ></div>
+                                        <!--<div class="clearfix"></div>-->
+                                    </div>
+                             </div>
+								 <!--<div id="detail" style="height:400px;overflow:hidden; width:100%; overflow:hidden;float: right;" ></div>-->
+                        <div class="clearfix"></div>
                         </div>
                         <div class="space-6"></div>
                     </div>
-                </div>
-		
+		    <div class="clearfix"></div>
 			<!--footer part begin-->
             <div id="footer" class="footer"></div>
             <!--footer part end-->
@@ -372,7 +305,8 @@
 		<!--ace-->
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
-		<script src="assets/js/echarts.js"></script>
+		<!--<script src="assets/js/chart/.js"></script>-->
+		<script src="assets/js/echarts.min.js"></script>
 			<!--地区三级联动插件-->
 		<!--<script src="assets/js/self/distpicker.data.js"></script>
 	  	<script src="assets/js/self/distpicker.js"></script>
@@ -396,15 +330,15 @@
                         {"data":'proname'},
                         {"data":'pronum'},
                         {"data":'prounit'},
-                        {"data":'proprice'},
-                        {"data":'money'},
+//                      {"data":'proprice'},
+//                      {"data":'money'},
                         {"data":'summoney'},
                         {"data":'usename'},
                         {"data":'usephone'},
                         {"data":'excsum'},
                         {"data":'address'},
                         {"data":'ordtime'},
-                        {"data":'ordsta'},
+//                      {"data":'ordsta'},
 //                      {"data":'sendname'},
 //                      {"data":'sendnumb'},
                         {"data":'gettime'},
@@ -412,13 +346,14 @@
                     oLanguage: {
                         sLengthMenu: "显示 _MENU_ 条数据",
                     },
-                    "processing": true,
+                     "processing": true,
                     "aaSorting": [],
                     "aoColumnDefs": [{
                         'bSortable': false,
                         'aTargets': [0,1]
                     }],
                 });
+                
                  tabMesSimple_two = $('#dynamic-table2').DataTable({
                     ajax:'php/TableShowOrd.php?falg=get',
                     columns:[
@@ -426,15 +361,15 @@
                         {"data":'proname'},
                         {"data":'pronum'},
                         {"data":'prounit'},
-                        {"data":'proprice'},
-                        {"data":'money'},
+//                      {"data":'proprice'},
+//                      {"data":'money'},
                         {"data":'summoney'},
                         {"data":'usename'},
                         {"data":'usephone'},
                         {"data":'excsum'},
                         {"data":'address'},
                         {"data":'ordtime'},
-                        {"data":'ordsta'},
+//                      {"data":'ordsta'},
 //                      {"data":'sendname'},
 //                      {"data":'sendnumb'},
                         {"data":'gettime'},
@@ -449,16 +384,17 @@
                         'aTargets': [0,1]
                     }],
                 });
+                
                 tabMesSimple_three = $('#dynamic-table3').DataTable({
                     ajax:'php/TableShowOrd.php?falg=all',
                     columns:[
                         {"data":'ordnum'},
                         {"data":'proname'},
-                        {"data":'protype'},
+//                      {"data":'protype'},
                         {"data":'pronum'},
                         {"data":'prounit'},
-                        {"data":'proprice'},
-                        {"data":'money'},
+//                      {"data":'proprice'},
+//                      {"data":'money'},
                         {"data":'summoney'},
                         {"data":'usename'},
                         {"data":'usephone'},
@@ -522,8 +458,8 @@
                         {"data":'ordnum'},
                         {"data":'proname'},
                         {"data":'pronum'},
-                        {"data":'prounit'},
-                        {"data":'proprice'},
+//                      {"data":'prounit'},
+//                      {"data":'proprice'},
                         {"data":'money'},
                         {"data":'summoney'},
                         {"data":'usename'},
@@ -531,7 +467,7 @@
                         {"data":'excsum'},
                         {"data":'address'},
                         {"data":'ordtime'},
-                        {"data":'ordsta'},
+//                      {"data":'ordsta'},
 //                      {"data":'sendname'},
 //                      {"data":'sendnumb'},
                         {"data":'gettime'},
@@ -546,6 +482,45 @@
                         'aTargets': [0,1]
                     }],
                 });
+                $('#dynamic-table4 tbody').on('click', 'tr', function () {
+                	         
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        tabMesSimple_four.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                    try{
+                    	var ordernum=tabMesSimple_four.row('.selected').data().ordnum;
+                    	var state='已完成';
+                        $("#check").on('click',function(){
+                        	$.ajax({
+                        		type:"post",
+                        		url:"php/changestate.php",
+                        		async:true,
+                        		dataType:'json',
+                        		data:{
+                        			state:state,
+                        			ordernum:ordernum,
+                        		},
+                        		success:function(data){
+                        			if(data['status']=='success'){
+                        			   alert('核实完成')
+                        			}
+                        			else{
+                        				alert('出现错误,请联系管理员')
+                        			}
+                        		},
+                        		error:function(s,e,t){
+                        			alert('出现错误,请联系管理员')
+                        		}
+                        	});
+                        })
+                    }catch(e){
+                        
+                    }
+                })
                  
             })
 			
@@ -557,40 +532,284 @@
                 
 		<!--	修改开始-->
 		<script type="text/javascript">
-	 
+	    /*
+		 * 订单的echart
+		 */
+		//待收货
 		$.ajax({
-		type:"post",
-		url:"php/TableShowOrd2.php",
-		async:true,
-//		data:{
-//      	    year:$("#year").text
-//      	},
-		dataType:'json',
-		success:function(adata){
+			type:"post",
+			url:"php/Tableorderdata.php",
+			async:true,
+			dataType:'json',
+			data:{flag:'wait'},
+			success:function(data){
+				 var product = [];
+				 var num=[];
+				 for(var i=0;i<data.length;i++){
+				 	product.push(data[i].product);
+				 	num.push(data[i].num);
+				 }
+//				console.log(product)
+//				console.log(num)
+				if(product.length=='0'&&num.length=='0'){
+					var EleText = "<p style='margin-left: 50px;margin-top: 200px;font-size: 16px;'>无数据显示</p>";
+					 $('#main').append(EleText)
+				}
+				else{
+				var myChart = echarts.init(document.getElementById('main'),'walden');
+				option = {
+					color: ['#3fb1e3'],
+				    tooltip : {
+				        trigger: 'axis',
+				        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+				        }
+				    },
+				    legend: {
+				        data:['待收货']
+				    },
+				    toolbox: {
+					    show : true,
+					    feature : {
+					        mark : {show: true},
+					        dataView : {show: true, readOnly: false},
+					        saveAsImage : {show: true}
+					     }
+				    },
+				    grid: {
+				        left: '5%',
+				        right: '10%',
+				        bottom: '5%',
+				        containLabel: true
+				    },
+				    xAxis : [
+				        {
+				            type : 'category',
+				            data : product,
+				        }
+				    ],
+				    yAxis : [
+				        {
+				            type : 'value',
+				            name: '数量',
+				        }
+				    ],
+				    series : [
+				        {
+				            name:'待收货',
+				            type:'bar',
+				            stack: '产品',
+				            data:num,
+				        },
+				    ]
+				};
+					myChart.setOption(option);}
+				},
+			error:function(s,e,t){
+				alert('页面显示错误，请联系管理员')
+			}
+		});
+		//待核实
+        $.ajax({
+			type:"post",
+			url:"php/Tableorderdata.php",
+			async:true,
+			dataType:'json',
+			data:{flag:'check'},
+			success:function(data){
+				//自适应宽高
+				$(document).ready(function(){						 
+					$("#main4").width($(window).width()-900);
+						  //当文档窗口发生改变时 触发  
+				    $(window).resize(function(){
+						 $("#main4").width($(window).width()-900 );
+					});
+				});	
+				 var product = [];
+				 var num=[];
+				 for(var i=0;i<data.length;i++){
+				 	product.push(data[i].product);
+				 	num.push(data[i].num);
+				 }
+//				console.log(product)
+//				console.log(num)
+				if(product.length=='0'&&num.length=='0'){
+//					var hidden=document.getElementById('main4');
+//					 hidden.style.display = "none";
+					 var EleText = "<p style='margin-left: 50px;margin-top: 200px;font-size: 16px;'>无数据显示</p>";
+					 $('#main4').append(EleText)
+						
+				}
+				else{
+				var myChart4 = echarts.init(document.getElementById('main4'));
+				option = {
+					color: ['#3fb1e3'],
+				    tooltip : {
+				        trigger: 'axis',
+				        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+				        }
+				    },
+				    legend: {
+				        data:['待核实']
+				    },
+				    toolbox: {
+					    show : true,
+					    feature : {
+					        mark : {show: true},
+					        dataView : {show: true, readOnly: false},
+					        saveAsImage : {show: true}
+					     }
+				    },
+				    grid: {
+				        left: '5%',
+				        right: '10%',
+				        bottom: '5%',
+				        containLabel: true
+				    },
+				    xAxis : [
+				        {
+				            type : 'category',
+				            data : product,
+				        }
+				    ],
+				    yAxis : [
+				        {
+				            type : 'value',
+				            name: '数量',
+				        }
+				    ],
+				    series : [
+				        {
+				            name:'待核实',
+				            type:'bar',
+				            stack: '产品',
+				            data:num,
+				        },
+				    ]
+				};
+					myChart4.setOption(option);
+//		
+//		        });
+			}
+				},
+			error:function(s,e,t){
+				alert('页面显示错误，请联系管理员')
+			}
+		});
+		//已完成
+        $.ajax({
+			type:"post",
+			url:"php/Tableorderdata.php",
+			async:true,
+			dataType:'json',
+			data:{flag:'finish'},
+			success:function(data){
+				$(document).ready(function(){						 
+					$("#main2").width($(window).width()-900);
+						  //当文档窗口发生改变时 触发  
+				    $(window).resize(function(){
+						 $("#main2").width($(window).width()-900);
+					});
+				});	
+				 var product = [];
+				 var num=[];
+				 for(var i=0;i<data.length;i++){
+				 	product.push(data[i].product);
+				 	num.push(data[i].num);
+				 }
+//				console.log(product)
+//				console.log(num)
+				if(product.length=='0'&&num.length=='0'){
+//					$('#main2').text('无数据显示')
+					var EleText = "<p style='margin-left: 50px;margin-top: 200px;font-size: 16px;'>无数据显示</p>";
+					$('#main2').append(EleText);
+				}
+				else{
+				var myChart2 = echarts.init(document.getElementById('main2'));
+				option = {
+					color: ['#3fb1e3'],
+				    tooltip : {
+				        trigger: 'axis',
+				        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+				        }
+				    },
+				    legend: {
+				        data:['已完成']
+				    },
+				    toolbox: {
+				    show : true,
+				    feature : {
+				        mark : {show: true},
+				        dataView : {show: true, readOnly: false},
+				        saveAsImage : {show: true}
+				    }
+				},
+				    grid: {
+				        left: '10%',
+				        right: '10%',
+				        bottom: '5%',
+				        containLabel: true
+				    },
+				    xAxis : [
+				        {
+				            type : 'category',
+				            data : product,
+				        }
+				    ],
+				    yAxis : [
+				        {
+				            type : 'value',
+				            name: '数量',
+				        }
+				    ],
+				    series : [
+				        {
+				            name:'已完成',
+				            type:'bar',
+				            stack: '产品',
+				            data:num,
+				        },
+				    ]
+				};
+					myChart2.setOption(option);
+				}
+				},
+			error:function(s,e,t){
+				alert('页面显示错误，请联系管理员')
+			}
+		});
+</script> 
+<script type="text/javascript">
+var date=new Date;
+var year=date.getFullYear();
+$.ajax({
+	type:"post",
+	url:"php/Tableorderdata.php",
+	async:true,
+	dataType:'json',
+	data:{
+		year:year,
+		flag:'sum',
+	},
+	success:function(adata){
 		$(document).ready(function(){						 
-			$(".t_Record").width($(window).width()-60);
+			$("#detail2").width($(window).width()-750);
 				  //当文档窗口发生改变时 触发  
 		    $(window).resize(function(){
-				 $(".t_Record").width($(window).width()-60);
+				 $("#detail2").width($(window).width()-750 );
 			});
-		});			
-		require.config({
-		    paths: {
-		        echarts: './assets/dist'
-		    }
-		});
-		require(
-		    [
-		        'echarts',
-				'echarts/theme/macarons',
-		        'echarts/chart/line',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
-		        'echarts/chart/bar'
-		    ],
-		    function (ec,theme) {
-		        var myChart = ec.init(document.getElementById('main'),theme);
-		      	option = {
+			$("#detail4").width($(window).width()-750);
+				  //当文档窗口发生改变时 触发  
+		    $(window).resize(function(){
+				 $("#detail4").width($(window).width()-750 );
+			});
+		});	
+		var detailChart = echarts.init(document.getElementById('detail'));
+        option = {
 				title : {
-				    text: '月购买订单交易记录',
+				    text: '月订单交易记录',
 				    subtext: '实时获取用户订单购买记录'
 				},
 				tooltip : {
@@ -643,13 +862,196 @@
 				        data:[adata['aaData']['question']['1'], adata['aaData']['question']['2'],adata['aaData']['question']['3'],adata['aaData']['question']['4'], adata['aaData']['question']['5'],adata['aaData']['question']['6'],adata['aaData']['question']['7'],adata['aaData']['question']['8'],adata['aaData']['question']['9'],adata['aaData']['question']['10'],adata['aaData']['question']['11'],adata['aaData']['question']['12']],
 					}
 				]
-			};
-			myChart.setOption(option);
-				}
-				);
-			}
-		});
-		</script> 
+		};
+		detailChart.setOption(option);
+		
+		
+		var detailChart2 = echarts.init(document.getElementById('detail2'));
+        option = {
+				title : {
+				    text: '月订单交易记录',
+				    subtext: '实时获取用户订单购买记录'
+				},
+				tooltip : {
+				    trigger: 'axis' 
+				},
+				legend: {
+				    data:['所有订单','待收货','待核实','已完成']
+				},
+				toolbox: {
+				    show : true,
+				    feature : {
+				        mark : {show: true},
+				        dataView : {show: true, readOnly: false},
+				        magicType : {show: true, type: ['line', 'bar']},
+				        restore : {show: true},
+				        saveAsImage : {show: true}
+				    }
+				},
+				calculable : true,
+				xAxis : [
+				    {
+				        type : 'category',
+				        data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+				    }
+				],
+				yAxis : [
+				    {
+				        type : 'value'
+				    }
+				],
+				series : [
+				    {
+				        name:'所有订单',
+				        type:'bar',
+				        data:[adata['aaData']['all']['1'], adata['aaData']['all']['2'],adata['aaData']['all']['3'],adata['aaData']['all']['4'], adata['aaData']['all']['5'],adata['aaData']['all']['6'],adata['aaData']['all']['7'],adata['aaData']['all']['8'],adata['aaData']['all']['9'],adata['aaData']['all']['10'],adata['aaData']['all']['11'],adata['aaData']['all']['12']],         
+				    },
+				    {
+				        name:'待收货',
+				        type:'bar',
+				        data:[adata['aaData']['wait']['1'], adata['aaData']['wait']['2'],adata['aaData']['wait']['3'],adata['aaData']['wait']['4'], adata['aaData']['wait']['5'],adata['aaData']['wait']['6'],adata['aaData']['wait']['7'],adata['aaData']['wait']['8'],adata['aaData']['wait']['9'],adata['aaData']['wait']['10'],adata['aaData']['wait']['11'],adata['aaData']['wait']['12']],
+				    }
+					, {
+				        name:'待核实',
+				        type:'bar',
+				        data:[adata['aaData']['get']['1'], adata['aaData']['get']['2'],adata['aaData']['get']['3'],adata['aaData']['get']['4'], adata['aaData']['get']['5'],adata['aaData']['get']['6'],adata['aaData']['get']['7'],adata['aaData']['get']['8'],adata['aaData']['get']['9'],adata['aaData']['get']['10'],adata['aaData']['get']['11'],adata['aaData']['get']['12']],
+					}
+					, {
+				        name:'已完成',
+				        type:'bar',
+				        data:[adata['aaData']['question']['1'], adata['aaData']['question']['2'],adata['aaData']['question']['3'],adata['aaData']['question']['4'], adata['aaData']['question']['5'],adata['aaData']['question']['6'],adata['aaData']['question']['7'],adata['aaData']['question']['8'],adata['aaData']['question']['9'],adata['aaData']['question']['10'],adata['aaData']['question']['11'],adata['aaData']['question']['12']],
+					}
+				]
+		};
+		detailChart2.setOption(option);
+		
+		
+		
+		var detailChart4 = echarts.init(document.getElementById('detail4'));
+        option = {
+				title : {
+				    text: '月订单交易记录',
+				    subtext: '实时获取用户订单购买记录'
+				},
+				tooltip : {
+				    trigger: 'axis' 
+				},
+				legend: {
+				    data:['所有订单','待收货','待核实','已完成']
+				},
+				toolbox: {
+				    show : true,
+				    feature : {
+				        mark : {show: true},
+				        dataView : {show: true, readOnly: false},
+				        magicType : {show: true, type: ['line', 'bar']},
+				        restore : {show: true},
+				        saveAsImage : {show: true}
+				    }
+				},
+				calculable : true,
+				xAxis : [
+				    {
+				        type : 'category',
+				        data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+				    }
+				],
+				yAxis : [
+				    {
+				        type : 'value'
+				    }
+				],
+				series : [
+				    {
+				        name:'所有订单',
+				        type:'bar',
+				        data:[adata['aaData']['all']['1'], adata['aaData']['all']['2'],adata['aaData']['all']['3'],adata['aaData']['all']['4'], adata['aaData']['all']['5'],adata['aaData']['all']['6'],adata['aaData']['all']['7'],adata['aaData']['all']['8'],adata['aaData']['all']['9'],adata['aaData']['all']['10'],adata['aaData']['all']['11'],adata['aaData']['all']['12']],         
+				    },
+				    {
+				        name:'待收货',
+				        type:'bar',
+				        data:[adata['aaData']['wait']['1'], adata['aaData']['wait']['2'],adata['aaData']['wait']['3'],adata['aaData']['wait']['4'], adata['aaData']['wait']['5'],adata['aaData']['wait']['6'],adata['aaData']['wait']['7'],adata['aaData']['wait']['8'],adata['aaData']['wait']['9'],adata['aaData']['wait']['10'],adata['aaData']['wait']['11'],adata['aaData']['wait']['12']],
+				    }
+					, {
+				        name:'待核实',
+				        type:'bar',
+				        data:[adata['aaData']['get']['1'], adata['aaData']['get']['2'],adata['aaData']['get']['3'],adata['aaData']['get']['4'], adata['aaData']['get']['5'],adata['aaData']['get']['6'],adata['aaData']['get']['7'],adata['aaData']['get']['8'],adata['aaData']['get']['9'],adata['aaData']['get']['10'],adata['aaData']['get']['11'],adata['aaData']['get']['12']],
+					}
+					, {
+				        name:'已完成',
+				        type:'bar',
+				        data:[adata['aaData']['question']['1'], adata['aaData']['question']['2'],adata['aaData']['question']['3'],adata['aaData']['question']['4'], adata['aaData']['question']['5'],adata['aaData']['question']['6'],adata['aaData']['question']['7'],adata['aaData']['question']['8'],adata['aaData']['question']['9'],adata['aaData']['question']['10'],adata['aaData']['question']['11'],adata['aaData']['question']['12']],
+					}
+				]
+		};
+		detailChart4.setOption(option);
+		
+//		var detailChart = echarts.init(document.getElementById('detail'));
+//      option = {
+//				title : {
+//				    text: '月订单交易记录',
+//				    subtext: '实时获取用户订单购买记录'
+//				},
+//				tooltip : {
+//				    trigger: 'axis' 
+//				},
+//				legend: {
+//				    data:['所有订单','待收货','待核实','已完成']
+//				},
+//				toolbox: {
+//				    show : true,
+//				    feature : {
+//				        mark : {show: true},
+//				        dataView : {show: true, readOnly: false},
+//				        magicType : {show: true, type: ['line', 'bar']},
+//				        restore : {show: true},
+//				        saveAsImage : {show: true}
+//				    }
+//				},
+//				calculable : true,
+//				xAxis : [
+//				    {
+//				        type : 'category',
+//				        data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+//				    }
+//				],
+//				yAxis : [
+//				    {
+//				        type : 'value'
+//				    }
+//				],
+//				series : [
+//				    {
+//				        name:'所有订单',
+//				        type:'bar',
+//				        data:[adata['aaData']['all']['1'], adata['aaData']['all']['2'],adata['aaData']['all']['3'],adata['aaData']['all']['4'], adata['aaData']['all']['5'],adata['aaData']['all']['6'],adata['aaData']['all']['7'],adata['aaData']['all']['8'],adata['aaData']['all']['9'],adata['aaData']['all']['10'],adata['aaData']['all']['11'],adata['aaData']['all']['12']],         
+//				    },
+//				    {
+//				        name:'待收货',
+//				        type:'bar',
+//				        data:[adata['aaData']['wait']['1'], adata['aaData']['wait']['2'],adata['aaData']['wait']['3'],adata['aaData']['wait']['4'], adata['aaData']['wait']['5'],adata['aaData']['wait']['6'],adata['aaData']['wait']['7'],adata['aaData']['wait']['8'],adata['aaData']['wait']['9'],adata['aaData']['wait']['10'],adata['aaData']['wait']['11'],adata['aaData']['wait']['12']],
+//				    }
+//					, {
+//				        name:'待核实',
+//				        type:'bar',
+//				        data:[adata['aaData']['get']['1'], adata['aaData']['get']['2'],adata['aaData']['get']['3'],adata['aaData']['get']['4'], adata['aaData']['get']['5'],adata['aaData']['get']['6'],adata['aaData']['get']['7'],adata['aaData']['get']['8'],adata['aaData']['get']['9'],adata['aaData']['get']['10'],adata['aaData']['get']['11'],adata['aaData']['get']['12']],
+//					}
+//					, {
+//				        name:'已完成',
+//				        type:'bar',
+//				        data:[adata['aaData']['question']['1'], adata['aaData']['question']['2'],adata['aaData']['question']['3'],adata['aaData']['question']['4'], adata['aaData']['question']['5'],adata['aaData']['question']['6'],adata['aaData']['question']['7'],adata['aaData']['question']['8'],adata['aaData']['question']['9'],adata['aaData']['question']['10'],adata['aaData']['question']['11'],adata['aaData']['question']['12']],
+//					}
+//				]
+//		};
+//		detailChart.setOption(option);
+	},
+	error:function(s,e,t){
+		alert()
+	}
+});	
+
+</script>
+		
 		
 	</body>
 

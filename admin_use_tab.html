@@ -94,24 +94,15 @@
                                         <table id="dynamic-table-user" class="table table-striped table-bordered table-hover" style="width: 100%;">
                                             <thead>
                                                 <tr>
-                                                    <th>用户账号</th>
+                                                   <!-- <th>用户账号</th>-->
                                                     <th>真实姓名</th>
-                                                    <th>注册时间</th>
+                                                    <!--<th>注册时间</th>-->
                                                     <th>省</th>
                                                     <th>市</th>
                                                     <th>县</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <!--<tr>
-                                                    <td>用户账号</td>
-                                                    <td>真实姓名</td>
-                                                    <td>用户级别</td>
-                                                    <td>省</td>
-                                                    <td>市</td>
-                                                    <td>县</td>
-                                                </tr>-->
-                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -148,24 +139,15 @@
                                         <table id="dynamic-table-logistician" class="table table-striped table-bordered table-hover" style="width: 100%;">
                                             <thead>
                                                 <tr>
-                                                    <th>用户账号</th>
+                                                    <!--<th>用户账号</th>-->
                                                     <th>真实姓名</th>
-                                                    <th>注册时间</th>
+                                                    <!--<th>注册时间</th>-->
                                                     <th>省</th>
                                                     <th>市</th>
                                                     <th>县</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <!--<tr>
-                                                    <td>用户账号</td>
-                                                    <td>真实姓名</td>
-                                                    <td>用户级别</td>
-                                                    <td>省</td>
-                                                    <td>市</td>
-                                                    <td>县</td>
-                                                </tr>-->
-                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -175,24 +157,15 @@
                                         <table id="dynamic-table-admin" class="table table-striped table-bordered table-hover" style="width: 100%;">
                                             <thead>
                                                 <tr>
-                                                    <th>用户账号</th>
+                                                    <!--<th>用户账号</th>-->
                                                     <th>真实姓名</th>
-                                                    <th>注册时间</th>
+                                                    <!--<th>注册时间</th>-->
                                                     <th>省</th>
                                                     <th>市</th>
                                                     <th>县</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <!--<tr>
-                                                    <td>用户账号</td>
-                                                    <td>真实姓名</td>
-                                                    <td>用户级别</td>
-                                                    <td>省</td>
-                                                    <td>市</td>
-                                                    <td>县</td>
-                                                </tr>-->
-                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -225,12 +198,12 @@
                                     	<input id="useid" hidden="hidden" />
                                         <div class="profile-user-info profile-user-info-striped">
                                             
-                                            <div class="profile-info-row">
+                                            <!--<div class="profile-info-row">
                                                 <div class="profile-info-name"> 用户账号 </div>
                                                 <div class="profile-info-value">
                                                     <span id="useacc"> </span>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name"> 真实姓名</div>
@@ -250,7 +223,7 @@
                                                     <span id="uselev"> </span>
                                                 </div>
                                             </div>
-                                            <div class="profile-info-row">
+                                            <!--<div class="profile-info-row">
                                                 <div class="profile-info-name">省 </div>
                                                 <div class="profile-info-value">
                                                     <span id="usepro"> </span>
@@ -267,7 +240,7 @@
                                                 <div class="profile-info-value">
                                                     <span id="usecoun"> </span>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="profile-info-row">
                                                 <div class="profile-info-name">注册时间</div>
                                                 <div class="profile-info-value">
@@ -278,10 +251,10 @@
                                                 <div class="profile-info-name">设置权限</div>
                                                 <div class="profile-info-value">
                                                   <select id="setlevel">
-											        <option value="普通客户" data-id='2' >普通客户</option>
-											        <option value="vip" data-id='0'>vip客户</option>
-											        <option value="物流人员" data-id='3'>物流人员</option>
-											        <option value="管理员" data-id='1'>管理员</option>
+											        <option value="普通" data-id='2' >普通</option>
+											        <option value="vip" data-id='1'>vip</option>
+											        <option value="物流员" data-id='3'>物流员</option>
+											        <option value="管理员" data-id='4'>管理员</option>
 											    </select>
                                                 </div>
                                             </div>
@@ -384,9 +357,9 @@
 				        aoData.push({ "name": "my_flag", "value": "user" });
 				    },
                     columns:[
-                        {"data":'useacc'},
+//                      {"data":'useacc'},
                         {"data":'usename'},
-                        {"data":'usetime'},
+//                      {"data":'usetime'},
                         {"data":'useprov'},
                         {"data":'usecity'},
                         {"data":'usearea'},
@@ -436,9 +409,9 @@
 				        aoData.push({ "name": "my_flag", "value": "logistician" });
 				    },
                     columns:[
-                        {"data":'useacc'},
+//                      {"data":'useacc'},
                         {"data":'usename'},
-                        {"data":'usetime'},
+//                      {"data":'usetime'},
                         {"data":'useprov'},
                         {"data":'usecity'},
                         {"data":'usearea'},
@@ -488,9 +461,9 @@
 				        aoData.push({ "name": "my_flag", "value": "admin" });
 				    },
                     columns:[
-                        {"data":'useacc'},
+//                      {"data":'useacc'},
                         {"data":'usename'},
-                        {"data":'usetime'},
+//                      {"data":'usetime'},
                         {"data":'useprov'},
                         {"data":'usecity'},
                         {"data":'usearea'},
@@ -536,17 +509,17 @@
 //                  alert($('#useid').val())
                     var UseType = 0
                     switch($('#setlevel').val()){
-                        case '普通客户':
+                        case '普通':
                             UseType = 2
                         break;
-                        case 'vip客户':
-                            UseType = 0
+                        case 'vip':
+                            UseType = 1
                         break;
-                        case '物流人员':
+                        case '物流员':
                             UseType = 3
                         break;
                         case '管理员':
-                            UseType = 1
+                            UseType = 4
                         break;
                         default:break;
                     }

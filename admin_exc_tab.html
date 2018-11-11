@@ -392,13 +392,22 @@
                 $('#SaveDetali').on('click',function(){
     		 		var pcontent = UE.getEditor('editor').getContent();
     		 		var text =$("#protext").val();
+    		 		var prohot=$("#prohot").val();
+    		 		
+    		 		if(prohot=='是'){
+    		 			prohot=1;
+    		 		}
+    		 		else{
+    		 			prohot=0;
+    		 		}
+//  		 		alert(prohot)
     		 		fData = new FormData();
     		 		fData.append("flag","save");
     		 		fData.append("id",$("#goodid").val());
     			    fData.append("pname",$("#proname").val());
     		 		fData.append('punit',$("#prounit").val());
 //  		 		fData.append('pprice',$("#proprice").val());
-    		 		fData.append('phot',$("#prohot").val());
+    		 		fData.append('phot',prohot);
     		 		fData.append('psta',$("#prosta").val());
     		 		fData.append('exc',$("#exc").val());
     		 		fData.append('ptext',text);

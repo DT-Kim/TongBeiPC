@@ -19,11 +19,17 @@ header("Access-Control-Allow-Origin: *");
                     $data['aaData'][$i]['excName'] = $row['商品名称'];
                     $data['aaData'][$i]['excreq'] = $row['积分要求'];
                     $data['aaData'][$i]['excunit'] = $row['单位'];
-                    $data['aaData'][$i]['exchot'] = $row['热门状态'];
+//                  $data['aaData'][$i]['exchot'] = $row['热门状态'];
                     $data['aaData'][$i]['excsta'] = $row['商品状态'];
                     $data['aaData'][$i]['exctext'] = $row['详细内容'];
                     $data['aaData'][$i]['excElse'] = $row['商品描述'];
                     $data['aaData'][$i]['prophoto'] = $row['展示图'];
+                     $MesSta = '否';
+                    if($row['热门状态'] == 1)
+                    {
+                        $MesSta = '是';
+                    }
+                    $data['aaData'][$i]['exchot'] = $MesSta;
                     $i++;
                 }
             }

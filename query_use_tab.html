@@ -177,9 +177,18 @@
                                                 </tr>-->
                                             </tbody>
                                         </table>
+                                        
                                        </div>
                                 </div>
                                <!--条件搜索over-->
+                               <div id="home5" class="tab-pane"  style="height:500px; overflow:hidden; width:100%; overflow:hidden">
+								 	
+									 <div id="main" style="height:500px;overflow:hidden; width:100%; overflow:hidden;float: left;" ></div>
+                                    <!--修改折线图结束-->
+                                    <!--home4end-->
+                                    
+                                    
+                                  </div>
                             </div><!--tab conover-->
                         </div><!--tableover-->
                         <div class="space-6"></div>
@@ -208,6 +217,8 @@
 		<script src="assets/js/self/distpicker.data.js"></script>
 	  	<script src="assets/js/self/distpicker.js"></script>
 	  	<script src="assets/js/self/main.js"></script>
+	  	<script src="assets/js/echarts.min.js"></script>
+	  	<script src="assets/js/chart/china.js"></script>
 		<script type="text/javascript">
 		    /*
 		     * INI Page
@@ -221,6 +232,7 @@
 			     */
 			    tabMesSimple = $('#dynamic-table').DataTable({
                     ajax:'php/TableShowUse.php',
+                    
                     "sServerMethod": "GET",
 			        "fnServerParams": function ( aoData ) {
 				        aoData.push({ "name": "my_flag", "value": "all" });
@@ -309,6 +321,92 @@
                 	SetTreeActive(6);
                 },1)
 		</script>
+		<!--echarts-->
+	  								
+         <script type="text/javascript">
+         	$.ajax({
+         		type:"post",
+         		url:"php/Getusernum.php",
+         		async:true,
+         		dataType:'json',
+         		data:{},
+         		success:function(data){
+         			var mydata = [  
+	                {name: '北京',value:data.Beijing},{name: '天津',value:data.Tianjing},  
+	                {name: '上海',value:data.Shanghai },{name: '重庆',value:data.Chongqing},  
+	                {name: '河北',value:data.Hebei },{name: '河南',value:data.Henan },  
+	                {name: '云南',value:data.Yunnan },{name: '辽宁',value:data.Liaoning },  
+	                {name: '黑龙江',value:data.Hlj },{name: '湖南',value:data.Hunan },  
+	                {name: '安徽',value:data.Anhui },{name: '山东',value:data.Shandong },  
+	                {name: '新疆',value:data.Xinjiang },{name: '江苏',value:data.Jiangsu },  
+	                {name: '浙江',value:data.Zhejiang },{name: '江西',value:data.Jiangxi },  
+	                {name: '湖北',value:data.Hubei },{name: '广西',value:data.Guangxi },  
+	                {name: '甘肃',value:data.Gansu },{name: '山西',value:data.Shanxi },  
+	                {name: '内蒙古',value:data.Nmg},{name: '陕西',value:data.sx1 },  
+	                {name: '吉林',value:data.Jilin },{name: '福建',value:data.Fujian },  
+	                {name: '贵州',value:data.Guizhou },{name: '广东',value:data.Guangdong },  
+	                {name: '青海',value:data.Qinghai },{name: '西藏',value:data.Xizang },  
+	                {name: '四川',value:data.Sichuan },{name: '宁夏',value:data.Ningxia },  
+	                {name: '海南',value:data.Hainan },{name: '台湾',value:data.Taiwan },  
+	                {name: '香港',value:data.Hongkong },{name: '澳门',value:data.Aomen },  
+            ];
+	            var optionMap = {  
+	                backgroundColor: '#FFFFFF',  
+	                title: {  
+	                    text: '全国用户分布热度',  
+	                    subtext: '',  
+	                    x:'center'  
+	                },  
+	                tooltip : {  
+	                    trigger: 'item'  
+	                },  
+	                
+	                //左侧小导航图标
+	                visualMap: {  
+	                    show : true,  
+	                    x: 'left',  
+	                    y: 'center',  
+	                    splitList: [   
+	                        {start: 500, end:600},{start: 400, end: 500},  
+	                        {start: 300, end: 400},{start: 200, end: 300},  
+	                        {start: 100, end: 200},{start: 0, end: 100},  
+	                    ],  
+	                    color: ['#5475f5', '#9feaa5', '#85daef','#74e2ca', '#e6ac53', '#9fb5ea']  
+	                },  
+	                
+	                //配置属性
+	                series: [{  
+	                    name: '数据',  
+	                    type: 'map',  
+	                    mapType: 'china',   
+	                    roam: true,  
+	                    label: {  
+	                        normal: {  
+	                            show: true  //省份名称  
+	                        },  
+	                        emphasis: {  
+	                            show: false  
+	                        }  
+	                    },  
+	                    data:mydata  //数据
+	                }]  
+	            };  
+		        //初始化echarts实例
+		        var myChart = echarts.init(document.getElementById('main'));
+		
+		        //使用制定的配置项和数据显示图表
+		        myChart.setOption(optionMap);
+         		},
+         		error:function(s,e,t){
+         			alert()
+         		}
+         		
+         	});
+         	
+            
+		 
+		</script>
+		
 	</body>
 
 </html>

@@ -37,13 +37,21 @@
                     <div class="col-sm-5">
                         <input class="NewDocMes" type="file" id="ProTypeLogo" />
                     </div>
-                    <div class="help-block col-xs-12 col-sm-reset inline">
-                        <img style="width: 48px;height: 48px;background: #f2f2f2;" id="TypeLogo" />
+               
+               <!--<div class="form-group has-info  page-header">
+                    <label class="col-sm-3 control-label no-padding-right"> 成功预览：</label>
+                    <div class="col-sm-5">
+                        <span class="block input-icon input-icon-right">
+                            <img width="48px" height="48px" id="TypeLogo" />
+                        </span>
+                    </div>-->
+                    <div class="help-block col-xs-12 col-sm-reset inline" >
+                        <img style="width: 48px;height: 48px;background: #f2f2f2; margin-left: 145px;" id="TypeLogo" />
                     </div>
                 </div>
                 <div class="form-group has-info  page-header">
                     <label class="col-sm-3 control-label no-padding-right">上传图片 ：</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <input class="NewDocMes" type="file" id="ProTypeFile" />
                     </div>
                     <div class="help-block col-xs-12 col-sm-reset inline">
@@ -158,4 +166,41 @@ $('#prosave').on('click',function(){
        AddProNew()
     $('#protype-add').modal('hide');
 })
+//PHOTO
+$('#ProTypeLogo').on('change',function(){
+	  var objUrl = getObjectURL(this.files[0]) ;
+    	if(objUrl){
+    		alert('已上传')
+    	}
+    $("#TypeLogo").attr("src", objUrl) ;
+})
+$('#ProTypeFile').on('change',function(){
+	  var objUrl = getObjectURL(this.files[0]) ;
+    	if(objUrl){
+    		alert('已上传')
+    	}
+    	$("#TypePic").attr("src", objUrl) ;
+})
+$('#ProListPic').on('change',function(){
+	  var objUrl = getObjectURL(this.files[0]) ;
+    	if(objUrl){
+    		alert('已上传')
+    	}
+})
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+  var url = null ; 
+  // 下面函数执行的效果是一样的，只是需要针对不同的浏览器执行不同的 js 函数而已
+  if (window.createObjectURL!=undefined) { // basic
+    url = window.createObjectURL(file) ;
+  } 
+  else if (window.URL!=undefined) { // mozilla(firefox)
+    url = window.URL.createObjectURL(file) ;
+  } 
+  else if (window.webkitURL!=undefined) { // webkit or chrome
+    url = window.webkitURL.createObjectURL(file) ;
+  }
+//alert(url)
+  return url ;
+}
 </script>
